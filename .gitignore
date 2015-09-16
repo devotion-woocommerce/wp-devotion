@@ -13,5 +13,4 @@ wp-content/uploads/
 wp-content/wp-cache-config.php
 
 /node_modules
-/gulpfile.js
-/package.json
+/secrets.json

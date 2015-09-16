@@ -1,0 +1,28 @@
+{
+  "name": "wp-devotion",
+  "version": "1.0.0",
+  "description": "WP Woocommerce theme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devotion-woocommerce/wp-devotion.git"
+  },
+  "keywords": [
+    "woocommerce"
+  ],
+  "author": "Ott Tooming",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devotion-woocommerce/wp-devotion/issues"
+  },
+  "homepage": "https://github.com/devotion-woocommerce/wp-devotion#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.0.4",
+    "gulp-util": "^3.0.6",
+    "vinyl-ftp": "^0.4.5"
+  }
+}
