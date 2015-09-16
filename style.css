@@ -604,6 +604,17 @@ a {
   clear: both;
   margin: 0 0 1.5em; }
 
+.products {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap; }
+  .products .product {
+    width: 25%; }
+
+.woocommerce .site-content {
+  display: flex;
+  flex-flow: row-reverse; }
+
 /*--------------------------------------------------------------
 ## Asides
 --------------------------------------------------------------*/

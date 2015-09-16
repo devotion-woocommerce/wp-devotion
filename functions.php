@@ -155,3 +155,47 @@ require get_template_directory() . '/inc/woocommerce.php';
  * Remove WooCommerce stylesheet file.
  */
 add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+
+/**
+ * Add custom wrapper to woocommerce product loop
+ */
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+
+add_action('woocommerce_before_main_content', 'my_theme_wrapper_start', 10);
+add_action('woocommerce_after_main_content', 'my_theme_wrapper_end', 10);
+
+function my_theme_wrapper_start() {
+  echo '<section id="main spiceflow">';
+}
+function my_theme_wrapper_end() {
+  echo '</section>';
+}
+
+/**
+ * Remove WooCommerce breadcrumbs.
+ */
+add_action( 'init', 'jk_remove_wc_breadcrumbs' );
+function jk_remove_wc_breadcrumbs() {
+  remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+}
+
+/**
+ * Remove page title from WooCommerce pages.
+ */
+function override_page_title() {
+	return false;
+}
+add_filter('woocommerce_show_page_title', 'override_page_title');
+
+/**
+ * Remove Showing results functionality site-wide
+ */
+function woocommerce_result_count() {
+  return false;
+}
+
+/**
+ * Remove "Sort By" from the Woocommerce Shop Page
+ */
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );

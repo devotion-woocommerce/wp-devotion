@@ -14,11 +14,6 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'devotion' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'devotion' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'devotion' ), 'devotion', '<a href="https://github.com/otttooming" rel="designer">Ott Tooming</a>' ); ?>
-		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
