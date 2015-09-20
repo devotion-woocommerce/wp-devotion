@@ -21,3 +21,76 @@
 @mixin clearfix-after() {
 	clear: both;
 }
+
+// PREFIX
+@mixin prefix($property, $value, $prefixes: ()) {
+  @if $value == flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+  }
+  @else {
+    @each $prefix in $prefixes {
+      #{'-' + $prefix + '-' + $property}: $value;
+    }
+  }
+  #{$property}: $value;
+}
+// COLOR
+@mixin color($color, $opacity: 1) {
+  @if $opacity == 1 {
+    color: rgba($color, $opacity);
+  }
+  @else {
+    color: rgba($color, $opacity);
+  }
+}
+@mixin bg($color, $opacity: 1) {
+  @if $opacity == 1 {
+    background-color: rgba($color, $opacity);
+  }
+  @else {
+    background-color: rgba($color, $opacity);
+  }
+}
+// MEDIA QUERY
+@mixin query($value) {
+  @media screen and (max-width: $value) {
+    @content;
+  }
+}
+@mixin querymin($value) {
+  @media screen and (min-width: $value + 1px) {
+    @content;
+  }
+}
+@mixin queryminmax($minvalue, $maxvalue) {
+  @media screen and (min-width: $minvalue + 1px) and (max-width: $maxvalue) {
+    @content;
+  }
+}
+// REM VALUES
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+@function convert-to-rem($value, $base-value: $rem-base)  {
+  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+  @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+  @return $value;
+}
+@function rem-calc($values, $base-value: $rem-base) {
+  $max: length($values);
+  @if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
+  $remValues: ();
+  @for $i from 1 through $max {
+    $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+  }
+  @return $remValues;
+}
+@mixin rem-fallback($property, $value) {
+  $pxValue: $value;
+  $remValue: rem-calc($value);
+
+  #{$property}: $pxValue;
+  #{$property}: $remValue;
+}

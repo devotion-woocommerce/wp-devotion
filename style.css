@@ -290,7 +290,7 @@ html {
   box-sizing: inherit; }
 
 body {
-  background: #fff;
+  background: #FF0000;
   /* Fallback for when there is no custom background color defined. */ }
 
 blockquote, q {
@@ -335,6 +335,17 @@ img {
 table {
   margin: 0 0 1.5em;
   width: 100%; }
+
+#masthead,
+#content,
+#colophon {
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  background: #373737; }
+
+#masthead {
+  margin-bottom: 40px; }
 
 /*--------------------------------------------------------------
 # Forms
@@ -498,11 +509,11 @@ a {
   width: 1px;
   overflow: hidden; }
   .screen-reader-text:focus {
-    background-color: #f1f1f1;
+    background-color: #373737;
     border-radius: 3px;
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
     clip: auto !important;
-    color: #21759b;
+    color: #333;
     display: block;
     font-size: 14px;
     font-size: 0.875rem;
@@ -607,13 +618,45 @@ a {
 .products {
   display: flex;
   list-style: none;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  text-align: center; }
   .products .product {
-    width: 25%; }
+    width: 25%;
+    position: relative; }
+    .products .product a {
+      text-decoration: none;
+      color: #333;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-size: 0.75rem; }
+    .products .product h3 {
+      font-size: 12px;
+      font-size: 0.75rem;
+      font-weight: 400; }
+    .products .product .wp-post-image {
+      width: 150px; }
 
 .woocommerce .site-content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-flex-flow: row-reverse;
+  -moz-flex-flow: row-reverse;
+  -ms-flex-flow: row-reverse;
   flex-flow: row-reverse; }
+
+.overlay-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0px 20px 80px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1; }
 
 /*--------------------------------------------------------------
 ## Asides
@@ -621,6 +664,18 @@ a {
 .blog .format-aside .entry-title,
 .archive .format-aside .entry-title {
   display: none; }
+
+.product-categories {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .product-categories .children {
+    display: none; }
+
+#secondary {
+  width: 250px;
+  min-width: 250px;
+  background: #fae807; }
 
 /*--------------------------------------------------------------
 ## Comments

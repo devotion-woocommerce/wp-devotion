@@ -36,3 +36,16 @@ img {
 }
 
 @import "tables";
+
+#masthead,
+#content,
+#colophon {
+	width: $size__site-wrap;
+	max-width: $size__site-wrap-max;
+	margin: 0 auto;
+	background: $color__background-screen;
+}
+
+#masthead {
+	margin-bottom: 40px;
+}

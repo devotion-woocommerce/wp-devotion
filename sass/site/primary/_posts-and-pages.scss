@@ -32,14 +32,42 @@
 	display: flex;
 	list-style: none;
 	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	text-align: center;
 	.product {
 		width: 25%;
+		padding: 10px;
+		position: relative;
+		a {
+			text-decoration: none;
+			color: $color__text-screen;
+			text-transform: uppercase;
+			@include rem-fallback(font-size, $font__size-small);
+		}
+		h3 {
+			@include rem-fallback(font-size, $font__size-small);
+			font-weight: $font__weight-normal;
+		}
+		.wp-post-image {
+			width: 150px;
+		}
 	}
 }
 
 .woocommerce {
 	.site-content {
-		display: flex;
-		flex-flow: row-reverse;
+		@include prefix(display, flex, $default-prefixes);
+		@include prefix(flex-flow, row-reverse, $default-prefixes);
 	}
+}
+.overlay-shadow {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	box-shadow: 0px 20px 80px 0px rgba(0,0,0,0.20);
+	z-index: 1;
 }
