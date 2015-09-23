@@ -208,3 +208,12 @@ function action_woocommerce_after_shop_loop_item_title( $woocommerce_after_shop_
   echo '<div class="overlay-shadow"></div>';
 }
 add_action( 'woocommerce_after_shop_loop_item', 'action_woocommerce_after_shop_loop_item_title', 10, 2 );
+
+/**
+ * Enqueue Google fonts
+ */
+function wpb_add_google_fonts()
+{
+	wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Oswald:400,300', false );
+}
+add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );

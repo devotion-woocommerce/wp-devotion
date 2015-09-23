@@ -29,17 +29,20 @@
 
 
 .products {
-	display: flex;
+	@include prefix(display, flex, $prefix-default);
+	@include prefix(flex-wrap, wrap, $prefix-default);
 	list-style: none;
-	flex-wrap: wrap;
 	margin: 0;
 	padding: 0;
 	background: #fff;
 	text-align: center;
 	.product {
-		width: 25%;
+		@include prefix(flex, 1 1 250px, $prefix-default);
+		min-width: 250px;
 		padding: 10px;
 		position: relative;
+		border-right: 1px solid #F5F5F5;
+		border-bottom: 1px solid #F5F5F5;
 		a {
 			text-decoration: none;
 			color: $color__text-screen;
@@ -48,18 +51,30 @@
 		}
 		h3 {
 			@include rem-fallback(font-size, $font__size-small);
-			font-weight: $font__weight-normal;
+		}
+		h3,
+		.button,
+		.price {
+			font-weight: $font__weight-light;
 		}
 		.wp-post-image {
-			width: 150px;
+			width: 125px;
+		}
+		.price {
+			color: $color__text-attention;
+		}
+		.onsale {
+			position: absolute;
+			top: 0;
+			right: 0;
 		}
 	}
 }
 
 .woocommerce {
 	.site-content {
-		@include prefix(display, flex, $default-prefixes);
-		@include prefix(flex-flow, row-reverse, $default-prefixes);
+		@include prefix(display, flex, $prefix-default);
+		@include prefix(flex-flow, row-reverse, $prefix-default);
 	}
 }
 .overlay-shadow {
@@ -68,6 +83,6 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	box-shadow: 0px 20px 80px 0px rgba(0,0,0,0.20);
+	box-shadow: 0px 10px 230px 0px rgba(0, 0, 0, 0.2), 0px -10px 230px 0px rgba(0, 0, 0, 0.2);
 	z-index: 1;
 }

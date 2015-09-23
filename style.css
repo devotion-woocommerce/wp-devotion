@@ -230,13 +230,15 @@ input,
 select,
 textarea {
   color: #404040;
-  font-family: sans-serif;
+  font-family: "Oswald", Futura, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5; }
 
 h1, h2, h3, h4, h5, h6 {
-  clear: both; }
+  clear: both;
+  font-family: "Oswald", Futura, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300; }
 
 p {
   margin-bottom: 1.5em; }
@@ -513,7 +515,7 @@ a {
     border-radius: 3px;
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
     clip: auto !important;
-    color: #333;
+    color: #000;
     display: block;
     font-size: 14px;
     font-size: 0.875rem;
@@ -616,28 +618,50 @@ a {
   margin: 0 0 1.5em; }
 
 .products {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  list-style: none;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  list-style: none;
   margin: 0;
   padding: 0;
   background: #fff;
   text-align: center; }
   .products .product {
-    width: 25%;
-    position: relative; }
+    -webkit-flex: 1 1 250px;
+    -moz-flex: 1 1 250px;
+    -ms-flex: 1 1 250px;
+    flex: 1 1 250px;
+    min-width: 250px;
+    padding: 10px;
+    position: relative;
+    border-right: 1px solid #F5F5F5;
+    border-bottom: 1px solid #F5F5F5; }
     .products .product a {
       text-decoration: none;
-      color: #333;
+      color: #000;
       text-transform: uppercase;
       font-size: 12px;
       font-size: 0.75rem; }
     .products .product h3 {
       font-size: 12px;
-      font-size: 0.75rem;
-      font-weight: 400; }
+      font-size: 0.75rem; }
+    .products .product h3,
+    .products .product .button,
+    .products .product .price {
+      font-weight: 300; }
     .products .product .wp-post-image {
-      width: 150px; }
+      width: 125px; }
+    .products .product .price {
+      color: #ff0000; }
+    .products .product .onsale {
+      position: absolute;
+      top: 0;
+      right: 0; }
 
 .woocommerce .site-content {
   display: -webkit-box;
@@ -655,7 +679,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  box-shadow: 0px 20px 80px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 10px 230px 0px rgba(0, 0, 0, 0.2), 0px -10px 230px 0px rgba(0, 0, 0, 0.2);
   z-index: 1; }
 
 /*--------------------------------------------------------------
@@ -673,8 +697,8 @@ a {
     display: none; }
 
 #secondary {
-  width: 250px;
-  min-width: 250px;
+  width: 200px;
+  min-width: 200px;
   background: #fae807; }
 
 /*--------------------------------------------------------------
