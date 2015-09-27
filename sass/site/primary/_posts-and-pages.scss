@@ -76,6 +76,7 @@
 	.site-content {
 		@include prefix(display, flex, $prefix-default);
 		@include prefix(flex-flow, row-reverse, $prefix-default);
+		box-shadow: 15px 20px 80px 0 rgba(0, 0, 0, .5), -15px 20px 80px 0 rgba(0, 0, 0, .5),
 	}
 }
 .overlay-shadow {
@@ -84,6 +85,6 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	box-shadow: 0px 10px 230px 0px rgba(0, 0, 0, 0.2), 0px -10px 230px 0px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 10px 230px 0 rgba(0, 0, 0, .2), 0 -10px 230px 0 rgba(0, 0, 0, .2);
 	z-index: 1;
 }

@@ -7,8 +7,15 @@
 ( function( $ ) {
 
   // Make product item click traverse to individual listing
-  $('.post-type-archive-product .product').on('click', function(){
+  $('.products .product').on('click', function(){
       window.location = $(this).find('a').attr('href');
+  });
+
+  //
+  $('.cat-parent > a').click(function() {
+      $(this).closest('.cat-parent').toggleClass('category-sub-open');
+      event.preventDefault();
+      event.stopPropagation();
   });
 
 } )( jQuery );

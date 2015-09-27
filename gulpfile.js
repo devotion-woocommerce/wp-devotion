@@ -27,6 +27,7 @@ gulp.task( 'deploy', function () {
         './languages/**',
         './layouts/**',
         './sass/**',
+        './images/**',
         './template-parts/**',
         '*.php',
         '*.css',

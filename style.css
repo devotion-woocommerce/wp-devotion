@@ -292,8 +292,7 @@ html {
   box-sizing: inherit; }
 
 body {
-  background: #FF0000;
-  /* Fallback for when there is no custom background color defined. */ }
+  background: #800080; }
 
 blockquote, q {
   quotes: "" ""; }
@@ -435,40 +434,53 @@ a {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-.main-navigation {
-  clear: both;
-  display: block;
-  float: left;
-  width: 100%; }
-  .main-navigation ul {
-    display: none;
-    list-style: none;
-    margin: 0;
-    padding-left: 0; }
-    .main-navigation ul ul {
-      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-      float: left;
-      position: absolute;
-      top: 1.5em;
-      left: -999em;
-      z-index: 99999; }
-      .main-navigation ul ul ul {
-        left: -999em;
-        top: 0; }
-      .main-navigation ul ul li:hover > ul,
-      .main-navigation ul ul li.focus > ul {
-        left: 100%; }
-      .main-navigation ul ul a {
-        width: 200px; }
-    .main-navigation ul li:hover > ul,
-    .main-navigation ul li.focus > ul {
-      left: auto; }
-  .main-navigation li {
+.main-navigation ul {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding-left: 0; }
+  .main-navigation ul ul {
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
     float: left;
-    position: relative; }
-  .main-navigation a {
-    display: block;
-    text-decoration: none; }
+    position: absolute;
+    top: 1.5em;
+    left: -999em;
+    z-index: 99999; }
+    .main-navigation ul ul ul {
+      left: -999em;
+      top: 0; }
+    .main-navigation ul ul li:hover > ul,
+    .main-navigation ul ul li.focus > ul {
+      left: 100%; }
+    .main-navigation ul ul a {
+      width: 200px; }
+  .main-navigation ul li:hover > ul,
+  .main-navigation ul li.focus > ul {
+    left: auto; }
+
+.main-navigation .nav-menu {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.main-navigation li {
+  float: left;
+  position: relative;
+  margin: 0 0 0 25px;
+  padding: 25px 20px;
+  text-transform: uppercase; }
+  .main-navigation li a {
+    color: #fff; }
+
+.main-navigation .current-menu-item {
+  background: #fae807; }
+  .main-navigation .current-menu-item a {
+    color: #404040; }
+
+.main-navigation a {
+  display: block;
+  text-decoration: none; }
 
 /* Small menu. */
 .menu-toggle,
@@ -499,6 +511,30 @@ a {
   float: right;
   text-align: right;
   width: 50%; }
+
+.site-header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center; }
+
+.site-branding {
+  position: relative;
+  width: 150px;
+  height: 75px;
+  margin: 0 120px 0 20px;
+  font-size: 0;
+  background: url("./images/logo.png") center/contain no-repeat; }
+  .site-branding a {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; }
 
 /*--------------------------------------------------------------
 # Accessibility
@@ -672,7 +708,8 @@ a {
   -webkit-flex-flow: row-reverse;
   -moz-flex-flow: row-reverse;
   -ms-flex-flow: row-reverse;
-  flex-flow: row-reverse; }
+  flex-flow: row-reverse;
+  box-shadow: 15px 20px 80px 0 rgba(0, 0, 0, 0.5), -15px 20px 80px 0 rgba(0, 0, 0, 0.5); }
 
 .overlay-shadow {
   position: absolute;
@@ -680,7 +717,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  box-shadow: 0px 10px 230px 0px rgba(0, 0, 0, 0.2), 0px -10px 230px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 230px 0 rgba(0, 0, 0, 0.2), 0 -10px 230px 0 rgba(0, 0, 0, 0.2);
   z-index: 1; }
 
 /*--------------------------------------------------------------
@@ -693,9 +730,23 @@ a {
 .product-categories {
   list-style: none;
   margin: 0;
-  padding: 0; }
+  padding: 20px; }
+  .product-categories .cat-item {
+    padding: 10px; }
+    .product-categories .cat-item a {
+      color: #404040;
+      text-transform: uppercase;
+      text-decoration: none; }
   .product-categories .children {
-    display: none; }
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+    .product-categories .children .cat-item {
+      font-size: 12px;
+      font-size: 0.75rem; }
+  .product-categories .category-sub-open .children {
+    display: block; }
 
 #secondary {
   width: 200px;

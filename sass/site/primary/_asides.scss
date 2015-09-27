@@ -6,9 +6,28 @@
 .product-categories {
 	list-style: none;
 	margin: 0;
-	padding: 0;
+	padding: 20px;
+	.cat-item {
+		padding: 10px;
+		a {
+			color: $color__text-main;
+			text-transform: uppercase;
+			text-decoration: none;
+		}
+	}
 	.children {
 		display: none;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		.cat-item {
+			@include rem-fallback(font-size, $font__size-small);
+		}
+	}
+	.category-sub-open {
+	 .children {
+		 	display: block;
+	 }
 	}
 }
 #secondary {
