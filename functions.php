@@ -118,6 +118,7 @@ function devotion_scripts() {
 
 	wp_enqueue_script( 'devotion-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
+	wp_enqueue_script( 'devotion-script', get_template_directory_uri() . '/js/script.js', array(), '20150927', true );
 }
 add_action( 'wp_enqueue_scripts', 'devotion_scripts' );
 
@@ -203,8 +204,7 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 3
 /**
  * Add overlay shadow element before the end of the shop item loop
  */
-function action_woocommerce_after_shop_loop_item_title( $woocommerce_after_shop_loop_item )
-{
+function action_woocommerce_after_shop_loop_item_title( $woocommerce_after_shop_loop_item ) {
   echo '<div class="overlay-shadow"></div>';
 }
 add_action( 'woocommerce_after_shop_loop_item', 'action_woocommerce_after_shop_loop_item_title', 10, 2 );
@@ -212,8 +212,15 @@ add_action( 'woocommerce_after_shop_loop_item', 'action_woocommerce_after_shop_l
 /**
  * Enqueue Google fonts
  */
-function wpb_add_google_fonts()
-{
+function wpb_add_google_fonts() {
 	wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Oswald:400,300', false );
 }
 add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );
+
+/**
+ * Remove Add to Cart buttons from product loop
+ */
+function remove_loop_button() {
+	remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+}
+add_action('init','remove_loop_button');
