@@ -473,6 +473,11 @@ a {
   .main-navigation li a {
     color: #fff; }
 
+.main-navigation .menu-description {
+  display: block;
+  font-size: 12px;
+  font-size: 0.75rem; }
+
 .main-navigation .current-menu-item {
   background: #fae807; }
   .main-navigation .current-menu-item a {

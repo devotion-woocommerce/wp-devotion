@@ -60,6 +60,10 @@
 		&.focus > a {
 		}
 	}
+	.menu-description {
+		display: block;
+		@include rem-fallback(font-size, $font__size-small);
+	}
 	.current-menu-item {
 		background: $color__background-secondary;
 		a {
