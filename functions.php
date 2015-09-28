@@ -257,3 +257,18 @@ class Menu_With_Description extends Walker_Nav_Menu {
 			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 	}
 }
+
+/**
+ * Related products configuration
+ */
+add_filter( 'woocommerce_output_related_products_args', function( $args ) {
+  $args = wp_parse_args( array( 'posts_per_page' => 3 ), $args );
+  return $args;
+});
+
+/**
+ * Exclude related products by tag
+ */
+add_filter( 'woocommerce_product_related_posts_relate_by_tag', function() {
+    return false;
+});

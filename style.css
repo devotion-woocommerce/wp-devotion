@@ -705,6 +705,12 @@ a {
       top: 0;
       right: 0; }
 
+.related > h2 {
+  display: none; }
+
+.related .products {
+  width: 100%; }
+
 .woocommerce .site-content {
   display: -webkit-box;
   display: -webkit-flex;

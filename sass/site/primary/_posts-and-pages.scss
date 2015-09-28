@@ -71,6 +71,14 @@
 		}
 	}
 }
+.related {
+	> h2 {
+		display: none;
+	}
+	.products {
+		width: 100%;
+	}
+}
 
 .woocommerce {
 	.site-content {
