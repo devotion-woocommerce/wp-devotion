@@ -40,5 +40,14 @@
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu', 'walker' => $walker ) ); ?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
+	
+	<div class="site-meta">
+		<div class="site-meta-left">
+			<?php if(is_active_sidebar('site-meta-left')) { dynamic_sidebar('site-meta-left'); } ?>
+		</div>
+		<div class="site-meta-wide">
+			<?php if(is_active_sidebar('site-meta-wide')) { dynamic_sidebar('site-meta-wide'); } ?>
+		</div>
+	</div>
 
 	<div id="content" class="site-content">

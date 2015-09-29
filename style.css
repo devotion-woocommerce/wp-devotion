@@ -339,14 +339,17 @@ table {
 
 #masthead,
 #content,
-#colophon {
-  width: 90%;
+#colophon,
+.site-meta {
   max-width: 1280px;
   margin: 0 auto;
   background: #373737; }
-
-#masthead {
-  margin-bottom: 40px; }
+  @media screen and (min-width: 993px) {
+    #masthead,
+    #content,
+    #colophon,
+    .site-meta {
+      width: 90%; } }
 
 /*--------------------------------------------------------------
 # Forms
@@ -434,58 +437,60 @@ a {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-.main-navigation ul {
-  display: none;
-  list-style: none;
-  margin: 0;
-  padding-left: 0; }
-  .main-navigation ul ul {
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-    float: left;
-    position: absolute;
-    top: 1.5em;
-    left: -999em;
-    z-index: 99999; }
-    .main-navigation ul ul ul {
+.main-navigation {
+  height: 100px; }
+  .main-navigation ul {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    height: 100px; }
+    .main-navigation ul ul {
+      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+      float: left;
+      position: absolute;
+      top: 1.5em;
       left: -999em;
-      top: 0; }
-    .main-navigation ul ul li:hover > ul,
-    .main-navigation ul ul li.focus > ul {
-      left: 100%; }
-    .main-navigation ul ul a {
-      width: 200px; }
-  .main-navigation ul li:hover > ul,
-  .main-navigation ul li.focus > ul {
-    left: auto; }
-
-.main-navigation .nav-menu {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex; }
-
-.main-navigation li {
-  float: left;
-  position: relative;
-  margin: 0 0 0 25px;
-  padding: 25px 20px;
-  text-transform: uppercase; }
-  .main-navigation li a {
-    color: #fff; }
-
-.main-navigation .menu-description {
-  display: block;
-  font-size: 12px;
-  font-size: 0.75rem; }
-
-.main-navigation .current-menu-item {
-  background: #fae807; }
-  .main-navigation .current-menu-item a {
-    color: #404040; }
-
-.main-navigation a {
-  display: block;
-  text-decoration: none; }
+      z-index: 99999; }
+      .main-navigation ul ul ul {
+        left: -999em;
+        top: 0; }
+      .main-navigation ul ul li:hover > ul,
+      .main-navigation ul ul li.focus > ul {
+        left: 100%; }
+      .main-navigation ul ul a {
+        width: 200px; }
+    .main-navigation ul li:hover > ul,
+    .main-navigation ul li.focus > ul {
+      left: auto; }
+  .main-navigation .nav-menu {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
+  .main-navigation li {
+    float: left;
+    position: relative;
+    margin: 0 0 0 25px;
+    padding: 25px 20px;
+    text-transform: uppercase; }
+    .main-navigation li a {
+      color: #fff; }
+  .main-navigation .menu-description {
+    display: block;
+    font-size: 12px;
+    font-size: 0.75rem; }
+  .main-navigation .current-menu-item {
+    background: #fae807; }
+    .main-navigation .current-menu-item a {
+      color: #404040; }
+  .woocommerce .main-navigation li:first-child {
+    background: #fae807; }
+    .woocommerce .main-navigation li:first-child a {
+      color: #404040; }
+  .main-navigation a {
+    display: block;
+    text-decoration: none; }
 
 /* Small menu. */
 .menu-toggle,
@@ -517,7 +522,8 @@ a {
   text-align: right;
   width: 50%; }
 
-.site-header {
+.site-header,
+.site-meta {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -529,17 +535,22 @@ a {
 
 .site-branding {
   position: relative;
-  width: 150px;
-  height: 75px;
-  margin: 0 120px 0 20px;
+  width: 200px;
+  height: 100px;
+  margin: 0 120px 0 0;
   font-size: 0;
-  background: url("./images/logo.png") center/contain no-repeat; }
+  background: #ff0513 url("./images/logo.png") center/contain no-repeat; }
   .site-branding a {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0; }
+
+.site-meta {
+  background: #515151; }
+  .site-meta .site-meta-left {
+    width: 200px; }
 
 /*--------------------------------------------------------------
 # Accessibility

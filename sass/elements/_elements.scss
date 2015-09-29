@@ -39,13 +39,12 @@ img {
 
 #masthead,
 #content,
-#colophon {
-	width: $size__site-wrap;
+#colophon,
+.site-meta {
 	max-width: $size__site-wrap-max;
 	margin: 0 auto;
 	background: $color__background-screen;
-}
-
-#masthead {
-	margin-bottom: 40px;
+	@include querymin($site-screen-md) {
+		width: $size__site-wrap;
+	}
 }
