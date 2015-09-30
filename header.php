@@ -39,11 +39,23 @@
 			<?php $walker = new Menu_With_Description; ?>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu', 'walker' => $walker ) ); ?>
 		</nav><!-- #site-navigation -->
-		<div class="site-cart">
-			<a class="cart-contents" href="<?php echo WC()->cart->get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>">
-				<span class="cart-total"><?php echo WC()->cart->get_cart_total(); ?></span>
-				<span class="cart-count"><?php echo sprintf (_n( '%d item', '%d items', WC()->cart->cart_contents_count ), WC()->cart->cart_contents_count ); ?></span>
-			</a>
+		<div class="site-transaction">
+			<div class="site-customer">
+				<span class="customer-interaction"><?php _e( 'Shopping cart' ); ?></span>
+				<span class="customer-name">
+					<? if ( is_user_logged_in()) {
+						echo wp_get_current_user()->display_name;
+					} else {
+						echo _e( 'Guest user' );
+					} ?>
+				</span>
+			</div>
+			<div class="site-cart">
+				<a class="cart-contents" href="<?php echo WC()->cart->get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>">
+					<span class="cart-total"><?php echo WC()->cart->get_cart_total(); ?></span>
+					<span class="cart-count"><?php echo sprintf (_n( '%d item', '%d items', WC()->cart->cart_contents_count ), WC()->cart->cart_contents_count ); ?></span>
+				</a>
+			</div>
 		</div>
 	</header><!-- #masthead -->
 

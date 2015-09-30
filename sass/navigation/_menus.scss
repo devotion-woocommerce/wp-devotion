@@ -156,11 +156,31 @@
 	}
 }
 
-.site-cart {
+.site-transaction {
+	@include prefix(display, flex, $prefix-default);
 	height: 100px;
 	margin-left: auto;
+	text-transform: uppercase;
+}
+.site-customer {
+	padding: 25px 30px;
+	background: $color__background-secondary;
+	text-align: right;
+	.customer-interaction,
+	.customer-name {
+		display: block;
+	}
+	.customer-interaction {
+		@include rem-fallback(font-size, $font__size-base);
+	}
+	.customer-name {
+		@include rem-fallback(font-size, $font__size-small);
+	}
+}
+.site-cart {
   padding: 25px 30px;
 	background: $color__branding-red;
+	text-align: right;
 	.cart-contents {
 		text-decoration: none;
 	}
