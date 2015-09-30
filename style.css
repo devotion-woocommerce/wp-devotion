@@ -552,6 +552,24 @@ a {
   .site-meta .site-meta-left {
     width: 200px; }
 
+.site-cart {
+  height: 100px;
+  margin-left: auto;
+  padding: 25px 30px;
+  background: #ff0513; }
+  .site-cart .cart-contents {
+    text-decoration: none; }
+  .site-cart .cart-total,
+  .site-cart .cart-count {
+    display: block;
+    color: #fff; }
+  .site-cart .cart-total {
+    font-size: 16px;
+    font-size: 1rem; }
+  .site-cart .cart-count {
+    font-size: 12px;
+    font-size: 0.75rem; }
+
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/

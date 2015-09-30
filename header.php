@@ -39,8 +39,14 @@
 			<?php $walker = new Menu_With_Description; ?>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu', 'walker' => $walker ) ); ?>
 		</nav><!-- #site-navigation -->
+		<div class="site-cart">
+			<a class="cart-contents" href="<?php echo WC()->cart->get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>">
+				<span class="cart-total"><?php echo WC()->cart->get_cart_total(); ?></span>
+				<span class="cart-count"><?php echo sprintf (_n( '%d item', '%d items', WC()->cart->cart_contents_count ), WC()->cart->cart_contents_count ); ?></span>
+			</a>
+		</div>
 	</header><!-- #masthead -->
-	
+
 	<div class="site-meta">
 		<div class="site-meta-left">
 			<?php if(is_active_sidebar('site-meta-left')) { dynamic_sidebar('site-meta-left'); } ?>

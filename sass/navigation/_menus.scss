@@ -155,3 +155,24 @@
 		width: 200px;
 	}
 }
+
+.site-cart {
+	height: 100px;
+	margin-left: auto;
+  padding: 25px 30px;
+	background: $color__branding-red;
+	.cart-contents {
+		text-decoration: none;
+	}
+	.cart-total,
+	.cart-count {
+		display: block;
+		color: $color__text-white;
+	}
+	.cart-total {
+		@include rem-fallback(font-size, $font__size-base);
+	}
+	.cart-count {
+		@include rem-fallback(font-size, $font__size-small);
+	}
+}
