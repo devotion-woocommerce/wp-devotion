@@ -560,10 +560,33 @@ a {
     -moz-align-items: center;
     -ms-align-items: center;
     align-items: center;
-    margin: 10px 0; }
+    padding: 10px 0; }
     .site-meta .site-meta-left .widget,
     .site-meta .site-meta-wide .widget {
       margin: 0; }
+    .site-meta .site-meta-left .widget_product_search,
+    .site-meta .site-meta-wide .widget_product_search {
+      position: relative;
+      margin-left: 60px; }
+      .site-meta .site-meta-left .widget_product_search .toggle-search,
+      .site-meta .site-meta-wide .widget_product_search .toggle-search {
+        content: "";
+        position: absolute;
+        top: -10px;
+        bottom: -10px;
+        left: -60px;
+        width: 50px;
+        background: #fae807; }
+      .site-meta .site-meta-left .widget_product_search .searchform,
+      .site-meta .site-meta-wide .widget_product_search .searchform {
+        width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        transition: 250ms; }
+        .site-meta .site-meta-left .widget_product_search .searchform.open,
+        .site-meta .site-meta-wide .widget_product_search .searchform.open {
+          width: 220px;
+          transition: 250ms; }
   .site-meta .site-meta-left {
     width: 200px;
     padding-left: 30px;

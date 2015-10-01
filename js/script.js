@@ -23,4 +23,9 @@
       event.stopPropagation();
   });
 
+  // Header search visibility toggle
+  $('.toggle-search').click(function() {
+    $(this).siblings('.searchform').toggleClass('open');
+  });
+
 } )( jQuery );

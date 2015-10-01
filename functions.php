@@ -290,3 +290,22 @@ add_filter( 'woocommerce_output_related_products_args', function( $args ) {
 add_filter( 'woocommerce_product_related_posts_relate_by_tag', function() {
     return false;
 });
+
+/**
+ * WooCommerce product search override
+ */
+add_filter( 'get_product_search_form' , 'woo_custom_product_searchform' );
+function woo_custom_product_searchform( $form ) {
+
+	$form = '<div class="toggle-search"></div>
+	<form role="search" method="get" id="searchform" class="searchform" action="' . esc_url( home_url( '/'  ) ) . '">
+		<div>
+			<label class="screen-reader-text" for="s">' . __( 'Search for:', 'woocommerce' ) . '</label>
+			<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="' . __( 'My Search form', 'woocommerce' ) . '" />
+			<input type="submit" id="searchsubmit" value="'. esc_attr__( 'Search', 'woocommerce' ) .'" />
+			<input type="hidden" name="post_type" value="product" />
+		</div>
+	</form>';
+
+	return $form;
+}

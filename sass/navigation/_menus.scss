@@ -155,9 +155,32 @@
 	.site-meta-wide {
 		@include prefix(display, flex, $prefix-default);
 		@include prefix(align-items, center, $prefix-default);
-		margin: 10px 0;
+		padding: 10px 0;
 		.widget {
 			margin: 0;
+		}
+		.widget_product_search {
+			position: relative;
+			margin-left: 60px;
+			.toggle-search {
+				content: "";
+				position: absolute;
+				top: -10px;
+				bottom: -10px;
+				left: -60px;
+				width: 50px;
+				background: $color__background-secondary;
+			}
+			.searchform {
+				width: 0;
+				overflow: hidden;
+				white-space: nowrap;
+				transition: $site__transition-std;
+				&.open {
+					width: 220px;
+					transition: $site__transition-std;
+				}
+			}
 		}
 	}
 	.site-meta-left {
