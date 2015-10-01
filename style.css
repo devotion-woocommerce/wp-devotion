@@ -343,7 +343,8 @@ table {
 .site-meta {
   max-width: 1280px;
   margin: 0 auto;
-  background: #373737; }
+  background: #373737;
+  box-shadow: 15px 20px 80px 0 rgba(0, 0, 0, 0.5), -15px 20px 80px 0 rgba(0, 0, 0, 0.5); }
   @media screen and (min-width: 993px) {
     #masthead,
     #content,
@@ -528,10 +529,10 @@ a {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center; }
+  -webkit-align-items: stretch;
+  -moz-align-items: stretch;
+  -ms-align-items: stretch;
+  align-items: stretch; }
 
 .site-branding {
   position: relative;
@@ -549,8 +550,24 @@ a {
 
 .site-meta {
   background: #515151; }
+  .site-meta .site-meta-left,
+  .site-meta .site-meta-wide {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    margin: 10px 0; }
+    .site-meta .site-meta-left .widget,
+    .site-meta .site-meta-wide .widget {
+      margin: 0; }
   .site-meta .site-meta-left {
-    width: 200px; }
+    width: 200px;
+    padding-left: 30px;
+    color: #fff; }
 
 .site-transaction {
   display: -webkit-box;
@@ -559,7 +576,8 @@ a {
   display: flex;
   height: 100px;
   margin-left: auto;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  cursor: pointer; }
 
 .site-customer {
   padding: 25px 30px;
@@ -591,6 +609,26 @@ a {
   .site-cart .cart-count {
     font-size: 12px;
     font-size: 0.75rem; }
+
+ul.page-numbers {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+  color: #fff;
+  text-decoration: none; }
+  ul.page-numbers li {
+    display: inline-block; }
+  ul.page-numbers .page-numbers {
+    display: block;
+    padding: 15px;
+    margin-left: 5px;
+    color: #fff;
+    text-decoration: none; }
+    ul.page-numbers .page-numbers.current,
+    ul.page-numbers .page-numbers:hover {
+      background: #fae807;
+      color: #404040; }
 
 /*--------------------------------------------------------------
 # Accessibility
@@ -770,8 +808,7 @@ a {
   -webkit-flex-flow: row-reverse;
   -moz-flex-flow: row-reverse;
   -ms-flex-flow: row-reverse;
-  flex-flow: row-reverse;
-  box-shadow: 15px 20px 80px 0 rgba(0, 0, 0, 0.5), -15px 20px 80px 0 rgba(0, 0, 0, 0.5); }
+  flex-flow: row-reverse; }
 
 .overlay-shadow {
   position: absolute;

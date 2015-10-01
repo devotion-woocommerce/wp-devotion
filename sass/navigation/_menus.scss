@@ -130,7 +130,7 @@
 .site-header,
 .site-meta {
 		@include prefix(display, flex, $prefix-default);
-		@include prefix(align-items, center, $prefix-default);
+		@include prefix(align-items, stretch, $prefix-default);
 }
 
 .site-branding {
@@ -151,8 +151,19 @@
 
 .site-meta {
 	background: lighten($color__background-screen, 10%);
+	.site-meta-left,
+	.site-meta-wide {
+		@include prefix(display, flex, $prefix-default);
+		@include prefix(align-items, center, $prefix-default);
+		margin: 10px 0;
+		.widget {
+			margin: 0;
+		}
+	}
 	.site-meta-left {
 		width: 200px;
+		padding-left: 30px;
+		color: $color__text-white;
 	}
 }
 
@@ -161,6 +172,7 @@
 	height: 100px;
 	margin-left: auto;
 	text-transform: uppercase;
+	cursor: pointer;
 }
 .site-customer {
 	padding: 25px 30px;
@@ -194,5 +206,29 @@
 	}
 	.cart-count {
 		@include rem-fallback(font-size, $font__size-small);
+	}
+}
+
+ul.page-numbers {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	text-align: right;
+	color: $color__text-white;
+	text-decoration: none;
+	li {
+		display: inline-block;
+	}
+	.page-numbers {
+		display: block;
+		padding: 15px;
+		margin-left: 5px;
+		color: $color__text-white;
+		text-decoration: none;
+		&.current,
+		&:hover {
+			background: $color__background-secondary;
+			color: $color__text-main;
+		}
 	}
 }
