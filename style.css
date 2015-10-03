@@ -839,6 +839,15 @@ ul.page-numbers {
   color: white;
   padding: 0 20px; }
 
+.single-product .summary {
+  margin: 10px 0; }
+
+.single-product .product_title {
+  font-size: 46px;
+  font-size: 2.875rem;
+  text-transform: uppercase;
+  margin: 0; }
+
 .related > h2 {
   display: none; }
 

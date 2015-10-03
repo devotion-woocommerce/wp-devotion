@@ -355,3 +355,20 @@ function mycode_remove_sku_from_product_page( $boolean ) {
 	}
 	return $boolean;
 }
+
+/**
+ * Reorder product detail listing
+ */
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+add_action( 'woocommerce_single_product_summary', 'woocommerce_product_main_info_block', 10 );
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 20 );
+
+function woocommerce_product_main_info_block() {
+  echo '<div class="product-main-info">' . the_content() . '</div>';
+}

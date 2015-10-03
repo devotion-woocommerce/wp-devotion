@@ -85,6 +85,14 @@
 		@include color($color__text-white, 1);
 		padding: 0 20px;
 	}
+	.summary {
+		margin: 10px 0;
+	}
+	.product_title {
+		@include rem-fallback(font-size, $font__size-xl);
+		text-transform: uppercase;
+		margin: 0;
+	}
 }
 .related {
 	> h2 {
