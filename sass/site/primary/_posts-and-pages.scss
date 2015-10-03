@@ -71,6 +71,21 @@
 		}
 	}
 }
+.single-product {
+	.product-full-wrap {
+		@include prefix(display, flex, $prefix-default);
+	}
+	.images {
+		@include prefix(flex, 2, $prefix-default);
+		@include bg($color__text-white, 1);
+		padding: 20px;
+	}
+	.product-detail-wrap {
+		@include prefix(flex, 3, $prefix-default);
+		@include color($color__text-white, 1);
+		padding: 0 20px;
+	}
+}
 .related {
 	> h2 {
 		display: none;
