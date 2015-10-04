@@ -139,3 +139,28 @@
 	box-shadow: 0 10px 230px 0 rgba(0, 0, 0, .2), 0 -10px 230px 0 rgba(0, 0, 0, .2);
 	z-index: 1;
 }
+
+.product-lightbox {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	.admin-bar & {
+		margin-top: 32px;
+	}
+}
+.lightbox-open {
+	#page {
+		display: none;
+	}
+}
+.btn-close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 30px;
+	height: 30px;
+	background: $color__branding-red;
+	cursor: pointer;
+}
