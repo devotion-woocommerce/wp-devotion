@@ -376,55 +376,122 @@ function woocommerce_product_main_info_block() {
 }
 
 /**
- * User selectable products per page
+ * Adds Catalog_Ordering_Value widget.
  */
-function woocommerce_catalog_page_ordering() {
-	$main_site_url = site_url();
+class Catalog_Ordering_Value extends WP_Widget {
 
-	?>
-		<form class="woocommerce-ordering" action="" method="POST" name="results">
-		<select name="woocommerce-sortby-columns" id="woocommerce-sortby-columns" class="woocommerce-sortby" onchange="this.form.submit()">
-	<?php
-		$shopCatalog_orderby = apply_filters('woocommerce_sortby_page', array(
-			'24' 	=> __('24', 'woocommerce'),
-			'64' 		=> __('64', 'woocommerce'),
-			'128' 		=> __('128', 'woocommerce'),
-		));
+	/**
+	 * Register widget with WordPress.
+	 */
+	function __construct() {
+		parent::__construct(
+			'catalog_ordering_value', // Base ID
+			__( 'Woocommerce Catalog Ordering Value', 'text_domain' ), // Name
+			array( 'description' => __( 'User selectable products per page', 'text_domain' ), ) // Args
+		);
+	}
 
-		foreach ( $shopCatalog_orderby as $sort_id => $sort_name )
-			echo '<option value="' . $sort_id . '" ' . selected( $_SESSION['woocommerce-sortby'], $sort_id, false ) . ' >' . $sort_name . '</option>';
-	?>
-		</select>
-		</form>
+	/**
+	 * Front-end display of widget.
+	 *
+	 * @see WP_Widget::widget()
+	 *
+	 * @param array $args     Widget arguments.
+	 * @param array $instance Saved values from database.
+	 */
+	public function widget( $args, $instance ) {
 
-	<?php
-		if (isset($_POST['woocommerce-sortby-columns']) && (($_COOKIE['wc_sortbyValue'] <> $_POST['woocommerce-sortby-columns']))) {
-			$currentProductsPerPage = $_POST['woocommerce-sortby-columns'];
-		} else {
-			$currentProductsPerPage = $_COOKIE['wc_sortbyValue'];
-		}
+		/**
+		 * User selectable products per page
+		 */
 		?>
-	    <script type="text/javascript">
-	      jQuery('select.woocommerce-sortby>option[value="<?php echo $currentProductsPerPage; ?>"]').attr('selected', true);
-	    </script>
-	<?php
-}
+			<form class="woocommerce-ordering" action="" method="POST" name="results">
+			<select name="woocommerce-sortby-columns" id="woocommerce-sortby-columns" class="woocommerce-sortby" onchange="this.form.submit()">
+		<?php
+			$shopCatalog_orderby = apply_filters('woocommerce_sortby_page', array(
+				'24' 	=> __('24', 'woocommerce'),
+				'64' 		=> __('64', 'woocommerce'),
+				'128' 		=> __('128', 'woocommerce'),
+			));
+
+			foreach ( $shopCatalog_orderby as $sort_id => $sort_name )
+				echo '<option value="' . $sort_id . '" ' . selected( $_SESSION['woocommerce-sortby'], $sort_id, false ) . ' >' . $sort_name . '</option>';
+		?>
+			</select>
+			</form>
+
+		<?php
+			if (isset($_POST['woocommerce-sortby-columns']) && (($_COOKIE['wc_sortbyValue'] <> $_POST['woocommerce-sortby-columns']))) {
+				$currentProductsPerPage = $_POST['woocommerce-sortby-columns'];
+			} else {
+				$currentProductsPerPage = $_COOKIE['wc_sortbyValue'];
+			}
+			?>
+		    <script type="text/javascript">
+		      jQuery('select.woocommerce-sortby>option[value="<?php echo $currentProductsPerPage; ?>"]').attr('selected', true);
+		    </script>
+		<?php
+
+	}
+
+	/**
+	 * Back-end widget form.
+	 *
+	 * @see WP_Widget::form()
+	 *
+	 * @param array $instance Previously saved values from database.
+	 */
+	public function form( $instance ) {
+		$title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'New title', 'text_domain' );
+		?>
+		<p>
+		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+		</p>
+		<?php
+	}
+
+	/**
+	 * Sanitize widget form values as they are saved.
+	 *
+	 * @see WP_Widget::update()
+	 *
+	 * @param array $new_instance Values just sent to be saved.
+	 * @param array $old_instance Previously saved values from database.
+	 *
+	 * @return array Updated safe values to be saved.
+	 */
+	public function update( $new_instance, $old_instance ) {
+		$instance = array();
+		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+
+		return $instance;
+	}
+
+} // class catalog_ordering_value
 
 /**
- * Save selected sortby value to cookie
+ * Register Catalog_Ordering_Value widget.
+ */
+function register_catalog_ordering_value() {
+	register_widget( 'catalog_ordering_value' );
+}
+add_action( 'widgets_init', 'register_catalog_ordering_value' );
+
+/**
+ * Return selected sortby value from cookie to loop
  */
 function woocommerce_sortby_value_save( $count ) {
-	$cookie_retention_time = (14 * 24 * 60 * 60);
+	$main_site_url = home_url( '', relative );
+	$cookie_retention_time = ( 14 * 24 * 60 * 60 );
 
-  if (isset($_COOKIE['wc_sortbyValue'])) {
-    $count = $_COOKIE['wc_sortbyValue'];
-  }
-  if (isset($_POST['woocommerce-sortby-columns'])) {
-    setcookie('wc_sortbyValue', $_POST['woocommerce-sortby-columns'], time() + $cookie_retention_time, '/', $main_site_url, false);
-    $count = $_POST['woocommerce-sortby-columns'];
-  }
-  return $count;
+	if (isset($_COOKIE['wc_sortbyValue'])) {
+		$count = $_COOKIE['wc_sortbyValue'];
+	}
+	if (isset($_POST['woocommerce-sortby-columns'])) {
+		setcookie('wc_sortbyValue', $_POST['woocommerce-sortby-columns'], time() + $cookie_retention_time, '/', $main_site_url, false);
+		$count = $_POST['woocommerce-sortby-columns'];
+	}
+	return $count;
 }
-
-add_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_page_ordering', 10 );
-add_filter('loop_shop_per_page','woocommerce_sortby_value_save');
+add_filter( 'loop_shop_per_page', 'woocommerce_sortby_value_save' );
