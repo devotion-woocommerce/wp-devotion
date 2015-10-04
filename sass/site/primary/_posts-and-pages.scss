@@ -93,6 +93,27 @@
 		text-transform: uppercase;
 		margin: 0;
 	}
+	.product-main-info {
+		@include rem-fallback(font-size, $font__size-small);
+		font-family: $font__secondary;
+		font-weight: $font__weight-light;
+	}
+	.woocommerce-main-image {
+		display: inline-block;
+		height: 315px;
+		width: 100%;
+		overflow: hidden;
+		text-align: center;
+		.wp-post-image {
+			width: auto;
+			max-height: 100%;
+		}
+	}
+	.thumbnails {
+		a {
+			display: inline-block;
+		}
+	}
 }
 .related {
 	> h2 {

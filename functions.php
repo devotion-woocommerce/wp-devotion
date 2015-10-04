@@ -370,5 +370,7 @@ add_action( 'woocommerce_single_product_summary', 'woocommerce_product_main_info
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 20 );
 
 function woocommerce_product_main_info_block() {
-  echo '<div class="product-main-info">' . the_content() . '</div>';
+  echo '<div class="product-main-info">';
+	echo the_content();
+	echo '</div>';
 }

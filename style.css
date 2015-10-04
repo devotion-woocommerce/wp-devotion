@@ -848,6 +848,25 @@ ul.page-numbers {
   text-transform: uppercase;
   margin: 0; }
 
+.single-product .product-main-info {
+  font-size: 12px;
+  font-size: 0.75rem;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300; }
+
+.single-product .woocommerce-main-image {
+  display: inline-block;
+  height: 315px;
+  width: 100%;
+  overflow: hidden;
+  text-align: center; }
+  .single-product .woocommerce-main-image .wp-post-image {
+    width: auto;
+    max-height: 100%; }
+
+.single-product .thumbnails a {
+  display: inline-block; }
+
 .related > h2 {
   display: none; }
 
