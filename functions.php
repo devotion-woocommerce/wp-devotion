@@ -374,3 +374,57 @@ function woocommerce_product_main_info_block() {
 	echo the_content();
 	echo '</div>';
 }
+
+/**
+ * User selectable products per page
+ */
+function woocommerce_catalog_page_ordering() {
+	$main_site_url = site_url();
+
+	?>
+		<form class="woocommerce-ordering" action="" method="POST" name="results">
+		<select name="woocommerce-sortby-columns" id="woocommerce-sortby-columns" class="woocommerce-sortby" onchange="this.form.submit()">
+	<?php
+		$shopCatalog_orderby = apply_filters('woocommerce_sortby_page', array(
+			'24' 	=> __('24', 'woocommerce'),
+			'64' 		=> __('64', 'woocommerce'),
+			'128' 		=> __('128', 'woocommerce'),
+		));
+
+		foreach ( $shopCatalog_orderby as $sort_id => $sort_name )
+			echo '<option value="' . $sort_id . '" ' . selected( $_SESSION['woocommerce-sortby'], $sort_id, false ) . ' >' . $sort_name . '</option>';
+	?>
+		</select>
+		</form>
+
+	<?php
+		if (isset($_POST['woocommerce-sortby-columns']) && (($_COOKIE['wc_sortbyValue'] <> $_POST['woocommerce-sortby-columns']))) {
+			$currentProductsPerPage = $_POST['woocommerce-sortby-columns'];
+		} else {
+			$currentProductsPerPage = $_COOKIE['wc_sortbyValue'];
+		}
+		?>
+	    <script type="text/javascript">
+	      jQuery('select.woocommerce-sortby>option[value="<?php echo $currentProductsPerPage; ?>"]').attr('selected', true);
+	    </script>
+	<?php
+}
+
+/**
+ * Save selected sortby value to cookie
+ */
+function woocommerce_sortby_value_save( $count ) {
+	$cookie_retention_time = (14 * 24 * 60 * 60);
+
+  if (isset($_COOKIE['wc_sortbyValue'])) {
+    $count = $_COOKIE['wc_sortbyValue'];
+  }
+  if (isset($_POST['woocommerce-sortby-columns'])) {
+    setcookie('wc_sortbyValue', $_POST['woocommerce-sortby-columns'], time() + $cookie_retention_time, '/', $main_site_url, false);
+    $count = $_POST['woocommerce-sortby-columns'];
+  }
+  return $count;
+}
+
+add_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_page_ordering', 10 );
+add_filter('loop_shop_per_page','woocommerce_sortby_value_save');
