@@ -910,7 +910,8 @@ ul.page-numbers {
   right: 0;
   width: 30px;
   height: 30px;
-  background: #ff0513; }
+  background: #ff0513;
+  cursor: pointer; }
 
 /*--------------------------------------------------------------
 ## Asides
