@@ -491,3 +491,19 @@ function woocommerce_sortby_value_save( $count ) {
 	return $count;
 }
 add_filter( 'loop_shop_per_page', 'woocommerce_sortby_value_save' );
+
+/**
+ * Register mobile navigation
+ */
+function mobile_nav() {
+  register_nav_menu( 'primary-mobile', __( 'Primary Mobile Menu', 'devotion' ) );
+}
+add_action( 'after_setup_theme', 'mobile_nav' );
+
+/**
+ * Call out mobile navigation
+ */
+function mobile_nav_callout() {
+	wp_nav_menu( array( 'theme_location' => 'primary-mobile', 'menu_class' => 'nav-menu-mobile' ) );
+}
+add_action( 'wp_footer', 'mobile_nav_callout', 20 );
