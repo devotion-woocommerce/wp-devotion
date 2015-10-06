@@ -56,4 +56,22 @@
     })
   }
 
+  // Bind menu to top when scrolling past header
+  function fixed_onscroll() {
+    var viewportTop = $(window).scrollTop();
+    var containerTop = $('#secondary').offset().top;
+
+    if (viewportTop > containerTop) {
+      $('.widget_product_categories').addClass('menu-fixed');
+      $('body').addClass('has-menu-fixed');
+    } else {
+      $('.widget_product_categories').removeClass('menu-fixed');
+      $('body').removeClass('has-menu-fixed');
+    }
+  }
+
+  $(window).scroll(fixed_onscroll);
+  fixed_onscroll();
+
+
 } )( jQuery );
