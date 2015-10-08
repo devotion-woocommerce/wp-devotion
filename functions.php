@@ -123,6 +123,15 @@ function devotion_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Site mobile navigation', 'devotion' ),
+		'id'            => 'site-mobile-nav',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
 }
 add_action( 'widgets_init', 'devotion_widgets_init' );
 
@@ -506,4 +515,5 @@ add_action( 'after_setup_theme', 'mobile_nav' );
 function mobile_nav_callout() {
 	wp_nav_menu( array( 'theme_location' => 'primary-mobile', 'menu_class' => 'nav-menu-mobile' ) );
 }
-add_action( 'wp_footer', 'mobile_nav_callout', 20 );
+// add_action( 'wp_footer', 'mobile_nav_callout', 20 );
+add_action( 'site-mobile-nav-before', 'mobile_nav_callout', 10 );

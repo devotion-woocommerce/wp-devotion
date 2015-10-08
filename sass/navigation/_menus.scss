@@ -260,3 +260,24 @@ ul.page-numbers {
 	position: fixed;
 	top: 0;
 }
+
+.nav-menu-mobile {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: 0;
+	padding: 30px;
+	list-style: none;
+	background: $color__background-pre;
+	.menu-item {
+		padding: 10px 0;
+		a {
+			text-decoration: none;
+			color: $color__text-main;
+		}
+	}
+	.admin-bar & {
+		margin-top: 32px;
+	}
+}

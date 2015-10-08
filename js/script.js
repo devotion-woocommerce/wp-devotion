@@ -73,5 +73,16 @@
   $(window).scroll(fixed_onscroll);
   fixed_onscroll();
 
+  // Toggle mobile navigation
+  $('.menu-toggle').click(function(event) {
+    event.preventDefault();
+    $('body').toggleClass('site-mobile-nav-open');
+  });
+
+  $( window ).resize(function() {
+    if ($(window).width() > 600) {
+      $('body').removeClass('site-mobile-nav-open');
+    }
+  });
 
 } )( jQuery );

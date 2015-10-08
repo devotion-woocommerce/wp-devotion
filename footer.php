@@ -19,5 +19,15 @@
 
 <?php wp_footer(); ?>
 
+<div class="site-footer-widgets">
+	<div class="site-mobile-nav">
+		<?php do_action ( 'site-mobile-nav-before' ); ?>
+
+		<?php if(is_active_sidebar('site-mobile-nav')) { dynamic_sidebar('site-mobile-nav'); } ?>
+
+		<?php do_action ( 'site-mobile-nav-after' ); ?>
+	</div>
+</div>
+
 </body>
 </html>
