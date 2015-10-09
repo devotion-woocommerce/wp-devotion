@@ -150,9 +150,20 @@
 		margin-top: 32px;
 	}
 }
+#page {
+	position: relative;
+	transition: $site__transition-std;
+	right: 0;
+}
 .lightbox-open {
 	#page {
 		display: none;
+	}
+}
+.site-mobile-nav-open {
+	#page {
+		right: 300px;
+		transition: $site__transition-std;
 	}
 }
 .btn-close {

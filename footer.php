@@ -22,7 +22,7 @@
 <div class="site-footer-widgets">
 	<div class="site-mobile-nav">
 
-		<button class="lines-button" type="button" role="button" aria-label="Toggle Navigation">
+		<button class="mobile-nav-toggle lines-button" type="button" role="button" aria-label="Toggle Navigation">
 		  <span class="lines"></span>
 		</button>
 

@@ -35,7 +35,6 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'devotion' ); ?></button>
 			<?php $walker = new Menu_With_Description; ?>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu', 'walker' => $walker ) ); ?>
 		</nav><!-- #site-navigation -->
@@ -57,6 +56,11 @@
 				</a>
 			</div>
 		</div>
+		<nav class="mobile-header-nav">
+			<button class="mobile-nav-toggle lines-button" type="button" role="button" aria-label="Toggle Navigation">
+				<span class="lines"></span>
+			</button>
+		</nav>
 	</header><!-- #masthead -->
 
 	<div class="site-meta">

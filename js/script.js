@@ -74,7 +74,7 @@
   fixed_onscroll();
 
   // Toggle mobile navigation
-  $('.menu-toggle').click(function(event) {
+  $('body').on('touchend click', '.mobile-nav-toggle', function(event) {
     event.preventDefault();
     $('body').toggleClass('site-mobile-nav-open');
   });

@@ -89,6 +89,9 @@
 	.current-menu-item > a,
 	.current_page_ancestor > a {
 	}
+	@include query($site-screen-sm) {
+		display: none;
+	}
 }
 
 /* Small menu. */
@@ -263,12 +266,17 @@ ul.page-numbers {
 
 .site-mobile-nav {
 	position: fixed;
+	z-index: 20;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	margin: 0;
 	padding: 30px;
 	background: $color__background-pre;
+	z-index: -1;
+	.site-mobile-nav-open & {
+		z-index: 1;
+	}
 }
 
 .nav-menu-mobile {
