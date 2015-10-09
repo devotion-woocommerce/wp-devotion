@@ -261,15 +261,18 @@ ul.page-numbers {
 	top: 0;
 }
 
-.nav-menu-mobile {
+.site-mobile-nav {
 	position: fixed;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	margin: 0;
 	padding: 30px;
-	list-style: none;
 	background: $color__background-pre;
+}
+
+.nav-menu-mobile {
+	list-style: none;
 	.menu-item {
 		padding: 10px 0;
 		a {
@@ -279,5 +282,57 @@ ul.page-numbers {
 	}
 	.admin-bar & {
 		margin-top: 32px;
+	}
+}
+
+/* Navigation toggle button. */
+.lines-button {
+  display: inline-block;
+  padding: $site__button-size/2 $site__button-size/4;
+  transition: $site__transition-std;
+  cursor: pointer;
+  user-select: none;
+  border-radius: $site__button-size/7;
+	outline: none;
+  background: transparent;
+  border: none;
+	position: relative;
+  &:hover {
+    opacity: 1;
+  }
+  &:active {
+    transition: 0;
+  }
+	.lines {
+	  @include line;
+	  position: relative;
+	  &:before, &:after {
+	   @include line;
+	    position: absolute;
+	    left: 0;
+	    content: '';
+	    transform-origin: $site__button-size/14 center;
+	  }
+	  &:before { top: $site__button-size/4; }
+	  &:after { top: -$site__button-size/4; }
+	}
+	&.x.close {
+		.lines{
+		    background: transparent;
+		    &:before, &:after{
+		      transform-origin: 50% 50%;
+		      top:0;
+		      width: $site__button-size;
+		    }
+		    &:before{
+		      transform: rotate3d(0,0,1,45deg);
+		    }
+		    &:after{
+		      transform: rotate3d(0,0,1,-45deg);
+		    }
+		}
+	}
+	.site-mobile-nav & {
+		left: 90%;
 	}
 }

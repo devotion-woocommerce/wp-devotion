@@ -94,3 +94,12 @@
   #{$property}: $pxValue;
   #{$property}: $remValue;
 }
+// NAV LINES
+@mixin line {
+  display: inline-block;
+  width: $site__button-size;
+  height: $site__button-size/7;
+  background: $color__text-screen;
+  border-radius: $site__button-size/14;
+  transition: $site__transition-std;
+}
