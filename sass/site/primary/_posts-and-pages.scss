@@ -156,7 +156,8 @@
 	right: 0;
 }
 .lightbox-open {
-	#page {
+	#page,
+	.site-footer-widgets {
 		display: none;
 	}
 }

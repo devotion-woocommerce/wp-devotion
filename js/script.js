@@ -77,11 +77,13 @@
   $('body').on('touchend click', '.mobile-nav-toggle', function(event) {
     event.preventDefault();
     $('body').toggleClass('site-mobile-nav-open');
+    $('.mobile-nav-toggle').toggleClass('close');
   });
 
   $( window ).resize(function() {
     if ($(window).width() > 600) {
       $('body').removeClass('site-mobile-nav-open');
+      $('.mobile-nav-toggle').removeClass('close');
     }
   });
 
