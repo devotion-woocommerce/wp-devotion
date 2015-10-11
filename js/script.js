@@ -26,6 +26,7 @@
   // Header search visibility toggle
   $('.toggle-search').click(function() {
     $(this).siblings('.searchform').toggleClass('open');
+    $(this).siblings('.searchform').find('input:text:visible:first').focus();
   });
 
   if ($('body').hasClass('single-product')) {

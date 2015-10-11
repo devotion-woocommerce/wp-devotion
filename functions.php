@@ -7,6 +7,10 @@
  * @package devotion
  */
 
+if (!defined('ABSPATH')) {
+	exit; // Exit if accessed directly
+}
+
 if ( ! function_exists( 'devotion_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -517,3 +521,121 @@ function mobile_nav_callout() {
 }
 // add_action( 'wp_footer', 'mobile_nav_callout', 20 );
 add_action( 'site-mobile-nav-before', 'mobile_nav_callout', 10 );
+
+
+/**
+ * WC product categories menu with description and cover image
+ */
+require_once(ABSPATH . '/wp-content/plugins/woocommerce/includes/walkers/class-product-cat-list-walker.php');
+
+class Extended_Widget_Product_Categories_Menu extends WC_Widget {
+
+  public $cat_ancestors;
+
+  public $current_cat;
+
+  public function __construct() {
+    $this->widget_cssclass = 'widget_product_categories extended cat-menu';
+    $this->widget_description = __('A list of product categories.', 'devotion');
+    $this->widget_id = 'extended_product_categories';
+    $this->widget_name = __('WooCommerce Extended Product Categories Menu', 'devotion');
+    $this->settings = array(
+	    'title' => array(
+        'type' => 'text',
+        'std' => __('Product Categories', 'woocommerce'),
+        'label' => __('Title', 'woocommerce')
+	    ),
+	    'orderby' => array(
+        'type' => 'select',
+        'std' => 'name',
+        'label' => __('Order by', 'woocommerce'),
+        'options' => array(
+          'order' => __('Category Order', 'woocommerce'),
+          'name' => __('Name', 'woocommerce')
+        )
+	    )
+    );
+
+    parent::__construct();
+  }
+
+  public function widget($args, $instance) {
+    global $wp_query, $post;
+
+    $orderBy = isset($instance['orderby']) ? $instance['orderby'] : $this->settings['orderby']['std'];
+
+    $list_args = [
+      'show_count' => false,
+      'hierarchical' => true,
+      'taxonomy' => 'product_cat',
+      'hide_empty' => true,
+      'menu_order' => false,
+      'title_li' => '',
+      'pad_counts' => 1,
+      'show_option_none' => __('No product categories exist.', 'woocommerce'),
+      'walker' => new Extended_Product_Cat_Menu_Walker
+    ];
+
+    // Menu Order
+    if ($orderBy == 'order') {
+      $list_args['menu_order'] = 'asc';
+    } else {
+      $list_args['orderby'] = 'title';
+    }
+
+    // Setup Current Category
+    $this->current_cat = false;
+    $this->cat_ancestors = array();
+
+    if (is_tax('product_cat')) {
+      $this->current_cat = $wp_query->queried_object;
+      $this->cat_ancestors = get_ancestors($this->current_cat->term_id, 'product_cat');
+    } elseif (is_singular('product')) {
+      $product_category = wc_get_product_terms($post->ID, 'product_cat', array('orderby' => 'parent'));
+
+      if ($product_category) {
+        $this->current_cat = end($product_category);
+        $this->cat_ancestors = get_ancestors($this->current_cat->term_id, 'product_cat');
+      }
+    }
+    $list_args['current_category'] = ($this->current_cat) ? $this->current_cat->term_id : '';
+    $list_args['current_category_ancestors'] = $this->cat_ancestors;
+
+    $this->widget_start($args, $instance);
+    echo '<ul class="product-categories">';
+    wp_list_categories(apply_filters('woocommerce_product_categories_widget_args', $list_args));
+    echo '</ul>';
+    $this->widget_end($args);
+  }
+}
+
+class Extended_Product_Cat_Menu_Walker extends WC_Product_Cat_List_Walker {
+  public function start_el(&$output, $cat, $depth = 0, $args = array(), $current_object_id = 0)
+  {
+    $output .= '<li class="cat-item cat-item-' . $cat->term_id;
+
+    if ($args['current_category'] == $cat->term_id) {
+      $output .= ' current-cat';
+    }
+
+    if ($args['has_children'] && $args['hierarchical']) {
+      $output .= ' cat-parent';
+    }
+
+    if ($args['current_category_ancestors'] && $args['current_category'] && in_array($cat->term_id, $args['current_category_ancestors'])) {
+      $output .= ' current-cat-parent';
+    }
+
+    $output .= '"><a href="' . get_term_link((int)$cat->term_id, 'product_cat') . '">';
+    if ($depth === 0) {
+      $category_thumbnail = get_woocommerce_term_meta($cat->term_id, 'thumbnail_id', true);
+      $image = wp_get_attachment_url($category_thumbnail);
+      $output .= '<span class="category-image" style="background-image:url(' . esc_attr($image) . ')"></span>';
+    }
+    $output .= __($cat->name, 'woocommerce') . '</a>';
+  }
+}
+
+add_action('widgets_init', function () {
+  register_widget('Extended_Widget_Product_Categories_Menu');
+});
