@@ -627,12 +627,21 @@ class Extended_Product_Cat_Menu_Walker extends WC_Product_Cat_List_Walker {
     }
 
     $output .= '"><a href="' . get_term_link((int)$cat->term_id, 'product_cat') . '">';
+
     if ($depth === 0) {
       $category_thumbnail = get_woocommerce_term_meta($cat->term_id, 'thumbnail_id', true);
       $image = wp_get_attachment_url($category_thumbnail);
       $output .= '<span class="category-image" style="background-image:url(' . esc_attr($image) . ')"></span>';
     }
-    $output .= __($cat->name, 'woocommerce') . '</a>';
+
+    $output .= '<span class="category-name">' . __($cat->name, 'woocommerce') . '</span>';
+
+		if ($depth === 0) {
+			$description = $cat->description;
+			$output .= '<span class="category-description">' . $description . '</span>';
+		}
+
+		$output .= '</a>';
   }
 }
 
