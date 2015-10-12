@@ -355,6 +355,12 @@ table {
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
+.toggle-search .btn-search {
+  width: 50px;
+  height: 50px;
+  padding: 15px;
+  fill: #000; }
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -547,7 +553,8 @@ a {
         bottom: -10px;
         left: -60px;
         width: 50px;
-        background: #fae807; }
+        background: #fae807;
+        cursor: pointer; }
       .site-meta .site-meta-left .widget_product_search .searchform,
       .site-meta .site-meta-wide .widget_product_search .searchform {
         width: 0;
@@ -1024,6 +1031,20 @@ ul.page-numbers {
       font-style: italic;
       text-overflow: ellipsis;
       overflow: hidden; }
+  .product-categories .cat-parent:after {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    display: block;
+    width: 0;
+    height: 0;
+    content: '';
+    border-style: solid;
+    border-width: 5px 0 5px 8px;
+    border-color: transparent transparent transparent #404040; }
+  .product-categories .cat-parent.category-sub-open:after {
+    border-width: 8px 5px 0;
+    border-color: #000 transparent transparent; }
   .product-categories .children {
     display: none;
     list-style: none;
