@@ -140,12 +140,65 @@ function devotion_widgets_init() {
 add_action( 'widgets_init', 'devotion_widgets_init' );
 
 /**
+ * Display used styles and scripts
+ * Use for dev env only.
+ */
+function devotion_used_scripts_styles() {
+	global $wp_scripts;
+	global $wp_styles;
+
+	// Runs through the queue scripts
+	foreach( $wp_scripts->queue as $handle ) :
+		$scripts_list .= $handle . ' | ';
+	endforeach;
+
+	// Runs through the queue styles
+	foreach( $wp_styles->queue as $handle ) :
+		$styles_list .= $handle . ' | ';
+	endforeach;
+
+	printf('Scripts: %1$s  Styles: %2$s',
+	$scripts_list,
+	$styles_list);
+}
+// add_action( 'wp_print_scripts', 'devotion_used_scripts_styles' );
+
+/**
+ * Dequeue assets
+ */
+function devotion_dequeue_scripts_styles(){
+	wp_deregister_style('wpr_giftcards_css');
+
+	wp_deregister_script('jquery');
+	wp_deregister_script('woocommerce');
+	wp_deregister_script('wc-cart-fragments');
+	wp_deregister_script('wpr_giftcards_js ');
+}
+add_action( 'wp_print_styles', 'devotion_dequeue_scripts_styles', 100 );
+
+/**
+ * Remove wp_head actions
+ */
+remove_action( 'wp_head', 'feed_links_extra'); // Display the links to the extra feeds such as category feeds
+remove_action( 'wp_head', 'feed_links'); // Display the links to the general feeds: Post and Comment Feed
+remove_action( 'wp_head', 'rsd_link'); // Display the link to the Really Simple Discovery service endpoint, EditURI link
+remove_action( 'wp_head', 'wlwmanifest_link'); // Display the link to the Windows Live Writer manifest file.
+remove_action( 'wp_head', 'index_rel_link'); // index link
+remove_action( 'wp_head', 'parent_post_rel_link'); // prev link
+remove_action( 'wp_head', 'start_post_rel_link'); // start link
+remove_action( 'wp_head', 'adjacent_posts_rel_link'); // Display relational links for the posts adjacent to the current post.
+remove_action( 'wp_head', 'wp_generator'); // Display the XHTML generator that is generated on the wp_head hook, WP version
+remove_action(' wp_head', 'feed_links_extra', 3); // Remove category feeds
+remove_action(' wp_head', 'feed_links', 2); // Remove Post and Comment
+
+/**
  * Enqueue scripts and styles.
  */
 function devotion_scripts() {
-	wp_enqueue_style( 'devotion-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'devotion-script', get_template_directory_uri() . '/js/script.js', array(), '20150927', true );
+	wp_enqueue_style( 'devotion-style', get_stylesheet_directory_uri() . '/dist/styles/style.min.css', array(), '1', 'all' );
+
+	wp_enqueue_script( 'devotion-script', get_template_directory_uri() . '/dist/scripts/script.min.js', array(), '1', true );
 }
 add_action( 'wp_enqueue_scripts', 'devotion_scripts' );
 
