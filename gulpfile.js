@@ -1,48 +1,136 @@
-/* File: gulpfile.js */
 
-// grab our gulp packages
+// $ npm install gulp gulp-util gulp-sass vinyl-ftp gulp-autoprefixer gulp-minify-css gulp-uglify gulp-notify gulp-rename gulp-concat del --save-dev
+
+// Load plugins
 var gulp  = require('gulp'),
     gutil = require('gulp-util'),
     sass = require('gulp-sass'),
     ftp = require( 'vinyl-ftp' ),
+    autoprefixer = require('gulp-autoprefixer'),
+    minifycss = require('gulp-minify-css'),
+    uglify = require('gulp-uglify'),
+    notify = require('gulp-notify'),
+    rename = require('gulp-rename'),
+    concat = require('gulp-concat'),
+    del = require('del');
     secrets = require('./secrets.json');
 
-gulp.task( 'deploy', function () {
+// Styles
+gulp.task('styles', function() {
+  return gulp.src('src/sass/style.scss')
+    .pipe(sass({ style: 'expanded', }))
+    .pipe(autoprefixer('last 2 version'))
+    .pipe(gulp.dest('dist/styles/'))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(minifycss())
+    .pipe(gulp.dest('dist/styles/'))
+    .pipe(notify({ message: 'Styles task complete' }));
+});
 
-  gulp.src('./sass/style.scss')
-  .pipe(sass().on('error', sass.logError))
-  .pipe(gulp.dest('./'));
+// Scripts
+gulp.task('scripts', function() {
+  return gulp.src('src/scripts/*.js')
+    .pipe(concat('script.js'))
+    .pipe(gulp.dest('dist/scripts/'))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(uglify())
+    .pipe(gulp.dest('dist/scripts/'))
+    .pipe(notify({ message: 'Scripts task complete' }));
+});
 
-    var conn = ftp.create( {
-        host:     secrets.servers.development.serverhost,
-        user:     secrets.servers.development.username,
-        password: secrets.servers.development.password,
-        parallel: 10,
-        log:      gutil.log
-    } );
+// Clean
+gulp.task('clean', function() {
+    del(['dist/styles', 'dist/scripts'])
+});
 
-    var globs = [
-        './inc/**',
-        './js/**',
-        './languages/**',
-        './layouts/**',
-        './sass/**',
-        './images/**',
-        './template-parts/**',
-        '*.php',
-        '*.css',
-        '*.png'
-    ];
+// Default
+gulp.task('default', ['clean'], function() {
+    gulp.start('styles', 'scripts');
+});
 
-    // using base = '.' will transfer everything to /public_html correctly
-    // turn off buffering in gulp.src for best performance
+// Deploy
+gulp.task('deploy', function () {
 
-    return gulp.src( globs, { base: '.', buffer: false } )
-        .pipe( conn.newer( secrets.servers.development.remotepath ) ) // only upload newer files
-        .pipe( conn.dest( secrets.servers.development.remotepath ) );
+  var conn = ftp.create({
+    host:     secrets.servers.development.serverhost,
+    user:     secrets.servers.development.username,
+    password: secrets.servers.development.password,
+    parallel: 1,
+    log:      gutil.log
+  });
 
-} );
+  var globs = [
+    'inc/*.php',
+    'dist/styles/*.css',
+    'dist/scripts/*.js',
+    'languages/*.mo',
+    'images/*.jpeg',
+    'images/*.jpg',
+    'images/*.png',
+    'template-parts/*.php',
+    '*.php',
+    '*.css'
+  ];
 
-gulp.task('default', function() {
-  gulp.watch('./**', ['deploy']);
+  // using base = '.' will transfer everything to /public_html correctly
+  // turn off buffering in gulp.src for best performance
+
+  return gulp.src( globs, { base: '.', buffer: false } )
+    // .pipe(conn.newer( secrets.servers.development.remotepath )) // only upload newer files
+    .pipe(conn.dest( secrets.servers.development.remotepath ))
+    .pipe(notify({ message: 'Deploy to dev complete' }));
+});
+
+// Push
+gulp.task('push', function () {
+
+  var conn = ftp.create({
+    host:     secrets.servers.development.serverhost,
+    user:     secrets.servers.development.username,
+    password: secrets.servers.development.password,
+    parallel: 10,
+    log:      gutil.log
+  });
+
+  var globs = [
+    './inc/*.php',
+    './dist/styles/*.css',
+    './dist/scripts/*.js',
+    './languages/*.mo',
+    './images/*.jpeg',
+    './images/*.jpg',
+    './images/*.png',
+    './template-parts/*.php',
+    '*.php',
+    '*.css'
+  ];
+
+  // using base = '.' will transfer everything to /public_html correctly
+  // turn off buffering in gulp.src for best performance
+
+  return gulp.src( globs, { base: '.', buffer: false } )
+    .pipe(conn.newer( secrets.servers.development.remotepath )) // only upload newer files
+    .pipe(conn.dest( secrets.servers.development.remotepath ))
+    .pipe(notify({ message: 'Push to dev complete' }));
+});
+
+// Watch
+gulp.task('watch', function() {
+
+  // Watch .scss files
+  gulp.watch('src/styles/**/*.scss', function(event) {
+    console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+    gulp.run('styles');
+  });
+
+  // Watch .js files
+  gulp.watch('src/scripts/**/*.js', function(event) {
+    console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+    gulp.run('scripts');
+  });
+
+  // Watch files in dist/, reload on change
+  gulp.watch('./*.php', ['push']);
+  gulp.watch('src/styles/**/*.scss', ['push']);
+  gulp.watch('src/scripts/**/*.js', ['push']);
 });
