@@ -493,9 +493,16 @@ class Catalog_Ordering_Value extends WP_Widget {
 				$currentProductsPerPage = $_COOKIE['wc_sortbyValue'];
 			}
 			?>
-		    <script type="text/javascript">
-		      jQuery('select.woocommerce-sortby>option[value="<?php echo $currentProductsPerPage; ?>"]').attr('selected', true);
-		    </script>
+
+			<?php
+				if ($currentProductsPerPage != '') {
+					echo '
+					<script type="text/javascript">
+							document.querySelector("select.woocommerce-sortby>option[value=\''. $currentProductsPerPage . '\']").setAttribute("selected", true);
+					</script>
+					';
+				}
+				?>
 		<?php
 
 	}
