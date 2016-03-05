@@ -44,7 +44,6 @@ img {
 	max-width: $size__site-wrap-max;
 	margin: 0 auto;
 	background: $color__background-screen;
-	box-shadow: 15px 20px 80px 0 rgba(0, 0, 0, .5), -15px 20px 80px 0 rgba(0, 0, 0, .5);
 	@include querymin($site-screen-md) {
 		width: $size__site-wrap;
 	}

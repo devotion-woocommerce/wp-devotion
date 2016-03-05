@@ -320,8 +320,7 @@ table {
 .site-meta {
   max-width: 1280px;
   margin: 0 auto;
-  background: #373737;
-  box-shadow: 15px 20px 80px 0 rgba(0, 0, 0, 0.5), -15px 20px 80px 0 rgba(0, 0, 0, 0.5); }
+  background: #373737; }
   @media screen and (min-width: 993px) {
     #masthead,
     #content,
@@ -500,16 +499,22 @@ a {
 
 .site-meta {
   background: #515151; }
+  .site-meta input {
+    -webkit-appearance: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background-color: inherit;
+    outline: none;
+    color: #fff; }
   .site-meta .site-meta-left,
   .site-meta .site-meta-wide {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-align-items: center;
-    -moz-align-items: center;
-    -ms-align-items: center;
-    -ms-flex-align: center;
-        align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding: 10px 0; }
     .site-meta .site-meta-left .widget,
     .site-meta .site-meta-wide .widget {

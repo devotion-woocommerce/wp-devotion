@@ -17,7 +17,7 @@ var gulp  = require('gulp'),
 
 // Styles
 gulp.task('styles', function() {
-  return gulp.src('src/sass/style.scss')
+  return gulp.src('src/styles/style.scss')
     .pipe(sass({ style: 'expanded', }))
     .pipe(autoprefixer('last 2 version'))
     .pipe(gulp.dest('dist/styles/'))
