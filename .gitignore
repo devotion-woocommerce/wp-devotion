@@ -2,6 +2,7 @@
 .htaccess
 sitemap.xml
 sitemap.xml.gz
+
 wp-config.php
 wp-content/advanced-cache.php
 wp-content/backup-db/
@@ -12,5 +13,9 @@ wp-content/upgrade/
 wp-content/uploads/
 wp-content/wp-cache-config.php
 
-/node_modules
-/secrets.json
+# Pulled content
+bower_components/
+node_modules/
+
+# Sensitive data
+secrets.json

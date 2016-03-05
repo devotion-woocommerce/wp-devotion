@@ -29,7 +29,9 @@ gulp.task('styles', function() {
 
 // Scripts
 gulp.task('scripts', function() {
-  return gulp.src('src/scripts/*.js')
+  return gulp.src(['bower_components/jquery/dist/jquery.js',
+                   'src/scripts/*.js' ],
+                   {base: './'})
     .pipe(concat('script.js'))
     .pipe(gulp.dest('dist/scripts/'))
     .pipe(rename({ suffix: '.min' }))
