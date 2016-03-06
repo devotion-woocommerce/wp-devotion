@@ -43,8 +43,13 @@ img {
 .site-meta {
 	max-width: $size__site-wrap-max;
 	margin: 0 auto;
-	background: $color__background-screen;
 	@include querymin($site-screen-md) {
 		width: $size__site-wrap;
 	}
+}
+
+#masthead,
+#content,
+#colophon {
+	background: $color__background-screen;
 }

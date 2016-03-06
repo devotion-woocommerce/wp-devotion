@@ -319,8 +319,7 @@ table {
 #colophon,
 .site-meta {
   max-width: 1280px;
-  margin: 0 auto;
-  background: #373737; }
+  margin: 0 auto; }
   @media screen and (min-width: 993px) {
     #masthead,
     #content,
@@ -328,14 +327,26 @@ table {
     .site-meta {
       width: 95%; } }
 
+#masthead,
+#content,
+#colophon {
+  background: #373737; }
+
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
-.toggle-search .btn-search {
-  width: 50px;
+.toggle-search {
   height: 50px;
-  padding: 15px;
-  fill: #000; }
+  width: 50px;
+  cursor: pointer; }
+  .toggle-search .btn-search {
+    width: 50px;
+    height: 50px;
+    padding: 15px;
+    fill: rgba(255, 255, 255, 0.5);
+    transition: 250ms fill; }
+    .toggle-search .btn-search:hover {
+      fill: white; }
 
 input[type="text"],
 input[type="email"],
@@ -497,56 +508,28 @@ a {
     bottom: 0;
     left: 0; }
 
-.site-meta {
-  background: #515151; }
-  .site-meta input {
-    -webkit-appearance: none;
-    border: 0;
-    padding: 0;
-    margin: 0;
-    background-color: inherit;
-    outline: none;
-    color: #fff; }
-  .site-meta .site-meta-left,
-  .site-meta .site-meta-wide {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    padding: 10px 0; }
-    .site-meta .site-meta-left .widget,
-    .site-meta .site-meta-wide .widget {
-      margin: 0; }
-    .site-meta .site-meta-left .widget_product_search,
-    .site-meta .site-meta-wide .widget_product_search {
-      position: relative;
-      margin-left: 60px; }
-      .site-meta .site-meta-left .widget_product_search .toggle-search,
-      .site-meta .site-meta-wide .widget_product_search .toggle-search {
-        content: "";
-        position: absolute;
-        top: -10px;
-        bottom: -10px;
-        left: -60px;
-        width: 50px;
-        background: #fae807;
-        cursor: pointer; }
-      .site-meta .site-meta-left .widget_product_search .searchform,
-      .site-meta .site-meta-wide .widget_product_search .searchform {
-        width: 0;
-        overflow: hidden;
-        white-space: nowrap;
-        transition: 250ms; }
-        .site-meta .site-meta-left .widget_product_search .searchform.open,
-        .site-meta .site-meta-wide .widget_product_search .searchform.open {
-          width: 220px;
-          transition: 250ms; }
-  .site-meta .site-meta-left {
-    width: 200px;
-    padding-left: 30px;
-    color: #fff; }
+.site-meta input {
+  -webkit-appearance: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background-color: inherit;
+  outline: none;
+  color: #fff; }
+
+.site-meta .site-meta-left,
+.site-meta .site-meta-wide {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.site-meta .site-meta-left {
+  width: 200px;
+  padding-left: 30px;
+  color: #fff; }
 
 .site-transaction {
   display: -webkit-flex;
@@ -783,14 +766,30 @@ ul.page-numbers {
 # Widgets
 --------------------------------------------------------------*/
 .widget {
-  margin: 0 0 1.5em;
   /* Make sure select elements fit in widgets. */ }
   .widget select {
     max-width: 100%; }
 
-/* Search widget. */
 .widget_search .search-submit {
   display: none; }
+
+.widget_product_search {
+  position: relative; }
+  .widget_product_search .searchform {
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: 250ms background;
+    top: 0;
+    height: 50px;
+    line-height: 50px;
+    position: absolute;
+    margin-left: 50px;
+    background: #fff;
+    font-weight: 300; }
+    .widget_product_search .searchform.open {
+      width: 220px;
+      padding: 0 15px; }
 
 /*--------------------------------------------------------------
 # Content
@@ -935,9 +934,9 @@ ul.page-numbers {
   left: 0;
   right: 0;
   bottom: 0;
-  box-shadow: 0 10px 230px 0 rgba(0, 0, 0, 0.2), 0 -10px 230px 0 rgba(0, 0, 0, 0.2);
   z-index: 1;
-  -webkit-transform: translate3d(0, 0, 0); }
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0); }
 
 .product-lightbox {
   position: absolute;

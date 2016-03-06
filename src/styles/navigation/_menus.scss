@@ -153,7 +153,6 @@
 }
 
 .site-meta {
-	background: lighten($color__background-screen, 10%);
 
 	input {
 		-webkit-appearance: none;
@@ -164,40 +163,13 @@
     outline: none;
     color: $color__text-white;
 	}
+	
 	.site-meta-left,
 	.site-meta-wide {
 		display: flex;
-
 		align-items: center;
-		padding: 10px 0;
-		.widget {
-			margin: 0;
-		}
-		.widget_product_search {
-			position: relative;
-			margin-left: 60px;
-			.toggle-search {
-				content: "";
-				position: absolute;
-				top: -10px;
-				bottom: -10px;
-				left: -60px;
-				width: 50px;
-				background: $color__background-secondary;
-				cursor: pointer;
-			}
-			.searchform {
-				width: 0;
-				overflow: hidden;
-				white-space: nowrap;
-				transition: $site__transition-std;
-				&.open {
-					width: 220px;
-					transition: $site__transition-std;
-				}
-			}
-		}
 	}
+
 	.site-meta-left {
 		width: 200px;
 		padding-left: 30px;
