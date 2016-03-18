@@ -1,0 +1,8 @@
+# gitattributes
+
+*.gif -diff binary image
+*.png -diff binary image
+*.jpg -diff binary image
+*.jpeg -diff binary image
+*.min.js -diff binary minified
+*.min.css -diff binary minified
