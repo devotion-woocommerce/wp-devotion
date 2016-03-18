@@ -78,7 +78,6 @@ gulp.task('deploy', function () {
   // turn off buffering in gulp.src for best performance
 
   return gulp.src( globs, { base: '.', buffer: false } )
-    // .pipe(conn.newer( secrets.servers.development.remotepath )) // only upload newer files
     .pipe(conn.dest( secrets.servers.development.remotepath ))
     .pipe(notify({ message: 'Deploy to dev complete' }));
 });
@@ -95,14 +94,14 @@ gulp.task('push', function () {
   });
 
   var globs = [
-    './inc/*.php',
-    './dist/styles/*.css',
-    './dist/scripts/*.js',
-    './languages/*.mo',
-    './images/*.jpeg',
-    './images/*.jpg',
-    './images/*.png',
-    './template-parts/*.php',
+    'inc/*.php',
+    'dist/styles/*.css',
+    'dist/scripts/*.js',
+    'languages/*.mo',
+    'images/*.jpeg',
+    'images/*.jpg',
+    'images/*.png',
+    'template-parts/*.php',
     '*.php',
     '*.css'
   ];
@@ -112,7 +111,6 @@ gulp.task('push', function () {
 
   return gulp.src( globs, { base: '.', buffer: false } )
     .pipe(conn.newer( secrets.servers.development.remotepath )) // only upload newer files
-    .pipe(conn.dest( secrets.servers.development.remotepath ))
     .pipe(notify({ message: 'Push to dev complete' }));
 });
 
@@ -131,8 +129,8 @@ gulp.task('watch', function() {
     gulp.run('scripts');
   });
 
-  // Watch files in dist/, reload on change
-  gulp.watch('./*.php', ['push']);
-  gulp.watch('src/styles/**/*.scss', ['push']);
-  gulp.watch('src/scripts/**/*.js', ['push']);
+  // Watch files in dist and reload on change
+  gulp.watch('*.php', ['push']);
+  gulp.watch('dist/styles/**/*.css', ['push']);
+  gulp.watch('dist/scripts/**/*.js', ['push']);
 });
