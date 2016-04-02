@@ -247,7 +247,7 @@ add_action('woocommerce_before_main_content', 'my_theme_wrapper_start', 10);
 add_action('woocommerce_after_main_content', 'my_theme_wrapper_end', 10);
 
 function my_theme_wrapper_start() {
-  echo '<section id="main spiceflow">';
+  echo '<section id="main">';
 }
 function my_theme_wrapper_end() {
   echo '</section>';
@@ -363,11 +363,14 @@ function woo_custom_product_searchform( $form ) {
 	<svg class="btn-search" width="18px" height="18px" viewBox="0 0 18 18"  xmlns="http://www.w3.org/2000/svg">
 		<path d="M13,11 L12,11 L12,11 C13,10 13,8 13,7 C13,3 10,0 7,0 C3,0 0,3 0,7 C0,10 3,13 7,13 C8,13 10,13 11,12 L11,12 L11,13 L16,18 L18,16 L13,11 ZM7,11 C4,11 2,9 2,7 C2,4 4,2 7,2 C9,2 11,4 11,7 C11,9 9,11 7,11 Z"></path>
 	</svg>
+	<div>
+		' . __( 'Search', 'woocommerce' ) . '
+	</div>
 	</div>
 	<form role="search" method="get" id="searchform" class="searchform" action="' . esc_url( home_url( '/'  ) ) . '">
 		<div>
 			<label class="screen-reader-text" for="s">' . __( 'Search for:', 'woocommerce' ) . '</label>
-			<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="' . __( 'My Search form', 'woocommerce' ) . '" />
+			<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="' . __( 'Enter your search', 'woocommerce' ) . '" />
 			<input type="submit" id="searchsubmit" value="'. esc_attr__( 'Search', 'woocommerce' ) .'" />
 			<input type="hidden" name="post_type" value="product" />
 		</div>
@@ -712,3 +715,17 @@ class Extended_Product_Cat_Menu_Walker extends WC_Product_Cat_List_Walker {
 add_action('widgets_init', function () {
   register_widget('Extended_Widget_Product_Categories_Menu');
 });
+
+
+/**
+ * WooCommerce
+ *
+ * Unhook sidebar
+ */
+
+function remove_sidebar_shop() {
+    if ( is_singular('product') ) {
+			remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
+    }
+}
+add_action('template_redirect', 'remove_sidebar_shop');
