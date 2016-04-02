@@ -54,7 +54,7 @@
 		padding: 25px 20px;
 		text-transform: uppercase;
 		a {
-			color: $color__text-white;
+			color: $color__background-secondary;
 		}
 		&:hover > a,
 		&.focus > a {
@@ -142,7 +142,7 @@
 	height: 100px;
 	margin: 0 120px 0 0;
 	font-size: 0;
-	background: $color__branding-red url("./images/logo.png") center / contain no-repeat;
+	background: url("./../images/logo.png") center / contain no-repeat;
 	a {
 		position: absolute;
 		top: 0;
@@ -172,7 +172,6 @@
 
 	.site-meta-left {
 		width: 200px;
-		padding-left: 30px;
 		color: $color__text-white;
 	}
 }
@@ -216,6 +215,26 @@
 	}
 	.cart-count {
 		@include rem-fallback(font-size, $font__size-small);
+	}
+}
+
+.cart {
+	text-align: right;
+	
+	.button,
+	.quantity {
+		display: inline-block;
+	}
+	
+	.button {
+		padding: 25px;
+    right: -35px;
+    position: relative;
+    background: $color__branding-red;
+    border: 0;
+    color: $color__text-white;
+    text-transform: uppercase;
+    width: 150px;
 	}
 }
 

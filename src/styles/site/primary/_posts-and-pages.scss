@@ -17,8 +17,7 @@
 }
 
 .page-content,
-.entry-content,
-.entry-summary {
+.entry-content {
 	margin: 1.5em 0 0;
 }
 
@@ -83,11 +82,9 @@
 	.product-detail-wrap {
 		@include prefix(flex, 3, $prefix-default);
 		@include color($color__text-white, 1);
-		padding: 0 20px;
+		padding: 20px;
 	}
-	.summary {
-		margin: 10px 0;
-	}
+
 	.product_title {
 		@include rem-fallback(font-size, $font__size-xl);
 		text-transform: uppercase;
@@ -97,6 +94,7 @@
 		@include rem-fallback(font-size, $font__size-small);
 		font-family: $font__secondary;
 		font-weight: $font__weight-light;
+		color: $color__text-grey;
 	}
 	.woocommerce-main-image {
 		display: inline-block;
