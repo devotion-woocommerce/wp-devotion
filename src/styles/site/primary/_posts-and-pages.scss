@@ -26,6 +26,10 @@
 	margin: 0 0 1.5em;
 }
 
+.page-wrap {
+  width: 100%;
+  background-color: #fff;
+}
 
 .products {
 	@include prefix(display, flex, $prefix-default);
@@ -70,19 +74,34 @@
 		}
 	}
 }
+
+#main {
+  width: 100%;
+}
 .single-product {
+  
+  #main > .product {
+    display: flex;
+    background: $color__dark_main;
+    min-height: 100vh;
+  }
+  
 	.product-full-wrap {
-		@include prefix(display, flex, $prefix-default);
+    display: flex;
+    width: 100%
 	}
 	.images {
 		@include prefix(flex, 2, $prefix-default);
 		@include bg($color__text-white, 1);
 		padding: 20px;
+    max-height: 100vh;
+    box-sizing: border-box;
+    overflow-y: scroll;
 	}
 	.product-detail-wrap {
 		@include prefix(flex, 3, $prefix-default);
 		@include color($color__text-white, 1);
-		padding: 20px;
+		padding: 40px;
 	}
 
 	.product_title {
@@ -108,8 +127,10 @@
 		}
 	}
 	.thumbnails {
+    text-align: center;
 		a {
-			display: inline-block;
+			display: block;
+      margin: 60px 0;
 		}
 	}
 }
@@ -120,14 +141,16 @@
 	.products {
 		width: 100%;
 	}
+  
+  @media screen and (max-width: 1280px) {
+    display: none;
+  }
 }
 
-.woocommerce {
-	.site-content {
-		@include prefix(display, flex, $prefix-default);
-		@include prefix(flex-flow, row-reverse, $prefix-default);
-	}
+.site-content {
+  @include prefix(display, flex, $prefix-default);
 }
+
 .overlay-shadow {
 	position: absolute;
 	top: 0;
@@ -149,7 +172,8 @@
 		margin-top: 32px;
 	}
 }
-#page {
+.site {
+	display: flex;
 	position: relative;
 	transition: $site__transition-std;
 	right: 0;

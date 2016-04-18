@@ -9,7 +9,7 @@ html {
 }
 
 body {
-	background: $color__background-body;
+	background: $color__background-screen;
 	overflow-x: hidden;
 }
 
@@ -37,20 +37,3 @@ img {
 }
 
 @import "tables";
-
-#masthead,
-#content,
-#colophon,
-.site-meta {
-	max-width: $size__site-wrap-max;
-	margin: 0 auto;
-	@include querymin($site-screen-md) {
-		width: $size__site-wrap;
-	}
-}
-
-#masthead,
-#content,
-#colophon {
-	background: $color__background-screen;
-}

@@ -309,7 +309,7 @@ add_action('init','remove_loop_button');
  * Class to extend walker menu
  */
 class Menu_With_Description extends Walker_Nav_Menu {
-	function start_el(&$output, $item, $depth, $args) {
+	function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
 			global $wp_query;
 			$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
@@ -570,7 +570,7 @@ function woocommerce_sortby_value_save( $count ) {
 	}
 	return $count;
 }
-add_filter( 'loop_shop_per_page', 'woocommerce_sortby_value_save' );
+// add_filter( 'loop_shop_per_page', 'woocommerce_sortby_value_save' );
 
 /**
  * Register mobile navigation

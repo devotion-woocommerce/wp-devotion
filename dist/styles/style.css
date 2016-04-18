@@ -256,7 +256,7 @@ html {
   box-sizing: inherit; }
 
 body {
-  background: #800080;
+  background: #373737;
   overflow-x: hidden; }
 
 blockquote, q {
@@ -299,24 +299,6 @@ img {
 table {
   margin: 0 0 1.5em;
   width: 100%; }
-
-#masthead,
-#content,
-#colophon,
-.site-meta {
-  max-width: 1280px;
-  margin: 0 auto; }
-  @media screen and (min-width: 993px) {
-    #masthead,
-    #content,
-    #colophon,
-    .site-meta {
-      width: 100%; } }
-
-#masthead,
-#content,
-#colophon {
-  background: #373737; }
 
 /*--------------------------------------------------------------
 # Forms
@@ -465,24 +447,19 @@ a {
   text-align: right;
   width: 50%; }
 
-.site-header,
-.site-meta {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: stretch;
-  -moz-align-items: stretch;
-  -ms-align-items: stretch;
-  -ms-flex-align: stretch;
-      align-items: stretch; }
+.site-header {
+  min-width: 200px;
+  max-width: 200px;
+  height: 100vh;
+  background: #24292e; }
 
 .site-branding {
   position: relative;
+  min-width: 100%;
   width: 200px;
   height: 100px;
-  margin: 0 120px 0 0;
   font-size: 0;
-  background: url("./../images/logo.png") center/contain no-repeat; }
+  background: #191b1c url("./../images/heart_logo2.svg") center/contain no-repeat; }
   .site-branding a {
     position: absolute;
     top: 0;
@@ -519,7 +496,9 @@ a {
   height: 100px;
   margin-left: auto;
   text-transform: uppercase;
-  cursor: pointer; }
+  cursor: pointer;
+  position: absolute;
+  bottom: 0; }
 
 .site-customer {
   padding: 25px 30px;
@@ -815,6 +794,10 @@ ul.page-numbers {
   clear: both;
   margin: 0 0 1.5em; }
 
+.page-wrap {
+  width: 100%;
+  background-color: #fff; }
+
 .products {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -860,10 +843,21 @@ ul.page-numbers {
       top: 0;
       right: 0; }
 
+#main {
+  width: 100%; }
+
+.single-product #main > .product {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background: #191b1c;
+  min-height: 100vh; }
+
 .single-product .product-full-wrap {
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  width: 100%; }
 
 .single-product .images {
   -webkit-flex: 2;
@@ -871,7 +865,10 @@ ul.page-numbers {
   -ms-flex: 2;
   flex: 2;
   background-color: white;
-  padding: 20px; }
+  padding: 20px;
+  max-height: 100vh;
+  box-sizing: border-box;
+  overflow-y: scroll; }
 
 .single-product .product-detail-wrap {
   -webkit-flex: 3;
@@ -879,7 +876,7 @@ ul.page-numbers {
   -ms-flex: 3;
   flex: 3;
   color: white;
-  padding: 20px; }
+  padding: 40px; }
 
 .single-product .product_title {
   font-size: 46px;
@@ -904,8 +901,11 @@ ul.page-numbers {
     width: auto;
     max-height: 100%; }
 
-.single-product .thumbnails a {
-  display: inline-block; }
+.single-product .thumbnails {
+  text-align: center; }
+  .single-product .thumbnails a {
+    display: block;
+    margin: 60px 0; }
 
 .related > h2 {
   display: none; }
@@ -913,13 +913,14 @@ ul.page-numbers {
 .related .products {
   width: 100%; }
 
-.woocommerce .site-content {
+@media screen and (max-width: 1280px) {
+  .related {
+    display: none; } }
+
+.site-content {
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: row-reverse;
-  -ms-flex-flow: row-reverse;
-  flex-flow: row-reverse; }
+  display: flex; }
 
 .overlay-shadow {
   position: absolute;
@@ -940,7 +941,10 @@ ul.page-numbers {
   .admin-bar .product-lightbox {
     margin-top: 32px; }
 
-#page {
+.site {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   position: relative;
   transition: 250ms;
   right: 0; }

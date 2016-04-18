@@ -130,19 +130,20 @@
 	}
 }
 
-.site-header,
-.site-meta {
-		@include prefix(display, flex, $prefix-default);
-		@include prefix(align-items, stretch, $prefix-default);
+.site-header {
+	min-width: 200px;
+  max-width: 200px;
+  height: 100vh;
+	background: $color__dark-alt;
 }
 
 .site-branding {
 	position: relative;
+	min-width: 100%;
 	width: 200px;
 	height: 100px;
-	margin: 0 120px 0 0;
 	font-size: 0;
-	background: url("./../images/logo.png") center / contain no-repeat;
+	background: $color__dark-main url("./../images/heart_logo2.svg") center / contain no-repeat;
 	a {
 		position: absolute;
 		top: 0;
@@ -163,7 +164,7 @@
     outline: none;
     color: $color__text-white;
 	}
-	
+
 	.site-meta-left,
 	.site-meta-wide {
 		display: flex;
@@ -182,6 +183,8 @@
 	margin-left: auto;
 	text-transform: uppercase;
 	cursor: pointer;
+  position: absolute;
+  bottom: 0;
 }
 .site-customer {
 	padding: 25px 30px;
@@ -220,12 +223,12 @@
 
 .cart {
 	text-align: right;
-	
+
 	.button,
 	.quantity {
 		display: inline-block;
 	}
-	
+
 	.button {
 		padding: 25px;
     right: -35px;

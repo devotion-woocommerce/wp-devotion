@@ -22,9 +22,8 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'devotion' ); ?></a>
 
-	<header id="masthead" class="site-header" role="banner">
+	<header class="site-header" role="banner">
 		<div class="site-branding">
 			<?php if ( is_front_page() && is_home() ) : ?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
@@ -34,15 +33,16 @@
 			<p class="site-description"><?php bloginfo( 'description' ); ?></p>
 		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
+		<nav class="main-navigation" role="navigation">
 			<?php $walker = new Menu_With_Description; ?>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu', 'walker' => $walker ) ); ?>
 		</nav><!-- #site-navigation -->
+		
 		<div class="site-transaction">
 			<div class="site-customer">
 				<span class="customer-interaction"><?php _e( 'Shopping cart' ); ?></span>
 				<span class="customer-name">
-					<? if ( is_user_logged_in()) {
+					<?php if ( is_user_logged_in()) {
 						echo wp_get_current_user()->display_name;
 					} else {
 						echo _e( 'Guest user' );
@@ -56,6 +56,7 @@
 				</a>
 			</div>
 		</div>
+		
 		<nav class="mobile-header-nav">
 			<button class="mobile-nav-toggle lines-button" type="button" role="button" aria-label="Toggle Navigation">
 				<span class="lines"></span>
@@ -63,6 +64,7 @@
 		</nav>
 	</header><!-- #masthead -->
 
+	<div class="page-wrap">
 	<div class="site-meta">
 		<div class="site-meta-left">
 			<?php if(is_active_sidebar('site-meta-left')) { dynamic_sidebar('site-meta-left'); } ?>
