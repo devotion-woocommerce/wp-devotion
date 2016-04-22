@@ -1,147 +1,191 @@
 .sticky {
-	display: block;
+  display: block;
 }
 
 .hentry {
-	margin: 0 0 1.5em;
+  margin: 0 0 1.5em;
 }
 
 .byline,
-.updated:not(.published){
-	display: none;
+.updated:not(.published) {
+  display: none;
 }
 
 .single .byline,
 .group-blog .byline {
-	display: inline;
+  display: inline;
 }
 
 .page-content,
 .entry-content {
-	margin: 1.5em 0 0;
+  margin: 1.5em 0 0;
 }
 
 .page-links {
-	clear: both;
-	margin: 0 0 1.5em;
+  clear: both;
+
+  margin: 0 0 1.5em;
 }
 
 .page-wrap {
   width: 100%;
+
   background-color: #fff;
 }
 
 .products {
-	@include prefix(display, flex, $prefix-default);
-	@include prefix(flex-wrap, wrap, $prefix-default);
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	background: #fff;
-	text-align: center;
-	.product {
-		@include prefix(flex, 1 1 250px, $prefix-default);
-		min-width: 250px;
-		padding: 10px;
-		position: relative;
-		border-right: 1px solid #F5F5F5;
-		border-bottom: 1px solid #F5F5F5;
-		cursor: pointer;
-		a {
-			text-decoration: none;
-			color: $color__text-screen;
-			text-transform: uppercase;
-			@include rem-fallback(font-size, $font__size-small);
-		}
-		h3 {
-			@include rem-fallback(font-size, $font__size-small);
-		}
-		h3,
-		.button,
-		.price {
-			font-weight: $font__weight-light;
-		}
-		.wp-post-image {
-			width: 125px;
-		}
-		.price {
-			color: $color__text-attention;
-		}
-		.onsale {
-			position: absolute;
-			top: 0;
-			right: 0;
-		}
-	}
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  text-align: center;
+
+  background: #fff;
+
+  @include prefix(display, flex, $prefix-default);
+  @include prefix(flex-wrap, wrap, $prefix-default);
+  .product {
+    position: relative;
+
+    min-width: 250px;
+    padding: 10px;
+
+    cursor: pointer;
+
+    border-right: 1px solid #f5f5f5;
+    border-bottom: 1px solid #f5f5f5;
+
+    @include prefix(flex, 1 1 250px, $prefix-default);
+    a {
+      text-decoration: none;
+      text-transform: uppercase;
+
+      color: $color__text-screen;
+
+      @include rem-fallback(font-size, $font__size-small);
+    }
+    h3 {
+      @include rem-fallback(font-size, $font__size-small);
+    }
+    h3,
+    .button,
+    .price {
+      font-weight: $font__weight-light;
+    }
+    .wp-post-image {
+      width: 125px;
+    }
+    .price {
+      color: $color__text-attention;
+    }
+    .onsale {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
 }
 
 #main {
   width: 100%;
 }
 .single-product {
-  
   #main > .product {
     display: flex;
-    background: $color__dark_main;
-    min-height: 100vh;
-  }
-  
-	.product-full-wrap {
-    display: flex;
-    width: 100%
-	}
-	.images {
-		@include prefix(flex, 2, $prefix-default);
-		@include bg($color__text-white, 1);
-		padding: 20px;
-    max-height: 100vh;
-    box-sizing: border-box;
-    overflow-y: scroll;
-	}
-	.product-detail-wrap {
-		@include prefix(flex, 3, $prefix-default);
-		@include color($color__text-white, 1);
-		padding: 40px;
-	}
 
-	.product_title {
-		@include rem-fallback(font-size, $font__size-xl);
-		text-transform: uppercase;
-		margin: 0;
-	}
-	.product-main-info {
-		@include rem-fallback(font-size, $font__size-small);
-		font-family: $font__secondary;
-		font-weight: $font__weight-light;
-		color: $color__text-grey;
-	}
-	.woocommerce-main-image {
-		display: inline-block;
-		height: 315px;
-		width: 100%;
-		overflow: hidden;
-		text-align: center;
-		.wp-post-image {
-			width: auto;
-			max-height: 100%;
-		}
-	}
-	.thumbnails {
+    min-height: 100vh;
+
+    background: $color__dark_main;
+  }
+
+  .product-full-wrap {
+    display: flex;
+
+    width: 100%;
+  }
+
+  .woocommerce-main-image {
+    display: inline-block;
+    overflow: hidden;
+
+    width: 100%;
+    height: 315px;
+
     text-align: center;
-		a {
-			display: block;
+    .wp-post-image {
+      width: auto;
+      max-height: 100%;
+    }
+  }
+  .thumbnails {
+    text-align: center;
+    a {
+      display: block;
+
       margin: 60px 0;
-		}
-	}
+    }
+  }
 }
+
+.product__summary {
+  display: flex;
+  flex-direction: column;
+
+  color: $color__text-white;
+
+  flex: 3;
+  justify-content: space-between;
+}
+
+.product__title {
+  margin: 0;
+  padding: 30px;
+
+  text-transform: uppercase;
+
+  background: $color__dark-alt;
+
+  @include rem-fallback(font-size, $font__size-xl);
+}
+
+.product__content {
+  padding: 30px;
+
+  color: $color__text-grey;
+
+  font-family: $font__secondary;
+  font-weight: $font__weight-light;
+
+  flex-grow: 1;
+  @include rem-fallback(font-size, $font__size-small);
+}
+
+.product__images-wrap {
+  overflow-y: scroll;
+
+  box-sizing: border-box;
+  max-height: 100vh;
+
+  background: $color__text-white;
+
+  flex: 3;
+}
+
+.product__meta {
+  padding: 30px;
+
+  text-align: center;
+}
+
 .related {
-	> h2 {
-		display: none;
-	}
-	.products {
-		width: 100%;
-	}
-  
+  > h2 {
+    display: none;
+  }
+  .products {
+    width: 100%;
+  }
+
   @media screen and (max-width: 1280px) {
     display: none;
   }
@@ -152,50 +196,57 @@
 }
 
 .overlay-shadow {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	// box-shadow: 0 10px 230px 0 rgba(0, 0, 0, .2), 0 -10px 230px 0 rgba(0, 0, 0, .2);
-	z-index: 1;
-	transform: translate3d(0,0,0);
+  position: absolute;
+  // box-shadow: 0 10px 230px 0 rgba(0, 0, 0, .2), 0 -10px 230px 0 rgba(0, 0, 0, .2);
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  transform: translate3d(0,0,0);
 }
 
 .product-lightbox {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	.admin-bar & {
-		margin-top: 32px;
-	}
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  .admin-bar & {
+    margin-top: 32px;
+  }
 }
 .site {
-	display: flex;
-	position: relative;
-	transition: $site__transition-std;
-	right: 0;
+  position: relative;
+  right: 0;
+
+  display: flex;
+
+  transition: $site__transition-std;
 }
 .lightbox-open {
-	#page,
-	.site-footer-widgets {
-		display: none;
-	}
+  #page,
+  .site-footer-widgets {
+    display: none;
+  }
 }
 .site-mobile-nav-open {
-	#page {
-		right: 300px;
-		transition: $site__transition-std;
-	}
+  #page {
+    right: 300px;
+
+    transition: $site__transition-std;
+  }
 }
 .btn-close {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 30px;
-	height: 30px;
-	background: $color__branding-red;
-	cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 30px;
+  height: 30px;
+
+  cursor: pointer;
+
+  background: $color__branding-red;
 }

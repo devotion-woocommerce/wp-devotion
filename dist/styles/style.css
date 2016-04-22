@@ -344,6 +344,31 @@ textarea {
   padding-left: 3px;
   width: 100%; }
 
+.cart {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background: #202428;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+
+.cart__offers,
+.cart__quantity {
+  width: 50%;
+  padding: 30px;
+  text-align: center; }
+
+.cart__button {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  padding: 25px;
+  text-transform: uppercase;
+  color: #fff;
+  border: 0;
+  background: #ff0513; }
+
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
@@ -386,17 +411,12 @@ a {
     .main-navigation ul li:hover > ul,
     .main-navigation ul li.focus > ul {
       left: auto; }
-  .main-navigation .nav-menu {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex; }
-  .main-navigation li {
-    float: left;
+  .main-navigation .menu-item {
     position: relative;
-    margin: 0 0 0 25px;
     padding: 25px 20px;
-    text-transform: uppercase; }
-    .main-navigation li a {
+    text-transform: uppercase;
+    cursor: pointer; }
+    .main-navigation .menu-item a {
       color: #fae807; }
   .main-navigation .menu-description {
     display: block;
@@ -451,7 +471,7 @@ a {
   min-width: 200px;
   max-width: 200px;
   height: 100vh;
-  background: #24292e; }
+  background: #202428; }
 
 .site-branding {
   position: relative;
@@ -503,7 +523,8 @@ a {
 .site-customer {
   padding: 25px 30px;
   background: #fae807;
-  text-align: right; }
+  text-align: right;
+  width: 200px; }
   .site-customer .customer-interaction,
   .site-customer .customer-name {
     display: block; }
@@ -530,21 +551,6 @@ a {
   .site-cart .cart-count {
     font-size: 12px;
     font-size: 0.75rem; }
-
-.cart {
-  text-align: right; }
-  .cart .button,
-  .cart .quantity {
-    display: inline-block; }
-  .cart .button {
-    padding: 25px;
-    right: -35px;
-    position: relative;
-    background: #ff0513;
-    border: 0;
-    color: #fff;
-    text-transform: uppercase;
-    width: 150px; }
 
 ul.page-numbers {
   list-style: none;
@@ -799,32 +805,32 @@ ul.page-numbers {
   background-color: #fff; }
 
 .products {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  background: #fff;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  background: #fff;
-  text-align: center; }
+  flex-wrap: wrap; }
   .products .product {
+    position: relative;
+    min-width: 250px;
+    padding: 10px;
+    cursor: pointer;
+    border-right: 1px solid #f5f5f5;
+    border-bottom: 1px solid #f5f5f5;
     -webkit-flex: 1 1 250px;
     -moz-flex: 1 1 250px;
     -ms-flex: 1 1 250px;
-    flex: 1 1 250px;
-    min-width: 250px;
-    padding: 10px;
-    position: relative;
-    border-right: 1px solid #F5F5F5;
-    border-bottom: 1px solid #F5F5F5;
-    cursor: pointer; }
+    flex: 1 1 250px; }
     .products .product a {
       text-decoration: none;
-      color: #000;
       text-transform: uppercase;
+      color: #000;
       font-size: 12px;
       font-size: 0.75rem; }
     .products .product h3 {
@@ -850,8 +856,8 @@ ul.page-numbers {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  background: #191b1c;
-  min-height: 100vh; }
+  min-height: 100vh;
+  background: #191b1c; }
 
 .single-product .product-full-wrap {
   display: -webkit-flex;
@@ -859,43 +865,11 @@ ul.page-numbers {
   display: flex;
   width: 100%; }
 
-.single-product .images {
-  -webkit-flex: 2;
-  -moz-flex: 2;
-  -ms-flex: 2;
-  flex: 2;
-  background-color: white;
-  padding: 20px;
-  max-height: 100vh;
-  box-sizing: border-box;
-  overflow-y: scroll; }
-
-.single-product .product-detail-wrap {
-  -webkit-flex: 3;
-  -moz-flex: 3;
-  -ms-flex: 3;
-  flex: 3;
-  color: white;
-  padding: 40px; }
-
-.single-product .product_title {
-  font-size: 46px;
-  font-size: 2.875rem;
-  text-transform: uppercase;
-  margin: 0; }
-
-.single-product .product-main-info {
-  font-size: 12px;
-  font-size: 0.75rem;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 300;
-  color: #C7C7C7; }
-
 .single-product .woocommerce-main-image {
   display: inline-block;
-  height: 315px;
-  width: 100%;
   overflow: hidden;
+  width: 100%;
+  height: 315px;
   text-align: center; }
   .single-product .woocommerce-main-image .wp-post-image {
     width: auto;
@@ -906,6 +880,53 @@ ul.page-numbers {
   .single-product .thumbnails a {
     display: block;
     margin: 60px 0; }
+
+.product__summary {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #fff;
+  -webkit-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
+.product__title {
+  margin: 0;
+  padding: 30px;
+  text-transform: uppercase;
+  background: #202428;
+  font-size: 46px;
+  font-size: 2.875rem; }
+
+.product__content {
+  padding: 30px;
+  color: #C7C7C7;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  font-size: 12px;
+  font-size: 0.75rem; }
+
+.product__images-wrap {
+  overflow-y: scroll;
+  box-sizing: border-box;
+  max-height: 100vh;
+  background: #fff;
+  -webkit-flex: 3;
+      -ms-flex: 3;
+          flex: 3; }
+
+.product__meta {
+  padding: 30px;
+  text-align: center; }
 
 .related > h2 {
   display: none; }
@@ -924,11 +945,11 @@ ul.page-numbers {
 
 .overlay-shadow {
   position: absolute;
+  z-index: 1;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
+  left: 0;
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0); }
 
@@ -942,12 +963,12 @@ ul.page-numbers {
     margin-top: 32px; }
 
 .site {
+  position: relative;
+  right: 0;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: relative;
-  transition: 250ms;
-  right: 0; }
+  transition: 250ms; }
 
 .lightbox-open #page,
 .lightbox-open .site-footer-widgets {
@@ -963,8 +984,8 @@ ul.page-numbers {
   right: 0;
   width: 30px;
   height: 30px;
-  background: #ff0513;
-  cursor: pointer; }
+  cursor: pointer;
+  background: #ff0513; }
 
 /*--------------------------------------------------------------
 ## Asides

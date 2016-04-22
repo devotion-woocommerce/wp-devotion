@@ -44,15 +44,12 @@
 			left: auto;
 		}
 	}
-	.nav-menu {
-		@include prefix(display, flex, $prefix-default);
-	}
-	li {
-		float: left;
+
+	.menu-item {
 		position: relative;
-		margin: 0 0 0 25px;
 		padding: 25px 20px;
 		text-transform: uppercase;
+		cursor: pointer;
 		a {
 			color: $color__background-secondary;
 		}
@@ -190,6 +187,7 @@
 	padding: 25px 30px;
 	background: $color__background-secondary;
 	text-align: right;
+	width: 200px;
 	.customer-interaction,
 	.customer-name {
 		display: block;
@@ -218,26 +216,6 @@
 	}
 	.cart-count {
 		@include rem-fallback(font-size, $font__size-small);
-	}
-}
-
-.cart {
-	text-align: right;
-
-	.button,
-	.quantity {
-		display: inline-block;
-	}
-
-	.button {
-		padding: 25px;
-    right: -35px;
-    position: relative;
-    background: $color__branding-red;
-    border: 0;
-    color: $color__text-white;
-    text-transform: uppercase;
-    width: 150px;
 	}
 }
 

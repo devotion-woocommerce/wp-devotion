@@ -1,3 +1,33 @@
-@import "buttons";
+@import 'buttons';
 
-@import "fields";
+@import 'fields';
+
+.cart {
+  display: flex;
+
+  background: $color__dark-alt;
+
+  flex-wrap: wrap;
+}
+
+.cart__offers,
+.cart__quantity {
+  width: 50%;
+  padding: 30px;
+
+  text-align: center;
+}
+
+.cart__button {
+  position: relative;
+
+  width: 100%;
+  height: 100px;
+  padding: 25px;
+
+  text-transform: uppercase;
+
+  color: $color__text-white;
+  border: 0;
+  background: $color__branding-red;
+}
