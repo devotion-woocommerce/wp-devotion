@@ -9364,8 +9364,8 @@ return jQuery;
     }
   }
 
-  $(window).scroll(fixed_onscroll);
-  fixed_onscroll();
+  // $(window).scroll(fixed_onscroll);
+  // fixed_onscroll();
 
   // Toggle mobile navigation
   $('body').on('touchend click', '.mobile-nav-toggle', function(event) {
@@ -9379,6 +9379,16 @@ return jQuery;
       $('body').removeClass('site-mobile-nav-open');
       $('.mobile-nav-toggle').removeClass('close');
     }
+  });
+
+  $('body').on('click', '.products__related_info', function() {
+    console.log(this);
+    $(this).siblings('.products__related').toggleClass('products__related_active');
+  });
+
+  $('body').on('click', '.product__details-toggle', function() {
+    console.log(this);
+    $(this).siblings('.product__details').toggleClass('product__details_active');
   });
 
 } )( jQuery );

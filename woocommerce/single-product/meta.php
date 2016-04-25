@@ -26,6 +26,9 @@ $cat_count = sizeof( get_the_terms( $post->ID, 'product_cat' ) );
 $tag_count = sizeof( get_the_terms( $post->ID, 'product_tag' ) );
 
 ?>
+
+<div class="product__details-toggle"><?php echo apply_filters( 'woocommerce_product_additional_information_heading', __( 'Additional Information', 'woocommerce' ) ); ?></div>
+
 <div class="product__meta">
 
 	<?php do_action( 'woocommerce_product_meta_start' ); ?>

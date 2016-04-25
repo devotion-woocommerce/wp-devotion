@@ -130,7 +130,6 @@
 .site-header {
 	min-width: 200px;
   max-width: 200px;
-  height: 100vh;
 	background: $color__dark-alt;
 }
 
@@ -182,6 +181,7 @@
 	cursor: pointer;
   position: absolute;
   bottom: 0;
+	z-index: 1;
 }
 .site-customer {
 	padding: 25px 30px;
