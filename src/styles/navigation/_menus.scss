@@ -86,9 +86,9 @@
 	.current-menu-item > a,
 	.current_page_ancestor > a {
 	}
-	@include query($site-screen-sm) {
-		display: none;
-	}
+	// @include query($site-screen-sm) {
+	// 	display: none;
+	// }
 }
 
 /* Small menu. */
@@ -128,9 +128,24 @@
 }
 
 .site-header {
-	min-width: 200px;
-  max-width: 200px;
+	width: 200px;
 	background: $color__dark-alt;
+	box-shadow: 0 0 10px 0 $color__dark-main;
+
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	z-index: 1;
+	transform: translate3d(0,0,0);
+	transition: transform 500ms;
+
+	.site-mobile-nav-open & {
+		transform: translate3d(0,0,0);
+	}
+
+	@media screen and (max-width: 1023px) {
+		transform: translate3d(-100%,0,0);
+	}
 }
 
 .site-branding {
@@ -205,6 +220,7 @@
 	text-align: right;
 	.cart-contents {
 		text-decoration: none;
+		white-space: nowrap;
 	}
 	.cart-total,
 	.cart-count {
