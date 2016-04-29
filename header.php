@@ -34,10 +34,14 @@
 		</div><!-- .site-branding -->
 
 		<nav class="main-navigation" role="navigation">
-			<?php $walker = new Menu_With_Description; ?>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu', 'walker' => $walker ) ); ?>
+			<?php
+				/**
+				 * Implement the Custom Header feature.
+				 */
+				require get_template_directory() . '/inc/main-navigation.php';
+			?>
 		</nav><!-- #site-navigation -->
-		
+
 		<div class="site-transaction">
 			<div class="site-customer">
 				<span class="customer-interaction"><?php _e( 'Shopping cart' ); ?></span>
@@ -56,7 +60,7 @@
 				</a>
 			</div>
 		</div>
-		
+
 		<nav class="mobile-header-nav">
 			<button class="mobile-nav-toggle lines-button" type="button" role="button" aria-label="Toggle Navigation">
 				<span class="lines"></span>
