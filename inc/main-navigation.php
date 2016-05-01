@@ -1,6 +1,7 @@
 <?php
 wp_nav_menu( array(
     'menu'   => 'Main navigationr',
+    'menu_class'   => 'menu',
     'walker' => new Walker_Main_Navigation()
 ) );
 
@@ -52,9 +53,9 @@ class Walker_Main_Navigation extends Walker_Nav_Menu {
 
         // Depth-dependent classes.
         $depth_classes = array(
-            ( $depth == 0 ? 'main-menu-item' : 'sub-menu-item' ),
-            ( $depth >=2 ? 'sub-sub-menu-item' : '' ),
-            ( $depth % 2 ? 'menu-item-odd' : 'menu-item-even' ),
+            ( $depth == 0 ? 'menu__item' : 'sub-menu__item' ),
+            ( $depth >=2 ? 'sub-sub-menu__item' : '' ),
+            ( $depth % 2 ? 'menu__item-odd' : 'menu__item-even' ),
             'menu-item-depth-' . $depth
         );
         $depth_class_names = esc_attr( implode( ' ', $depth_classes ) );
@@ -64,14 +65,14 @@ class Walker_Main_Navigation extends Walker_Nav_Menu {
         $class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
 
         // Build HTML.
-        $output .= $indent . '<li id="nav-menu-item-'. $item->ID . '" class="' . $depth_class_names . ' ' . $class_names . '">';
+        $output .= $indent . '<li class="' . $depth_class_names . ' ' . $class_names . '">';
 
         // Link attributes.
         $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
         $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
         $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
         $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
-        $attributes .= ' class="menu-link ' . ( $depth > 0 ? 'sub-menu-link' : 'main-menu-link' ) . '"';
+        $attributes .= ' class="' . ( $depth > 0 ? 'sub-menu__link' : 'menu__link' ) . '"';
 
         // Build HTML output and pass through the proper filter.
         $item_output = sprintf( '%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
