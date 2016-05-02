@@ -287,12 +287,13 @@ function action_woocommerce_after_shop_loop_item_title( $woocommerce_after_shop_
 add_action( 'woocommerce_after_shop_loop_item', 'action_woocommerce_after_shop_loop_item_title', 10, 2 );
 
 /**
- * Enqueue Google fonts
+ * Enqueue webfonts, icon fonts
  */
-function wpb_add_google_fonts() {
-	wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Oswald:400,300|Playfair+Display', false );
+function wp_add_webfonts() {
+	wp_enqueue_style( 'wp_google_typefaces', 'https://fonts.googleapis.com/css?family=Oswald:400,300|Playfair+Display|Oranienbaum', false );
+	wp_enqueue_style( 'wp_fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css', false );
 }
-add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );
+add_action( 'wp_enqueue_scripts', 'wp_add_webfonts' );
 
 /**
  * Remove Add to Cart buttons from product loop

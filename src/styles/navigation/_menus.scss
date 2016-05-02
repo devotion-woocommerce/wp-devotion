@@ -14,10 +14,14 @@
 
 
   &__link {
-    display: block;
-    overflow: hidden;
+    position: relative;
 
-    padding: 25px 20px;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+
+    height: 80px;
+    padding: 20px 10px 20px 35px;
 
     cursor: pointer;
     white-space: nowrap;
@@ -27,6 +31,25 @@
 
     color: $color__text-screen;
     background: $color__background-secondary;
+
+    justify-content: center;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+
+    transform: translateY(-50%);
+  }
+
+  &__desc {
+    display: block;
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    font-size: 11px;
   }
 }
 
@@ -39,10 +62,14 @@
   background: #191b1c;
 
   &__link {
-    display: block;
-    overflow: hidden;
+    position: relative;
 
-    padding: 15px 20px;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+
+    height: 60px;
+    padding: 10px 10px 10px 35px;
 
     cursor: pointer;
     white-space: nowrap;
@@ -52,7 +79,9 @@
 
     color: $color__text-white;
 
-    font-size: 12px;
+    font-size: 13px;
+
+    justify-content: center;
   }
 }
 

@@ -65,7 +65,7 @@ class Walker_Main_Navigation extends Walker_Nav_Menu {
         $class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
 
         // Build HTML.
-        $output .= $indent . '<li class="' . $depth_class_names . ' ' . $class_names . '">';
+        $output .= $indent . '<li class="' . $depth_class_names . '">';
 
         // Link attributes.
         $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
@@ -74,13 +74,17 @@ class Walker_Main_Navigation extends Walker_Nav_Menu {
         $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
         $attributes .= ' class="' . ( $depth > 0 ? 'sub-menu__link' : 'menu__link' ) . '"';
 
+        // Link description
+        $description  = ! empty( $class_names ) ? '<i class="menu__icon ' . $class_names . '"></i>' : '';
+        $description .= '<span class="menu__desc">' . esc_attr( $item->description ) . '</span>';
+
         // Build HTML output and pass through the proper filter.
         $item_output = sprintf( '%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
             $args->before,
             $attributes,
             $args->link_before,
             apply_filters( 'the_title', $item->title, $item->ID ),
-            $args->link_after,
+            $description,
             $args->after
         );
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );

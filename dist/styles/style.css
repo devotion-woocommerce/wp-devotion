@@ -375,13 +375,6 @@ textarea {
 /*--------------------------------------------------------------
 ## Links
 --------------------------------------------------------------*/
-a {
-  color: royalblue; }
-  a:visited {
-    color: inherit; }
-  a:hover, a:focus, a:active {
-    color: inherit; }
-
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
@@ -394,16 +387,37 @@ a {
     padding: 0;
     list-style: none; }
   .menu__link {
-    display: block;
+    position: relative;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     overflow: hidden;
-    padding: 25px 20px;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 80px;
+    padding: 20px 10px 20px 35px;
     cursor: pointer;
     white-space: nowrap;
     text-decoration: none;
     text-transform: uppercase;
     text-overflow: ellipsis;
     color: #000;
-    background: #fae807; }
+    background: #fae807;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+  .menu__icon {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%); }
+  .menu__desc {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 11px; }
 
 .sub-menu {
   margin: 0;
@@ -411,16 +425,26 @@ a {
   list-style: none;
   background: #191b1c; }
   .sub-menu__link {
-    display: block;
+    position: relative;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     overflow: hidden;
-    padding: 15px 20px;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 60px;
+    padding: 10px 10px 10px 35px;
     cursor: pointer;
     white-space: nowrap;
     text-decoration: none;
     text-transform: uppercase;
     text-overflow: ellipsis;
     color: #fff;
-    font-size: 12px; }
+    font-size: 13px;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
 
 /* Small menu. */
 .menu-toggle,
