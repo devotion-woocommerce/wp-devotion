@@ -307,42 +307,13 @@ table {
   height: 50px;
   width: 50px;
   cursor: pointer; }
-  .toggle-search .btn-search {
-    width: 50px;
-    height: 50px;
-    padding: 15px;
-    fill: rgba(255, 255, 255, 0.5);
-    transition: 250ms fill; }
-    .toggle-search .btn-search:hover {
-      fill: white; }
 
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"],
-textarea {
-  color: #666;
-  border: 1px solid #ccc;
-  border-radius: 3px; }
-  input[type="text"]:focus,
-  input[type="email"]:focus,
-  input[type="url"]:focus,
-  input[type="password"]:focus,
-  input[type="search"]:focus,
-  textarea:focus {
-    color: #111; }
-
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"] {
-  padding: 3px; }
-
-textarea {
-  padding-left: 3px;
-  width: 100%; }
+.btn__search.fa {
+  font-size: 22px;
+  color: #202428;
+  line-height: 50px;
+  width: 50px;
+  text-align: center; }
 
 .cart {
   display: -webkit-flex;
@@ -511,27 +482,10 @@ textarea {
     bottom: 0;
     left: 0; }
 
-.site-meta input {
-  margin: 0;
-  padding: 0;
-  color: #fff;
-  border: 0;
-  outline: none;
-  background-color: inherit;
-  -webkit-appearance: none; }
-
-.site-meta .site-meta-left,
-.site-meta .site-meta-wide {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center; }
-
-.site-meta .site-meta-left {
-  width: 200px;
-  color: #fff; }
+.site-meta {
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 5px #969696; }
 
 .site-transaction {
   position: absolute;
@@ -782,21 +736,30 @@ ul.page-numbers {
 
 .widget_product_search {
   position: relative; }
-  .widget_product_search .searchform {
-    width: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    transition: 250ms background;
-    top: 0;
-    height: 50px;
-    line-height: 50px;
-    position: absolute;
-    margin-left: 50px;
-    background: #fff;
-    font-weight: 300; }
-    .widget_product_search .searchform.open {
-      width: 220px;
-      padding: 0 15px; }
+
+/*--------------------------------------------------------------
+# Search
+--------------------------------------------------------------*/
+.searchform {
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 50px;
+  margin-left: 50px;
+  transition: 250ms background;
+  white-space: nowrap;
+  font-weight: 300;
+  line-height: 50px; }
+  .searchform__input {
+    width: calc(100% - 140px);
+    margin: 0;
+    padding: 0;
+    color: #191b1c;
+    border: 0;
+    outline: none;
+    background-color: inherit;
+    -webkit-appearance: none; }
 
 /*--------------------------------------------------------------
 # Content

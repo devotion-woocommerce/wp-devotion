@@ -66,16 +66,28 @@
 				<span class="lines"></span>
 			</button>
 		</nav>
-	</header><!-- #masthead -->
+	</header>
 
 	<div class="page-wrap">
-	<div class="site-meta">
-		<div class="site-meta-left">
-			<?php if(is_active_sidebar('site-meta-left')) { dynamic_sidebar('site-meta-left'); } ?>
-		</div>
-		<div class="site-meta-wide">
-			<?php if(is_active_sidebar('site-meta-wide')) { dynamic_sidebar('site-meta-wide'); } ?>
-		</div>
-	</div>
 
-	<div id="content" class="site-content">
+		<div class="site-meta">
+
+			<div class="site-meta__search">
+				<div class="toggle-search">
+					<i class="btn__search fa fa-search" aria-hidden="true"></i>
+					<!-- <div>
+						<?php echo __( 'Search', 'woocommerce' ) ?>
+					</div> -->
+				</div>
+
+				<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url( '/'  ) ) ?>">
+					<label class="screen-reader-text" for="s"><?php echo __( 'Search for:', 'woocommerce' ) ?></label>
+					<input class="searchform__input" type="text" value="<?php echo get_search_query() ?>" name="s" id="s" placeholder="<?php echo __( 'Enter your search', 'woocommerce' ) ?>" />
+					<input type="submit" id="searchsubmit" value="<?php echo __( 'Search', 'woocommerce' ) ?>" />
+					<input type="hidden" name="post_type" value="product" />
+				</form>
+			</div>
+
+		</div>
+
+		<div id="content" class="site-content">

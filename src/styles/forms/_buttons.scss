@@ -9,16 +9,12 @@ input[type="submit"] {
   height: 50px;
   width: 50px;
   cursor: pointer;
+}
 
-  .btn-search {
+.btn__search.fa {
+  font-size: 22px;
+    color: #202428;
+    line-height: 50px;
     width: 50px;
-    height: 50px;
-    padding: 15px;
-    fill: rgba($color__text-white,.5);
-    transition: $site__transition-std fill;
-
-    &:hover {
-      fill: rgba($color__text-white,1);;
-    }
-  }
+    text-align: center;
 }

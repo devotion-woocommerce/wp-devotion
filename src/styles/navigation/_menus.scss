@@ -167,30 +167,10 @@
 }
 
 .site-meta {
-  input {
-    margin: 0;
-    padding: 0;
+  position: relative;
+  z-index: 1;
 
-    color: $color__text-white;
-    border: 0;
-    outline: none;
-    background-color: inherit;
-
-    -webkit-appearance: none;
-  }
-
-  .site-meta-left,
-  .site-meta-wide {
-    display: flex;
-
-    align-items: center;
-  }
-
-  .site-meta-left {
-    width: 200px;
-
-    color: $color__text-white;
-  }
+  box-shadow: 0 0 5px #969696;
 }
 
 .site-transaction {

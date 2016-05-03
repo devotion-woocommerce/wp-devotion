@@ -1,0 +1,29 @@
+.searchform {
+  position: absolute;
+  top: 0;
+
+  overflow: hidden;
+
+  width: 100%;
+  height: 50px;
+  margin-left: 50px;
+
+  transition: $site__transition-std background;
+  white-space: nowrap;
+
+  font-weight: $font__weight-light;
+  line-height: 50px;
+
+  &__input {
+    width: calc(100% - 140px);
+    margin: 0;
+    padding: 0;
+
+    color: $color__dark-main;
+    border: 0;
+    outline: none;
+    background-color: inherit;
+
+    -webkit-appearance: none;
+  }
+}

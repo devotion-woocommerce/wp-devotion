@@ -14,22 +14,5 @@
 .widget_product_search {
 	position: relative;
 
-	.searchform {
-		width: 0;
-		overflow: hidden;
-		white-space: nowrap;
-		transition: $site__transition-std background;
-		top: 0;
-    height: 50px;
-    line-height: 50px;
-		position: absolute;
-		margin-left: 50px;
-		background: $color__text-white;
-		font-weight: $font__weight-light;
 
-		&.open {
-			width: 220px;
-			padding: 0 15px;
-		}
-	}
 }
