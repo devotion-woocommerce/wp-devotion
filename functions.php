@@ -463,7 +463,15 @@ add_action( 'woocommerce_before_single_product_summary', 'action_woocommerce_sin
 
 function action_woocommerce_single_product_images_wrap_start() {
   echo '<div class="product__images-wrap">';
+
+		/**
+		 * Load search form for single product view
+		 */
+
+		get_template_part( 'inc/search-form' );
+
 }
+
 function action_woocommerce_single_product_images_wrap_end() {
   echo '</div>';
 }

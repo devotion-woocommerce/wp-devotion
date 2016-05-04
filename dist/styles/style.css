@@ -964,7 +964,7 @@ ul.page-numbers {
 
 .product__images {
   position: absolute;
-  top: 0;
+  top: 50px;
   right: 0;
   bottom: 0;
   left: 0;
@@ -982,8 +982,8 @@ ul.page-numbers {
           transform: translate3d(0, 100%, 0);
   background: #fff; }
   .products__related.products__related_active {
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0); }
+    -webkit-transform: translate3d(0, 50px, 0);
+            transform: translate3d(0, 50px, 0); }
 
 .products__related_info {
   position: absolute;
