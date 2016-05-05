@@ -54,8 +54,8 @@
 
   background: #fff;
 
-  @include prefix(display, flex, $prefix-default);
   @include prefix(flex-wrap, wrap, $prefix-default);
+  @include prefix(display, flex, $prefix-default);
   .product {
     position: relative;
 
@@ -200,15 +200,26 @@
 
   background: $color__dark-main;
 
+  &_toggle {
+    padding: 0 30px;
+
+    cursor: pointer;
+    text-align: center;
+  }
+
+  &_close {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    padding: 30px;
+
+    cursor: pointer;
+  }
+
   &.product__details_active {
     transform: translate3d(0,0,0);
   }
-}
-
-.product__details-toggle {
-  padding: 0 30px;
-
-  text-align: center;
 }
 
 .product__images-wrap {

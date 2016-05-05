@@ -454,6 +454,9 @@ function woocommerce_product_additional_info_block() {
 	global $product;
 
   echo '<div class="product__details">';
+
+	echo '<i class="product__details_close fa fa-times" aria-hidden="true"></i>';
+
 	echo $product->list_attributes();
 	echo '</div>';
 }

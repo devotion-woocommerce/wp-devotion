@@ -27,7 +27,15 @@ $tag_count = sizeof( get_the_terms( $post->ID, 'product_tag' ) );
 
 ?>
 
-<div class="product__details-toggle"><?php echo apply_filters( 'woocommerce_product_additional_information_heading', __( 'Additional Information', 'woocommerce' ) ); ?></div>
+
+<?php if ( ! empty( $product->get_attributes() ) ) : ?>
+
+	<div class="product__details_toggle">
+		<?php echo apply_filters( 'woocommerce_product_additional_information_heading', __( 'Additional Information', 'woocommerce' ) ); ?>
+		<i class="fa fa-plus" aria-hidden="true"></i>
+	</div>
+
+<?php endif; ?>
 
 <div class="product__meta">
 

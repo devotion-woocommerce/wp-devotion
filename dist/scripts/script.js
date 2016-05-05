@@ -9382,13 +9382,15 @@ return jQuery;
   });
 
   $('body').on('click', '.products__related_info', function() {
-    console.log(this);
     $(this).siblings('.products__related').toggleClass('products__related_active');
   });
 
-  $('body').on('click', '.product__details-toggle', function() {
-    console.log(this);
+  $('body').on('click', '.product__details_toggle', function() {
     $(this).siblings('.product__details').toggleClass('product__details_active');
+  });
+
+  $('body').on('click', '.product__details_close', function() {
+    $(this).closest('.product__details').toggleClass('product__details_active');
   });
 
 } )( jQuery );
