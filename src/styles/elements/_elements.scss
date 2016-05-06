@@ -9,7 +9,7 @@ html {
 }
 
 body {
-	background: $color__background-screen;
+	background: $color__dark-alt;
 	overflow-x: hidden;
 }
 
@@ -23,7 +23,7 @@ blockquote, q {
 }
 
 hr {
-	background-color: $color__background-hr;
+	background-color: $color__grey;
 	border: 0;
 	height: 1px;
 	margin-bottom: 1.5em;

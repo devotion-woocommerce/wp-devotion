@@ -15,12 +15,11 @@ address {
 }
 
 abbr, acronym {
-	border-bottom: 1px dotted $color__border-abbr;
+	border-bottom: 1px dotted #ccc;
 	cursor: help;
 }
 
 mark, ins {
-	background: $color__background-ins;
 	text-decoration: none;
 }
 

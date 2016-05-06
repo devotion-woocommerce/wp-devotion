@@ -29,8 +29,8 @@
     text-transform: uppercase;
     text-overflow: ellipsis;
 
-    color: $color__text-screen;
-    background: $color__background-secondary;
+    color: $color__black;
+    background: $color__yellow;
 
     justify-content: center;
   }
@@ -77,7 +77,7 @@
     text-transform: uppercase;
     text-overflow: ellipsis;
 
-    color: $color__text-white;
+    color: $color__white;
 
     font-size: 13px;
 
@@ -192,7 +192,7 @@
 
   text-align: right;
 
-  background: $color__background-secondary;
+  background: $color__yellow;
   .customer-interaction,
   .customer-name {
     display: block;
@@ -209,7 +209,7 @@
 
   text-align: right;
 
-  background: $color__branding-red;
+  background: $color__red;
   .cart-contents {
     white-space: nowrap;
     text-decoration: none;
@@ -218,7 +218,7 @@
   .cart-count {
     display: block;
 
-    color: $color__text-white;
+    color: $color__white;
   }
   .cart-total {
     @include rem-fallback(font-size, $font__size-base);
@@ -237,7 +237,7 @@ ul.page-numbers {
   text-align: right;
   text-decoration: none;
 
-  color: $color__text-white;
+  color: $color__white;
   li {
     display: inline-block;
   }
@@ -249,11 +249,11 @@ ul.page-numbers {
 
     text-decoration: none;
 
-    color: $color__text-white;
+    color: $color__white;
     &.current,
     &:hover {
-      color: $color__text-main;
-      background: $color__background-secondary;
+      color: $color__grey-dark;
+      background: $color__yellow;
     }
   }
 }
@@ -274,7 +274,7 @@ ul.page-numbers {
   margin: 0;
   padding: 100px 30px;
 
-  background: $color__background-pre;
+  background: $color__grey-light;
   .site-mobile-nav-open & {
     z-index: 1;
   }
@@ -301,7 +301,7 @@ ul.page-numbers {
     a {
       text-decoration: none;
 
-      color: $color__text-main;
+      color: $color__grey-dark;
     }
   }
 }

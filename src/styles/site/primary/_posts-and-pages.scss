@@ -72,7 +72,7 @@
       text-decoration: none;
       text-transform: uppercase;
 
-      color: $color__text-screen;
+      color: $color__black;
 
       @include rem-fallback(font-size, $font__size-small);
     }
@@ -88,7 +88,7 @@
       width: 125px;
     }
     .price {
-      color: $color__text-attention;
+      color: $color__red;
     }
     .onsale {
       position: absolute;
@@ -145,7 +145,7 @@
   display: flex;
   flex-direction: column;
 
-  color: $color__text-white;
+  color: $color__white;
   box-shadow: 0 0 10px 0 $color__dark-main;
 
   flex: 3;
@@ -175,7 +175,7 @@
 .product__content {
   padding: 30px;
 
-  color: $color__text-grey;
+  color: $color__grey;
 
   font-family: $font__secondary;
   font-weight: $font__weight-light;
@@ -229,7 +229,7 @@
 
   box-sizing: border-box;
 
-  background: $color__text-white;
+  background: $color__white;
 
   flex: 3;
 }
@@ -262,7 +262,7 @@
   transition: 500ms;
   transform: translate3d(0,100%,0);
 
-  background: $color__text-white;
+  background: $color__white;
 
 
   &.products__related_active {
@@ -341,5 +341,5 @@
 
   cursor: pointer;
 
-  background: $color__branding-red;
+  background: $color__red;
 }

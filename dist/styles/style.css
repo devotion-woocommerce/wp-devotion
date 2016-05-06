@@ -233,11 +233,10 @@ address {
   margin: 0 0 1.5em; }
 
 abbr, acronym {
-  border-bottom: 1px dotted #666;
+  border-bottom: 1px dotted #ccc;
   cursor: help; }
 
 mark, ins {
-  background: #fff9c0;
   text-decoration: none; }
 
 big {
@@ -256,7 +255,7 @@ html {
   box-sizing: inherit; }
 
 body {
-  background: #373737;
+  background: #202428;
   overflow-x: hidden; }
 
 blockquote, q {
@@ -659,7 +658,7 @@ ul.page-numbers {
   width: 1px;
   overflow: hidden; }
   .screen-reader-text:focus {
-    background-color: #373737;
+    background-color: #202428;
     border-radius: 3px;
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
     clip: auto !important;
@@ -843,7 +842,7 @@ ul.page-numbers {
     .products .product .wp-post-image {
       width: 125px; }
     .products .product .price {
-      color: #ff0000; }
+      color: #ff0513; }
     .products .product .onsale {
       position: absolute;
       top: 0;
@@ -920,7 +919,7 @@ ul.page-numbers {
 
 .product__content {
   padding: 30px;
-  color: #C7C7C7;
+  color: #ccc;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
   -webkit-flex-grow: 1;

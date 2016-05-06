@@ -18,7 +18,7 @@
 		padding: 10px 10px 10px 15px;
 		a {
 			display: block;
-			color: $color__text-main;
+			color: $color__grey-dark;
 			text-transform: uppercase;
 			text-decoration: none;
 		}
@@ -52,7 +52,7 @@
 			content: '';
 			border-style: solid;
 			border-width: 5px 0 5px 8px;
-			border-color: transparent transparent transparent $color__text-main;
+			border-color: transparent transparent transparent $color__grey-dark;
 		}
 		&.category-sub-open {
 			&:after {
@@ -79,5 +79,5 @@
 #secondary {
 	width: 200px;
 	min-width: 200px;
-	background: $color__background-secondary;
+	background: $color__yellow;
 }
