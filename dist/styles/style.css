@@ -303,16 +303,15 @@ table {
 # Forms
 --------------------------------------------------------------*/
 .toggle-search {
-  height: 50px;
   width: 50px;
+  height: 50px;
   cursor: pointer; }
 
 .btn__search.fa {
-  font-size: 22px;
-  color: #202428;
-  line-height: 50px;
   width: 50px;
-  text-align: center; }
+  text-align: center;
+  color: #202428;
+  line-height: 50px; }
 
 .cart {
   display: -webkit-flex;
@@ -758,7 +757,14 @@ ul.page-numbers {
     border: 0;
     outline: none;
     background-color: inherit;
-    -webkit-appearance: none; }
+    -webkit-appearance: none;
+    line-height: 50px; }
+  .searchform__submit {
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: none;
+    line-height: 50px; }
 
 /*--------------------------------------------------------------
 # Content

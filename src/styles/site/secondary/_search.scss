@@ -5,14 +5,14 @@
   overflow: hidden;
 
   width: 100%;
-  height: 50px;
-  margin-left: 50px;
+  height: $search__height;
+  margin-left: $search__height;
 
   transition: $site__transition-std background;
   white-space: nowrap;
 
   font-weight: $font__weight-light;
-  line-height: 50px;
+  line-height: $search__height;
 
   &__input {
     width: calc(100% - 140px);
@@ -25,5 +25,16 @@
     background-color: inherit;
 
     -webkit-appearance: none;
+    line-height: $search__height;
+  }
+
+  &__submit {
+    padding: 0;
+
+    border: 0;
+    outline: none;
+    background: none;
+
+    line-height: $search__height;
   }
 }

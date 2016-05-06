@@ -1,20 +1,18 @@
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
 
-}
 
 .toggle-search {
-  height: 50px;
   width: 50px;
+  height: 50px;
+
   cursor: pointer;
 }
 
 .btn__search.fa {
-  font-size: 22px;
-    color: #202428;
-    line-height: 50px;
-    width: 50px;
-    text-align: center;
+  width: 50px;
+
+  text-align: center;
+
+  color: $color__dark-alt;
+
+  line-height: 50px;
 }
