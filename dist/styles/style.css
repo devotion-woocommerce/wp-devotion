@@ -344,6 +344,10 @@ table {
 /*--------------------------------------------------------------
 ## Links
 --------------------------------------------------------------*/
+a {
+  text-decoration: none;
+  color: inherit; }
+
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
@@ -1128,6 +1132,52 @@ ul.page-numbers {
 
 .bypostauthor {
   display: block; }
+
+/*--------------------------------------------------------------
+## Notices
+--------------------------------------------------------------*/
+.notice {
+  position: relative;
+  padding: 0 50px;
+  text-align: center; }
+  .notice__title {
+    padding: 10px 30px;
+    font-size: 12px; }
+  .notice__success {
+    background-color: #00d600; }
+  .notice__icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 50px; }
+    .notice__icon:before {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 50px;
+      -webkit-transform: translateY(-50%);
+              transform: translateY(-50%); }
+  .notice_remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50px;
+    cursor: pointer;
+    transition: background 250ms; }
+    .notice_remove:before {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 50px;
+      -webkit-transform: translateY(-50%);
+              transform: translateY(-50%); }
+    .notice_remove:hover {
+      background: #ff0513; }
+
+.wc-forward {
+  display: none; }
 
 /*--------------------------------------------------------------
 # Infinite scroll

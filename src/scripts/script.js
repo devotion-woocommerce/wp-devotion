@@ -100,4 +100,8 @@
     $(this).closest('.product__details').toggleClass('product__details_active');
   });
 
+  $('body').on('click', '.notice_remove', function() {
+    $(this).closest('.notice').remove();
+  });
+
 } )( jQuery );

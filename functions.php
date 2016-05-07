@@ -304,6 +304,18 @@ function remove_loop_button() {
 add_action('init','remove_loop_button');
 
 /**
+ * Remove Add to Cart buttons from product loop
+ */
+function devotion_add_to_cart_message() {
+    global $woocommerce;
+
+        $return_to  = get_permalink(woocommerce_get_page_id('shop'));
+        $message    = sprintf('<a href="%s" class="button wc-forwards"><i class="notice__icon fa fa-shopping-cart" aria-hidden="true"></i>%s</a>', $return_to, __('Product successfully added to your cart.', 'woocommerce') );
+    return $message;
+}
+add_filter( 'wc_add_to_cart_message', 'devotion_add_to_cart_message' );
+
+/**
  * Class to extend walker menu
  */
 class Menu_With_Description extends Walker_Nav_Menu {
@@ -432,11 +444,14 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 
+remove_action( 'woocommerce_before_single_product', 'wc_print_notices' );
+
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 
 add_action( 'woocommerce_before_single_product_summary', 'woocommerce_output_related_products', 25 );
 
+add_action( 'woocommerce_single_product_summary', 'wc_print_notices', 4 );
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
 add_action( 'woocommerce_single_product_summary', 'woocommerce_product_main_info_block', 10 );
 add_action( 'woocommerce_single_product_summary', 'woocommerce_product_additional_info_block', 11 );
