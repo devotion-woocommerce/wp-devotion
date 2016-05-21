@@ -2,32 +2,38 @@
 
 @import 'fields';
 
-.cart {
+.cart-form {
   display: flex;
 
   background: $color__dark-alt;
 
   flex-wrap: wrap;
-}
 
-.cart__offers,
-.cart__quantity {
-  width: 50%;
-  padding: 30px;
+  &__offers {
+    width: 50%;
+    padding: 30px;
 
-  text-align: center;
-}
+    text-align: center;
+  }
 
-.cart__button {
-  position: relative;
+  &__quantity {
+    width: 50%;
+    padding: 30px;
 
-  width: 100%;
-  height: 100px;
-  padding: 25px;
+    text-align: center;
+  }
 
-  text-transform: uppercase;
+  &__button {
+    position: relative;
 
-  color: $color__white;
-  border: 0;
-  background: $color__red;
+    width: 100%;
+    height: 100px;
+    padding: 25px;
+
+    text-transform: uppercase;
+
+    color: $color__white;
+    border: 0;
+    background: $color__red;
+  }
 }

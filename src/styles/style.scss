@@ -1,92 +1,68 @@
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-# Normalize
-# Typography
-# Elements
-# Forms
-# Navigation
-	## Links
-	## Menus
-# Accessibility
-# Alignments
-# Clearings
-# Widgets
-# Content
-    ## Posts and pages
-	## Asides
-	## Comments
-# Infinite scroll
-# Media
-	## Captions
-	## Galleries
---------------------------------------------------------------*/
+// >>> TABLE OF CONTENTS:
+// ----------------------------------------------------------------
+// # Normalize
+// # Typography
+// # Elements
+// # Forms
+// # Navigation
+// 	## Links
+// 	## Menus
+// # Accessibility
+// # Alignments
+// # Clearings
+// # Widgets
+// # Content
+//     ## Posts and pages
+// 	## Asides
+// 	## Comments
+// # Infinite scroll
+// # Media
+// 	## Captions
+// 	## Galleries
+
 @import '../../bower_components/bourbon/app/assets/stylesheets/bourbon';
 
-@import "variables-site/variables-site";
-@import "mixins/mixins-master";
+@import 'variables-site/variables-site';
+@import 'mixins/mixins-master';
 
-/*--------------------------------------------------------------
-# Normalize
---------------------------------------------------------------*/
-@import "normalize";
+// # Normalize
+@import 'normalize';
 
-/*--------------------------------------------------------------
-# Typography
---------------------------------------------------------------*/
-@import "typography/typography";
+// # Typography
+@import 'typography/typography';
 
-/*--------------------------------------------------------------
-# Elements
---------------------------------------------------------------*/
-@import "elements/elements";
+// # Elements
+@import 'elements/elements';
 
-/*--------------------------------------------------------------
-# Forms
---------------------------------------------------------------*/
-@import "forms/forms";
+// # Layout
+@import 'layout/layout';
 
-/*--------------------------------------------------------------
-# Navigation
---------------------------------------------------------------*/
-@import "navigation/navigation";
+// # Forms
+@import 'forms/forms';
 
-/*--------------------------------------------------------------
-# Accessibility
---------------------------------------------------------------*/
-@import "modules/accessibility";
+// # Navigation
+@import 'navigation/navigation';
 
-/*--------------------------------------------------------------
-# Alignments
---------------------------------------------------------------*/
-@import "modules/alignments";
+// # Accessibility
+@import 'modules/accessibility';
 
-/*--------------------------------------------------------------
-# Clearings
---------------------------------------------------------------*/
-@import "modules/clearings";
+// # Alignments
+@import 'modules/alignments';
 
-/*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
-@import "site/secondary/widgets";
+// # Clearings
+@import 'modules/clearings';
 
-/*--------------------------------------------------------------
-# Search
---------------------------------------------------------------*/
-@import "site/secondary/search";
+// # Widgets
+@import 'site/secondary/widgets';
 
-/*--------------------------------------------------------------
-# Content
---------------------------------------------------------------*/
-@import "site/site";
+// # Search
+@import 'site/secondary/search';
 
-/*--------------------------------------------------------------
-# Infinite scroll
---------------------------------------------------------------*/
-@import "modules/infinite-scroll";
+// # Content
+@import 'site/site';
 
-/*--------------------------------------------------------------
-# Media
---------------------------------------------------------------*/
-@import "media/media";
+// # Infinite scroll
+@import 'modules/infinite-scroll';
+
+// # Media
+@import 'media/media';

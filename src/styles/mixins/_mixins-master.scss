@@ -103,3 +103,52 @@
   border-radius: $site__button-size/14;
   transition: $site__transition-std;
 }
+
+
+@keyframes visibility {
+  0% {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+  }
+  50% {
+    position: static;
+    opacity: 0;
+    @include transform(scale(30));
+    width: 200%
+  }
+  100% {
+    opacity: 1;
+    @include transform(scale(1));
+    width: 100%
+  }
+}
+
+@keyframes openspace {
+  to {
+    height: auto
+  }
+}
+
+@keyframes restored-item-animation-rev {
+  from {
+    opacity: 1;
+    @include transform(scale(1));
+  }
+
+  to {
+    opacity: 0;
+    @include transform(scale(0));
+  }
+}
+
+@keyframes restored-item-animation {
+  from {
+    opacity: 0;
+    @include transform(scale(0));
+  }
+  to {
+    opacity: 1;
+    @include transform(scale(1));
+  }
+}

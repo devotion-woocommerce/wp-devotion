@@ -1,29 +1,85 @@
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-# Normalize
-# Typography
-# Elements
-# Forms
-# Navigation
-	## Links
-	## Menus
-# Accessibility
-# Alignments
-# Clearings
-# Widgets
-# Content
-    ## Posts and pages
-	## Asides
-	## Comments
-# Infinite scroll
-# Media
-	## Captions
-	## Galleries
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-# Normalize
---------------------------------------------------------------*/
+@-webkit-keyframes visibility {
+  0% {
+    position: absolute;
+    opacity: 0;
+    width: 100%; }
+  50% {
+    position: static;
+    opacity: 0;
+    -webkit-transform: scale(30);
+    transform: scale(30);
+    width: 200%; }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    width: 100%; } }
+
+@keyframes visibility {
+  0% {
+    position: absolute;
+    opacity: 0;
+    width: 100%; }
+  50% {
+    position: static;
+    opacity: 0;
+    -webkit-transform: scale(30);
+    transform: scale(30);
+    width: 200%; }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    width: 100%; } }
+
+@-webkit-keyframes openspace {
+  to {
+    height: auto; } }
+
+@keyframes openspace {
+  to {
+    height: auto; } }
+
+@-webkit-keyframes restored-item-animation-rev {
+  from {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  to {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0); } }
+
+@keyframes restored-item-animation-rev {
+  from {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  to {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0); } }
+
+@-webkit-keyframes restored-item-animation {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+@keyframes restored-item-animation {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -200,9 +256,6 @@ td,
 th {
   padding: 0; }
 
-/*--------------------------------------------------------------
-# Typography
---------------------------------------------------------------*/
 body,
 button,
 input,
@@ -242,9 +295,6 @@ mark, ins {
 big {
   font-size: 125%; }
 
-/*--------------------------------------------------------------
-# Elements
---------------------------------------------------------------*/
 html {
   box-sizing: border-box; }
 
@@ -299,9 +349,9 @@ table {
   margin: 0 0 1.5em;
   width: 100%; }
 
-/*--------------------------------------------------------------
-# Forms
---------------------------------------------------------------*/
+.content-area {
+  width: 100%; }
+
 .toggle-search {
   width: 50px;
   height: 50px;
@@ -313,7 +363,7 @@ table {
   color: #202428;
   line-height: 50px; }
 
-.cart {
+.cart-form {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -321,26 +371,24 @@ table {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap; }
+  .cart-form__offers {
+    width: 50%;
+    padding: 30px;
+    text-align: center; }
+  .cart-form__quantity {
+    width: 50%;
+    padding: 30px;
+    text-align: center; }
+  .cart-form__button {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    padding: 25px;
+    text-transform: uppercase;
+    color: #fff;
+    border: 0;
+    background: #ff0513; }
 
-.cart__offers,
-.cart__quantity {
-  width: 50%;
-  padding: 30px;
-  text-align: center; }
-
-.cart__button {
-  position: relative;
-  width: 100%;
-  height: 100px;
-  padding: 25px;
-  text-transform: uppercase;
-  color: #fff;
-  border: 0;
-  background: #ff0513; }
-
-/*--------------------------------------------------------------
-# Navigation
---------------------------------------------------------------*/
 /*--------------------------------------------------------------
 ## Links
 --------------------------------------------------------------*/
@@ -390,7 +438,8 @@ a {
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 11px; }
+    font-size: 11px;
+    text-transform: none; }
 
 .sub-menu {
   margin: 0;
@@ -650,9 +699,6 @@ ul.page-numbers {
       -webkit-transform: rotate3d(0, 0, 1, -45deg);
               transform: rotate3d(0, 0, 1, -45deg); }
 
-/*--------------------------------------------------------------
-# Accessibility
---------------------------------------------------------------*/
 /* Text meant only for screen readers. */
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
@@ -680,9 +726,6 @@ ul.page-numbers {
     z-index: 100000;
     /* Above WP toolbar. */ }
 
-/*--------------------------------------------------------------
-# Alignments
---------------------------------------------------------------*/
 .alignleft {
   display: inline;
   float: left;
@@ -699,9 +742,6 @@ ul.page-numbers {
   margin-left: auto;
   margin-right: auto; }
 
-/*--------------------------------------------------------------
-# Clearings
---------------------------------------------------------------*/
 .clear:before,
 .clear:after,
 .entry-content:before,
@@ -725,9 +765,6 @@ ul.page-numbers {
 .site-footer:after {
   clear: both; }
 
-/*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
 .widget {
   /* Make sure select elements fit in widgets. */ }
   .widget select {
@@ -739,9 +776,6 @@ ul.page-numbers {
 .widget_product_search {
   position: relative; }
 
-/*--------------------------------------------------------------
-# Search
---------------------------------------------------------------*/
 .searchform {
   position: absolute;
   top: 0;
@@ -770,9 +804,6 @@ ul.page-numbers {
     background: none;
     line-height: 50px; }
 
-/*--------------------------------------------------------------
-# Content
---------------------------------------------------------------*/
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
@@ -835,8 +866,11 @@ ul.page-numbers {
     -webkit-flex: 1 1 250px;
     -moz-flex: 1 1 250px;
     -ms-flex: 1 1 250px;
-    flex: 1 1 250px; }
+    flex: 1 1 250px;
+    -webkit-animation: openspace 0.3s ease forwards, restored-item-animation 0.3s 0.3s cubic-bezier(0, 0.8, 0.32, 1.07) backwards;
+    animation: openspace 0.3s ease forwards, restored-item-animation 0.3s 0.3s cubic-bezier(0, 0.8, 0.32, 1.07) backwards; }
     .products .product a {
+      display: block;
       text-decoration: none;
       text-transform: uppercase;
       color: #000;
@@ -879,7 +913,9 @@ ul.page-numbers {
   overflow: hidden;
   width: 100%;
   height: 315px;
-  text-align: center; }
+  text-align: center;
+  -webkit-animation: openspace 0.3s ease forwards, restored-item-animation 0.3s 0.3s cubic-bezier(0, 0.8, 0.32, 1.07) backwards;
+  animation: openspace 0.3s ease forwards, restored-item-animation 0.3s 0.3s cubic-bezier(0, 0.8, 0.32, 1.07) backwards; }
   .single-product .woocommerce-main-image .wp-post-image {
     width: auto;
     max-height: 100%; }
@@ -889,6 +925,9 @@ ul.page-numbers {
   .single-product .thumbnails a {
     display: block;
     margin: 60px 0; }
+  .single-product .thumbnails img {
+    -webkit-animation: openspace 0.3s ease forwards, restored-item-animation 0.3s 0.3s cubic-bezier(0, 0.8, 0.32, 1.07) backwards;
+    animation: openspace 0.3s ease forwards, restored-item-animation 0.3s 0.3s cubic-bezier(0, 0.8, 0.32, 1.07) backwards; }
 
 .product__summary {
   position: relative;
@@ -1179,9 +1218,6 @@ ul.page-numbers {
 .wc-forward {
   display: none; }
 
-/*--------------------------------------------------------------
-# Infinite scroll
---------------------------------------------------------------*/
 /* Globally hidden elements when Infinite Scroll is supported and in use. */
 .infinite-scroll .posts-navigation,
 .infinite-scroll.neverending .site-footer {
@@ -1192,9 +1228,6 @@ ul.page-numbers {
 .infinity-end.neverending .site-footer {
   display: block; }
 
-/*--------------------------------------------------------------
-# Media
---------------------------------------------------------------*/
 .page-content .wp-smiley,
 .entry-content .wp-smiley,
 .comment-content .wp-smiley {

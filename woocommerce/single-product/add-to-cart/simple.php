@@ -40,10 +40,10 @@ if ( ! $product->is_purchasable() ) {
 
 	<?php do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
-	<form class="cart" method="post" enctype='multipart/form-data'>
+	<form class="cart-form" method="post" enctype='multipart/form-data'>
 		<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
 
-    <div  class="cart__offers" itemprop="_offers" itemscope itemtype="http://schema.org/Offer">
+    <div  class="cart-form__offers" itemprop="_offers" itemscope itemtype="http://schema.org/Offer">
 
     	<div class="price"><?php echo $product->get_price_html(); ?></div>
 
@@ -65,7 +65,7 @@ if ( ! $product->is_purchasable() ) {
 
 		<input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->id ); ?>" />
 
-		<button type="submit" class="cart__button button"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
+		<button type="submit" class="cart-form__button button"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
 
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 	</form>

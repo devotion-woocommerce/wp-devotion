@@ -794,4 +794,21 @@ add_action('template_redirect', 'remove_sidebar_shop');
 add_action( 'after_setup_theme', 'woocommerce_support' );
 function woocommerce_support() {
     add_theme_support( 'woocommerce' );
+};
+
+
+/**
+ * WooCommerce
+ *
+ * Disable coupon fields, but retain capability
+ * https://www.sellwithwp.com/rename-hide-coupon-code-field-woocommerce/
+ */
+
+function devotion_hide_coupon_field( $enabled ) {
+	if ( is_cart() || is_checkout() ) {
+		$enabled = false;
+	}
+
+	return $enabled;
 }
+add_filter( 'woocommerce_coupons_enabled', 'devotion_hide_coupon_field' );
