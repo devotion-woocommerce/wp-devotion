@@ -58,14 +58,21 @@ class Walker_Main_Navigation extends Walker_Nav_Menu {
             ( $depth % 2 ? 'menu__item-odd' : 'menu__item-even' ),
             'menu-item-depth-' . $depth
         );
+
         $depth_class_names = esc_attr( implode( ' ', $depth_classes ) );
+
+        // Add active menu class when selected.
+        $activeMenuItemClass = in_array('current-menu-item', $item->classes) ? ' menu__item_selected' : '';
+        $activeSubMenuItemClass = in_array('current-menu-item', $item->classes) && $depth > 0 ? ' sub-menu__item_selected' : '';
+
+        $activeMenu = $depth > 0 ? $activeSubMenuItemClass : $activeMenuItemClass;
 
         // Passed classes.
         $classes = empty( $item->classes ) ? array() : (array) $item->classes;
         $class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
 
         // Build HTML.
-        $output .= $indent . '<li class="' . $depth_class_names . '">';
+        $output .= $indent . '<li class="' . $depth_class_names . $activeMenu . '">';
 
         // Link attributes.
         $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
