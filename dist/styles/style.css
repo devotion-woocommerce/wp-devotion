@@ -350,7 +350,8 @@ table {
   width: 100%; }
 
 .content-area {
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 100px; }
 
 .toggle-search {
   width: 50px;
@@ -388,6 +389,18 @@ table {
     color: #fff;
     border: 0;
     background: #ff0513; }
+    @media screen and (max-width: 768px) {
+      .cart-form__button {
+        margin-left: 105px; } }
+
+.cart-collateral {
+  text-align: left; }
+
+.form-row label {
+  display: block; }
+
+.shop_table {
+  text-align: left; }
 
 /*--------------------------------------------------------------
 ## Links
@@ -437,15 +450,19 @@ a {
   .menu__desc {
     display: block;
     overflow: hidden;
+    text-transform: none;
     text-overflow: ellipsis;
-    font-size: 11px;
-    text-transform: none; }
+    font-size: 11px; }
 
 .sub-menu {
   margin: 0;
   padding: 0;
   list-style: none;
   background: #191b1c; }
+  .sub-menu__item {
+    border-left: 5px solid #404040; }
+  .sub-menu__item_selected {
+    border-color: #ff0513; }
   .sub-menu__link {
     position: relative;
     display: -webkit-flex;
@@ -551,6 +568,7 @@ a {
   display: flex; }
 
 .site-customer {
+  z-index: 1;
   width: 200px;
   padding: 25px 30px;
   text-align: right;
@@ -568,7 +586,8 @@ a {
 .site-cart {
   padding: 25px 30px;
   text-align: right;
-  background: #ff0513; }
+  background: #ff0513;
+  box-shadow: 0 0 10px 0 #191b1c; }
   .site-cart .cart-contents {
     white-space: nowrap;
     text-decoration: none; }
@@ -644,7 +663,8 @@ ul.page-numbers {
 
 /* Navigation toggle button. */
 .lines-button {
-  position: relative;
+  position: absolute;
+  z-index: 1;
   display: inline-block;
   padding: 30px;
   cursor: pointer;
@@ -656,7 +676,12 @@ ul.page-numbers {
   border: none;
   border-radius: 0.21429rem;
   outline: none;
-  background: transparent; }
+  background: transparent;
+  left: -10px;
+  top: -20px; }
+  .site-mobile-nav-open .lines-button {
+    position: absolute;
+    left: 190px; }
   .lines-button:hover {
     opacity: 1; }
   .lines-button:active {
@@ -787,6 +812,9 @@ ul.page-numbers {
   white-space: nowrap;
   font-weight: 300;
   line-height: 50px; }
+  @media screen and (max-width: 768px) {
+    .searchform {
+      width: calc(100% - 50px); } }
   .searchform__input {
     width: calc(100% - 140px);
     margin: 0;
@@ -803,6 +831,10 @@ ul.page-numbers {
     outline: none;
     background: none;
     line-height: 50px; }
+
+@media screen and (max-width: 768px) {
+  .site-meta__search {
+    margin-left: 50px; } }
 
 /*--------------------------------------------------------------
 ## Posts and pages
@@ -845,17 +877,22 @@ ul.page-numbers {
       margin-left: 200px; } }
 
 .products {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   margin: 0;
   padding: 0;
   list-style: none;
   text-align: center;
   background: #fff;
   -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex; }
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+  @media screen and (max-width: 768px) {
+    .single-product .products {
+      -webkit-flex-wrap: nowrap;
+          -ms-flex-wrap: nowrap;
+              flex-wrap: nowrap; } }
   .products .product {
     position: relative;
     min-width: 250px;
@@ -903,10 +940,12 @@ ul.page-numbers {
   background: #191b1c; }
 
 .single-product .product-full-wrap {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   width: 100%; }
+  @media screen and (min-width: 769px) {
+    .single-product .product-full-wrap {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex; } }
 
 .single-product .woocommerce-main-image {
   display: inline-block;
@@ -1005,12 +1044,16 @@ ul.page-numbers {
 
 .product__images-wrap {
   position: relative;
+  overflow: hidden;
   overflow-y: hidden;
   box-sizing: border-box;
   background: #fff;
   -webkit-flex: 3;
       -ms-flex: 3;
           flex: 3; }
+  @media screen and (max-width: 768px) {
+    .product__images-wrap {
+      height: 50vh; } }
 
 .product__meta {
   padding: 30px;
@@ -1078,6 +1121,7 @@ ul.page-numbers {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  overflow-x: hidden;
   min-height: 100vh;
   transition: 250ms; }
 
@@ -1093,6 +1137,9 @@ ul.page-numbers {
   height: 30px;
   cursor: pointer;
   background: #ff0513; }
+
+.site-footer-widgets {
+  display: none; }
 
 /*--------------------------------------------------------------
 ## Asides
@@ -1214,9 +1261,6 @@ ul.page-numbers {
               transform: translateY(-50%); }
     .notice_remove:hover {
       background: #ff0513; }
-
-.wc-forward {
-  display: none; }
 
 /* Globally hidden elements when Infinite Scroll is supported and in use. */
 .infinite-scroll .posts-navigation,

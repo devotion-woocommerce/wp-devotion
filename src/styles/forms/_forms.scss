@@ -35,5 +35,24 @@
     color: $color__white;
     border: 0;
     background: $color__red;
+
+    @include query($site-screen-sm) {
+      margin-left: 105px;
+    };
   }
+}
+
+.cart-collateral {
+  text-align: left;
+}
+
+.form-row {
+
+  label {
+    display: block;
+  }
+}
+
+.shop_table {
+  text-align: left;
 }

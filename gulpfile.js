@@ -2,18 +2,18 @@
 // $ npm install gulp gulp-util gulp-sass vinyl-ftp gulp-autoprefixer gulp-minify-css gulp-uglify gulp-notify gulp-rename gulp-concat del --save-dev
 
 // Load plugins
-var gulp  = require('gulp'),
-    gutil = require('gulp-util'),
-    sass = require('gulp-sass'),
-    ftp = require( 'vinyl-ftp' ),
-    autoprefixer = require('gulp-autoprefixer'),
-    minifycss = require('gulp-minify-css'),
-    uglify = require('gulp-uglify'),
-    notify = require('gulp-notify'),
-    rename = require('gulp-rename'),
-    concat = require('gulp-concat'),
-    del = require('del');
-    secrets = require('./secrets.json');
+var gulp          = require('gulp'),
+    gutil         = require('gulp-util'),
+    sass          = require('gulp-sass'),
+    ftp           = require( 'vinyl-ftp' ),
+    autoprefixer  = require('gulp-autoprefixer'),
+    minifycss     = require('gulp-minify-css'),
+    uglify        = require('gulp-uglify'),
+    notify        = require('gulp-notify'),
+    rename        = require('gulp-rename'),
+    concat        = require('gulp-concat'),
+    del           = require('del');
+    secrets       = require('./secrets.json');
 
 // Styles
 gulp.task('styles', function() {
@@ -130,7 +130,7 @@ gulp.task('watch', function() {
   });
 
   // Watch files in dist and reload on change
-  gulp.watch('*.php', ['push']);
-  gulp.watch('dist/styles/**/*.css', ['push']);
-  gulp.watch('dist/scripts/**/*.js', ['push']);
+  // gulp.watch('*.php', ['push']);
+  // gulp.watch('dist/styles/**/*.css', ['push']);
+  // gulp.watch('dist/scripts/**/*.js', ['push']);
 });

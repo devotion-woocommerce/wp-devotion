@@ -9326,20 +9326,20 @@ return jQuery;
 
     // Switch main preview img based on thumbnails
     $('.thumbnails a').click(function(event) {
-      var sourceThumb = $(this).attr('href');
-      $(this).closest('.images').find('.woocommerce-main-image').attr('href', sourceThumb);
-      $(this).closest('.images').find('.wp-post-image').attr('src', sourceThumb);
+      // var sourceThumb = $(this).attr('href');
+      // $(this).closest('.images').find('.woocommerce-main-image').attr('href', sourceThumb);
+      // $(this).closest('.images').find('.wp-post-image').attr('src', sourceThumb);
       event.preventDefault();
     });
 
     // Create overlay lightbox
     $('.woocommerce-main-image').click(function(event) {
-      $('.images').clone().appendTo('body').addClass('clone product-lightbox');
-      $('body').addClass('lightbox-open');
-
-      var lightbox = $(this).closest('body').find('.product-lightbox');
-
-      $(lightbox).append('<div class="btn-close lightbox-btn-close"></div>');
+      // $('.images').clone().appendTo('body').addClass('clone product-lightbox');
+      // $('body').addClass('lightbox-open');
+      //
+      // var lightbox = $(this).closest('body').find('.product-lightbox');
+      //
+      // $(lightbox).append('<div class="btn-close lightbox-btn-close"></div>');
       event.preventDefault();
     });
 
@@ -9363,9 +9363,6 @@ return jQuery;
       $('body').removeClass('has-menu-fixed');
     }
   }
-
-  // $(window).scroll(fixed_onscroll);
-  // fixed_onscroll();
 
   // Toggle mobile navigation
   $('body').on('touchend click', '.mobile-nav-toggle', function(event) {

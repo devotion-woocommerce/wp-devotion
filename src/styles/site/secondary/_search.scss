@@ -14,6 +14,10 @@
   font-weight: $font__weight-light;
   line-height: $search__height;
 
+  @include query($site-screen-sm) {
+    width: calc(100% - 50px);
+  };
+
   &__input {
     width: calc(100% - 140px);
     margin: 0;
@@ -36,5 +40,15 @@
     background: none;
 
     line-height: $search__height;
+  }
+}
+
+.site-meta {
+
+  &__search {
+
+    @include query($site-screen-sm) {
+      margin-left: 50px;
+    };
   }
 }

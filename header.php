@@ -61,12 +61,17 @@
 			</div>
 		</div>
 
+	</header>
+
+	<div class="mobile-navigation">
+		
 		<nav class="mobile-header-nav">
 			<button class="mobile-nav-toggle lines-button" type="button" role="button" aria-label="Toggle Navigation">
 				<span class="lines"></span>
 			</button>
 		</nav>
-	</header>
+
+	</div>
 
 	<div class="page-wrap">
 
