@@ -21,6 +21,13 @@
   margin: 1.5em 0 0;
 }
 
+.entry-content {
+  color: #5F5E5E;
+
+  font-family: $font__secondary;
+  font-size: 14px;
+}
+
 .page-links {
   clear: both;
 
@@ -30,18 +37,31 @@
 .page-wrap {
   width: 100%;
 
-  transition: transform, margin 500ms;
+  transition: transform $site__transition-std;
   transform: translate3d(0,0,0);
 
-  background-color: #fff;
+  background-color: $color__white;
 
   .site-mobile-nav-open & {
     transform: translate3d(200px,0,0);
+
+    &:before {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      content: '';
+
+      background: rgba($color__black, .5);
+    }
   }
 
-  @media screen and (min-width: 1024px) {
+  @include querymin($site-screen-md) {
     margin-left: 200px;
-  }
+  };
 }
 
 .products {
@@ -74,8 +94,8 @@
     border-right: 1px solid #f5f5f5;
     border-bottom: 1px solid #f5f5f5;
 
-    @include prefix(flex, 1 1 250px, $prefix-default);
     @include animation(openspace .3s ease forwards, restored-item-animation .3s .3s cubic-bezier(0,.8,.32,1.07) backwards);
+    @include prefix(flex, 1 1 250px, $prefix-default);
 
     a {
       display: block;
@@ -111,7 +131,19 @@
 
 #main {
   width: 100%;
+
+  > .woocommerce-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate3d(-50%, -50%, 0);
+    text-align: center;
+
+    @include rem-fallback(font-size, 36px);
+  }
 }
+
 .single-product {
   #main > .product {
     display: flex;
@@ -221,10 +253,22 @@
   background: $color__dark-main;
 
   &_toggle {
-    padding: 0 30px;
+    margin: 0 20%;
+    padding: 15px;
 
     cursor: pointer;
     text-align: center;
+    text-transform: uppercase;
+
+    color: $color__black;
+    border-radius: 5px;
+    background: $color__yellow;
+
+    font-size: 12px;
+
+    .fa {
+      margin-left: 5px;
+    }
   }
 
   &_close {
@@ -262,6 +306,19 @@
   padding: 30px;
 
   text-align: center;
+
+  font-size: 12px;
+
+  a {
+    margin: 0 5px;
+    padding: 5px;
+
+    text-transform: uppercase;
+
+    color: $color__black;
+    border-radius: 5px;
+    background: $color__yellow;
+  }
 }
 
 .product__images {
@@ -371,4 +428,19 @@
 
 .site-footer-widgets {
   display: none;
+}
+
+.shop_attributes {
+  text-align: left;
+
+  td {
+    display: block;
+
+    margin: 3px 50px 3px 3px;
+    padding: 5px 15px;
+
+    border: 0;
+    border-radius: 5px;
+    background: $color__dark-alt;
+  }
 }

@@ -812,3 +812,5 @@ function devotion_hide_coupon_field( $enabled ) {
 	return $enabled;
 }
 add_filter( 'woocommerce_coupons_enabled', 'devotion_hide_coupon_field' );
+
+remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_login_form', 10 );

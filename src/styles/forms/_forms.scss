@@ -10,20 +10,26 @@
   flex-wrap: wrap;
 
   &__offers {
+    display: flex;
+
     width: 50%;
-    padding: 30px;
+    padding: 15px;
 
     text-align: center;
+
+    align-items: center;
+    justify-content: center;
   }
 
   &__quantity {
     width: 50%;
-    padding: 30px;
+    padding: 15px;
 
     text-align: center;
   }
 
   &__button {
+    font-family: $font__main;
     position: relative;
 
     width: 100%;
@@ -34,7 +40,10 @@
 
     color: $color__white;
     border: 0;
+    border-radius: 0;
     background: $color__red;
+
+    font-size: 16px;
 
     @include query($site-screen-sm) {
       margin-left: 105px;
@@ -46,13 +55,20 @@
   text-align: left;
 }
 
-.form-row {
-
-  label {
-    display: block;
-  }
-}
-
 .shop_table {
   text-align: left;
+}
+
+.qty {
+  width: 100px;
+  margin: 0;
+  padding: 15px 5px 15px 15px;
+
+  text-align: center;
+
+  border: 0;
+  border-radius: 5px;
+  background: $color__yellow;
+
+  font-size: 18px;
 }

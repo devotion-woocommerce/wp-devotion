@@ -14,7 +14,7 @@
   font-weight: $font__weight-light;
   line-height: $search__height;
 
-  @include query($site-screen-sm) {
+  @include query($site-screen-md) {
     width: calc(100% - 50px);
   };
 
@@ -47,7 +47,7 @@
 
   &__search {
 
-    @include query($site-screen-sm) {
+    @include query($site-screen-md) {
       margin-left: 50px;
     };
   }

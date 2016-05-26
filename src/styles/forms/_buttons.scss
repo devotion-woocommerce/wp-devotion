@@ -16,3 +16,18 @@
 
   line-height: 50px;
 }
+
+.button {
+  padding: 15px;
+
+  text-transform: uppercase;
+
+  color: $color__black;
+  border: 0;
+  border-radius: 5px;
+  background: $color__yellow;
+
+  font-family: $font__secondary;
+  font-size: 12px;
+  line-height: 1;
+}
