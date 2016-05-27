@@ -5,8 +5,8 @@ function location_post_type() {
 	$labels = array(
 		'name'                  => _x( 'Locations', 'Post Type General Name', 'devotion' ),
 		'singular_name'         => _x( 'Location', 'Post Type Singular Name', 'devotion' ),
-		'menu_name'             => __( 'Location', 'devotion' ),
-		'name_admin_bar'        => __( 'Location', 'devotion' ),
+		'menu_name'             => __( 'Locations', 'devotion' ),
+		'name_admin_bar'        => __( 'Locations', 'devotion' ),
 		'archives'              => __( 'Item Archives', 'devotion' ),
 		'parent_item_colon'     => __( 'Parent Stroe:', 'devotion' ),
 		'all_items'             => __( 'All Locations', 'devotion' ),
@@ -32,7 +32,7 @@ function location_post_type() {
 
 
 	$args = array(
-		'label'                 => __( 'Location', 'devotion' ),
+		'label'                 => __( 'Locations', 'devotion' ),
 		'description'           => __( 'Location post type.', 'devotion' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail', ),
@@ -42,7 +42,7 @@ function location_post_type() {
 		'show_ui'               => true,
 		'show_in_menu'          => true,
 		'menu_position'         => 5,
-		'menu_icon'             => 'dashicons-dashboard',
+		'menu_icon'             => 'dashicons-location-alt',
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
@@ -50,6 +50,7 @@ function location_post_type() {
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'page',
+    'rewrite'               => array('slug' => __( 'locations', 'devotion' )),
 	);
 	register_post_type( 'location', $args );
 
