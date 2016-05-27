@@ -348,10 +348,9 @@ ul.page-numbers {
   transition: $site__transition-std;
 
   border: 0;
-  border-radius: $site__button-size/7;
+  border-radius: 0;
   outline: none;
   background: $color__white;
-  background: transparent;
 
   .site-mobile-nav-open & {
     position: absolute;

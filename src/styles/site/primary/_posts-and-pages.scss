@@ -3,7 +3,9 @@
 }
 
 .hentry {
-  margin: 30px;
+  padding: 0 30px 30px;
+  position: relative;
+  border-bottom: 1px solid $color__grey-light;
 }
 
 .byline,
@@ -22,7 +24,7 @@
 }
 
 .entry-content {
-  color: #5F5E5E;
+  color: #5f5e5e;
 
   font-family: $font__secondary;
   font-size: 14px;
@@ -42,6 +44,10 @@
 
   background-color: $color__white;
 
+  @include querymin($site-screen-md) {
+    margin-left: 200px;
+  };
+
   .site-mobile-nav-open & {
     transform: translate3d(200px,0,0);
 
@@ -58,10 +64,6 @@
       background: rgba($color__black, .5);
     }
   }
-
-  @include querymin($site-screen-md) {
-    margin-left: 200px;
-  };
 }
 
 .products {
@@ -94,8 +96,8 @@
     border-right: 1px solid #f5f5f5;
     border-bottom: 1px solid #f5f5f5;
 
-    @include animation(openspace .3s ease forwards, restored-item-animation .3s .3s cubic-bezier(0,.8,.32,1.07) backwards);
     @include prefix(flex, 1 1 250px, $prefix-default);
+    @include animation(openspace .3s ease forwards, restored-item-animation .3s .3s cubic-bezier(0,.8,.32,1.07) backwards);
 
     a {
       display: block;

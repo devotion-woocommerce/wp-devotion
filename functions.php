@@ -228,6 +228,10 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 
+/**
+ * Implement Location Custom Post Type.
+ */
+require get_template_directory() . '/inc/custom-post-location.php';
 
 /**
  * Remove WooCommerce stylesheet file.

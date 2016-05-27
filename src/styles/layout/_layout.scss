@@ -2,3 +2,55 @@
   width: 100%;
   margin-bottom: 100px;
 }
+
+.page-header {
+  margin: 30px;
+}
+
+.entry-title {
+  font-size: 24px;
+}
+
+
+.location {
+  &__contacts {
+    @include querymin($site-screen-xs) {
+      display: flex;
+    };
+  }
+
+  &__info-wrap {
+    margin-right: 30px;
+
+    flex: 30%;
+  }
+
+  &__info {
+    @include querymin($site-screen-xs) {
+      white-space: nowrap;
+    };
+  }
+
+  &__label,
+  &__field {
+    margin: 5px 0;
+
+    @include querymin($site-screen-xs) {
+      display: inline-block;
+    };
+  }
+
+  &__map {
+    margin-top: 22px;
+
+    flex: 70%;
+  }
+
+  .fa {
+    width: 15px;
+
+    text-align: center;
+
+    font-size: 12px;
+  }
+}
