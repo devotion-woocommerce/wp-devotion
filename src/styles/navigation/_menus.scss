@@ -178,7 +178,7 @@
   height: 100px;
   margin-bottom: 1px;
 
-  background: $color__dark-main url('./../images/heart_logo2.svg') center / contain no-repeat;
+  background: $color__red url('./../images/heart_logo2.svg') center / contain no-repeat;
 
   font-size: 0;
 
@@ -188,6 +188,10 @@
     right: 0;
     bottom: 0;
     left: 0;
+  }
+
+  @media screen and (max-height: $site-screen-xs) {
+    height: 50px;
   }
 }
 
@@ -210,6 +214,10 @@
 
   cursor: pointer;
   text-transform: uppercase;
+
+  @media screen and (max-height: $site-screen-xs) {
+    height: 50px
+  }
 }
 .site-customer {
   z-index: 1;
@@ -232,6 +240,10 @@
   }
   .customer-name {
     @include rem-fallback(font-size, $font__size-small);
+  }
+
+  @media screen and (max-height: $site-screen-xs) {
+    padding: 5px 30px;
   }
 }
 .site-cart {
@@ -257,6 +269,10 @@
   }
   .cart-count {
     @include rem-fallback(font-size, $font__size-small);
+  }
+
+  @media screen and (max-height: $site-screen-xs) {
+    padding: 5px 30px;
   }
 }
 
