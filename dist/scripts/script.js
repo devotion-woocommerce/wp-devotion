@@ -9325,21 +9325,31 @@ return jQuery;
   if ($('body').hasClass('single-product')) {
 
     // Switch main preview img based on thumbnails
-    $('.thumbnails a').click(function(event) {
-      // var sourceThumb = $(this).attr('href');
-      // $(this).closest('.images').find('.woocommerce-main-image').attr('href', sourceThumb);
-      // $(this).closest('.images').find('.wp-post-image').attr('src', sourceThumb);
+    $('body').on('click', '.thumbnails a', function(event) {
+
+      var sourceThumb = $(this).attr('href');
+      $(this).closest('.product-lightbox').find('.woocommerce-main-image').attr('href', sourceThumb);
+      $(this).closest('.product-lightbox').find('.wp-post-image').attr('srcset', sourceThumb);
+
       event.preventDefault();
     });
 
     // Create overlay lightbox
-    $('.woocommerce-main-image').click(function(event) {
-      // $('.images').clone().appendTo('body').addClass('clone product-lightbox');
-      // $('body').addClass('lightbox-open');
-      //
-      // var lightbox = $(this).closest('body').find('.product-lightbox');
-      //
-      // $(lightbox).append('<div class="btn-close lightbox-btn-close"></div>');
+    $('body').on('click', '.woocommerce-main-image, .thumbnails a', function(event) {
+
+      if ( !$('body').find('.product-lightbox').hasClass('clone') ) {
+        $('.product__images').clone().appendTo('body').addClass('clone product-lightbox');
+        $('body').addClass('lightbox-open');
+
+        var lightbox = $(this).closest('body').find('.product-lightbox');
+
+        $(lightbox).append('<div class="btn-close lightbox-btn-close"><i class="fa fa-times" aria-hidden="true"></i></div>');
+
+        var sourceThumb = $(this).attr('href');
+        $(this).closest('.product-lightbox').find('.woocommerce-main-image').attr('href', sourceThumb);
+        $(this).closest('.product-lightbox').find('.wp-post-image').attr('srcset', sourceThumb);
+
+      }
       event.preventDefault();
     });
 

@@ -20,6 +20,7 @@
 
   &__input {
     width: calc(100% - 140px);
+    height: $search__height;
     margin: 0;
     padding: 0;
 
@@ -28,11 +29,13 @@
     outline: none;
     background-color: inherit;
 
-    -webkit-appearance: none;
     line-height: $search__height;
+
+    -webkit-appearance: none;
   }
 
   &__submit {
+    height: $search__height;
     padding: 0;
 
     border: 0;
@@ -44,9 +47,7 @@
 }
 
 .site-meta {
-
   &__search {
-
     @include query($site-screen-md) {
       margin-left: 50px;
     };

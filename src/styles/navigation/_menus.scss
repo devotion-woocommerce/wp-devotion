@@ -1,12 +1,22 @@
 // Menu structure
 .menu {
+  overflow: scroll;
+
+  max-height: 100vh;
   margin: 0;
-  padding: 0;
+  padding: 0 0 202px;
 
   list-style: none;
 
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+      display: none;
+  }
+
   &__item {
-    margin: 0;
+    margin: 1px 0 0;
     padding: 0;
 
     list-style: none;
@@ -138,14 +148,14 @@
 }
 
 .site-header {
-  position: absolute;
+  position: fixed;
   z-index: 1;
   top: 0;
   bottom: 0;
 
   width: 200px;
 
-  transition: transform 500ms;
+  transition: transform $site__transition-std;
   transform: translate3d(0,0,0);
 
   background: $color__dark-alt;
@@ -166,7 +176,7 @@
   width: 200px;
   min-width: 100%;
   height: 100px;
-  margin-bottom: 5px;
+  margin-bottom: 1px;
 
   background: $color__dark-main url('./../images/heart_logo2.svg') center / contain no-repeat;
 
@@ -193,23 +203,25 @@
   z-index: 1;
   bottom: 0;
 
+  display: flex;
+
   height: 100px;
   margin-left: auto;
 
   cursor: pointer;
   text-transform: uppercase;
-
-  @include prefix(display, flex, $prefix-default);
 }
 .site-customer {
   z-index: 1;
 
-  width: 200px;
+  min-width: 200px;
+  max-width: 200px;
   padding: 25px 30px;
 
   text-align: right;
 
   background: $color__yellow;
+  box-shadow: 0 0 10px 0 $color__dark-main;
 
   .customer-interaction,
   .customer-name {
