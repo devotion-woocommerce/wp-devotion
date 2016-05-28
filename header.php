@@ -46,11 +46,7 @@
 			<div class="site-customer">
 				<span class="customer-interaction"><?php _e( 'Shopping cart' ); ?></span>
 				<span class="customer-name">
-					<?php if ( is_user_logged_in()) {
-						echo wp_get_current_user()->display_name;
-					} else {
-						echo _e( 'Guest user' );
-					} ?>
+					<?php echo __( 'Your items', 'devotion' ) ?>
 				</span>
 			</div>
 			<div class="site-cart">
@@ -64,7 +60,7 @@
 	</header>
 
 	<div class="mobile-navigation">
-		
+
 		<nav class="mobile-header-nav">
 			<button class="mobile-nav-toggle lines-button" type="button" role="button" aria-label="Toggle Navigation">
 				<span class="lines"></span>

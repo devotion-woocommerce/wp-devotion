@@ -3,8 +3,10 @@
 }
 
 .hentry {
-  padding: 0 30px 30px;
   position: relative;
+
+  padding: 0 30px 30px;
+
   border-bottom: 1px solid $color__grey-light;
 }
 
@@ -38,6 +40,7 @@
 
 .page-wrap {
   width: 100%;
+  min-height: 100vh;
 
   transition: transform $site__transition-std;
   transform: translate3d(0,0,0);
@@ -96,8 +99,8 @@
     border-right: 1px solid #f5f5f5;
     border-bottom: 1px solid #f5f5f5;
 
-    @include prefix(flex, 1 1 250px, $prefix-default);
     @include animation(openspace .3s ease forwards, restored-item-animation .3s .3s cubic-bezier(0,.8,.32,1.07) backwards);
+    @include prefix(flex, 1 1 250px, $prefix-default);
 
     a {
       display: block;
@@ -157,6 +160,7 @@
 
   .product-full-wrap {
     width: 100%;
+    min-height: 100vh;
 
     @include querymin($site-screen-sm) {
       display: flex;
@@ -246,6 +250,7 @@
   left: 0;
 
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 
   padding: 30px;
 
@@ -253,6 +258,12 @@
   transform: translate3d(100%,0,0);
 
   background: $color__dark-main;
+
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   &_toggle {
     margin: 0 20%;
@@ -330,7 +341,15 @@
   bottom: 0;
   left: 0;
 
+  overflow-x: hidden;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .products__related {
@@ -387,6 +406,20 @@
   right: 0;
   bottom: 0;
   left: 0;
+
+  background: $color__white;
+
+  .thumbnails {
+    display: flex;
+    overflow-x: scroll;
+
+    flex-wrap: nowrap;
+
+    a {
+      min-width: 150px;
+    }
+  }
+
   .admin-bar & {
     margin-top: 32px;
   }
@@ -408,24 +441,19 @@
     display: none;
   }
 }
-.site-mobile-nav-open {
-  // #page {
-  //   right: 300px;
-  //
-  //   transition: $site__transition-std;
-  // }
-}
+
 .btn-close {
   position: absolute;
   top: 0;
   right: 0;
 
-  width: 30px;
-  height: 30px;
-
   cursor: pointer;
 
-  background: $color__red;
+  .fa {
+    padding: 25px;
+
+    font-size: 24px;
+  }
 }
 
 .site-footer-widgets {

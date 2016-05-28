@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying single posts.
+ * Template part for displaying store locations.
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -47,7 +47,9 @@
             <?php echo __( 'Telephone', 'devotion' ) ?>:
           </h3>
           <p class="location__field location__field-telephone">
-            <a href="tel:<?php echo get_post_meta( $post->ID, 'location_telephone', true ); ?>"><?php echo get_post_meta( $post->ID, 'location_telephone', true ); ?></a>
+            <a href="tel:<?php
+						$phone = preg_replace('/[^0-9]/', '', get_post_meta( $post->ID, 'location_telephone', true ));
+						echo $phone; ?>"><?php echo get_post_meta( $post->ID, 'location_telephone', true ); ?></a>
           </p>
         </div>
       <?php endif; ?>
