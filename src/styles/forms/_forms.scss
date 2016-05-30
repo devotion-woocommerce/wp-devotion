@@ -29,7 +29,6 @@
   }
 
   &__button {
-    font-family: $font__main;
     position: relative;
 
     width: 100%;
@@ -43,6 +42,7 @@
     border-radius: 0;
     background: $color__red;
 
+    font-family: $font__main;
     font-size: 16px;
 
     @include query($site-screen-sm) {

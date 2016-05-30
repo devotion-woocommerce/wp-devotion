@@ -1,6 +1,7 @@
 // Menu structure
 .menu {
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 
   max-height: 100vh;
   margin: 0;
@@ -9,10 +10,9 @@
   list-style: none;
 
   -ms-overflow-style: none;
-  -webkit-overflow-scrolling: touch;
 
   &::-webkit-scrollbar {
-      display: none;
+    display: none;
   }
 
   &__item {
@@ -216,9 +216,10 @@
   text-transform: uppercase;
 
   @media screen and (max-height: $site-screen-xs) {
-    height: 50px
+    height: 50px;
   }
 }
+
 .site-customer {
   z-index: 1;
 
@@ -246,6 +247,7 @@
     padding: 5px 30px;
   }
 }
+
 .site-cart {
   padding: 25px 30px;
 
