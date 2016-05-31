@@ -237,10 +237,10 @@
     display: block;
   }
   .customer-interaction {
-    @include rem-fallback(font-size, $font__size-base);
+    @include rem-from-px(font-size, $font__size-base);
   }
   .customer-name {
-    @include rem-fallback(font-size, $font__size-small);
+    @include rem-from-px(font-size, $font__size-small);
   }
 
   @media screen and (max-height: $screen__xs) {
@@ -267,10 +267,10 @@
     color: $color__white;
   }
   .cart-total {
-    @include rem-fallback(font-size, $font__size-base);
+    @include rem-from-px(font-size, $font__size-base);
   }
   .cart-count {
-    @include rem-fallback(font-size, $font__size-small);
+    @include rem-from-px(font-size, $font__size-small);
   }
 
   @media screen and (max-height: $screen__xs) {

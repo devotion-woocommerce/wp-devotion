@@ -397,20 +397,6 @@ function sb_woo_remove_reviews_tab($tabs) {
 }
 
 /**
- * Wrap product details in common container
- *
- *add_action( 'woocommerce_before_single_product_summary', 'action_woocommerce_single_product_summary_wrap_start', 30);
- *add_action( 'woocommerce_after_single_product_summary', 'action_woocommerce_single_product_summary_wrap_end', 12);
- *
- *function action_woocommerce_single_product_summary_wrap_start() {
- *  echo '<div class="product__detail-wrap">';
- *}
- *function action_woocommerce_single_product_summary_wrap_end() {
- *  echo '</div>';
- *}
- */
-
-/**
  * Separate product from related metadata
  */
 add_action( 'woocommerce_before_single_product_summary', 'action_woocommerce_single_product_full_wrap_start', 5);

@@ -115,10 +115,10 @@
 
       color: $color__black;
 
-      @include rem-fallback(font-size, $font__size-small);
+      @include rem-from-px(font-size, $font__size-small);
     }
     h3 {
-      @include rem-fallback(font-size, $font__size-small);
+      @include rem-from-px(font-size, $font__size-small);
     }
     h3,
     .button,
@@ -150,7 +150,7 @@
     transform: translate3d(-50%, -50%, 0);
     text-align: center;
 
-    @include rem-fallback(font-size, 36px);
+    @include rem-from-px(font-size, 36px);
   }
 }
 

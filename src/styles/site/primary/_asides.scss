@@ -93,7 +93,7 @@
     list-style: none;
 
     .cat-item {
-      @include rem-fallback(font-size, $font__size-small);
+      @include rem-from-px(font-size, $font__size-small);
     }
   }
 

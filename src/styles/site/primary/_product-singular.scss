@@ -24,7 +24,7 @@
 
     background: $color__dark-alt;
 
-    @include rem-fallback(font-size, $font__size-large);
+    @include rem-from-px(font-size, $font__size-large);
   }
 
   &__info-wrap {
@@ -45,7 +45,7 @@
     font-weight: $font__weight-light;
 
     flex-grow: 1;
-    @include rem-fallback(font-size, $font__size-small);
+    @include rem-from-px(font-size, $font__size-small);
   }
 
   &__details {

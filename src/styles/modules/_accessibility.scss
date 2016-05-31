@@ -34,6 +34,6 @@
     font-weight: bold;
     line-height: normal;
 
-    @include font-size(.875);
+    @include rem-from-px(font-size, 14px);
   }
 }
