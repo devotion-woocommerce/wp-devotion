@@ -86,7 +86,6 @@
   background: $color__white;
 
   flex-wrap: wrap;
-
   @include query($screen__sm) {
     .single-product & {
       flex-wrap: nowrap;
@@ -100,11 +99,11 @@
     padding: 10px;
 
     cursor: pointer;
+    animation: openspace .3s ease forwards, restored-item-animation .3s .3s cubic-bezier(0,.8,.32,1.07) backwards;
 
     border-right: 1px solid #f5f5f5;
     border-bottom: 1px solid #f5f5f5;
 
-    @include animation(openspace .3s ease forwards, restored-item-animation .3s .3s cubic-bezier(0,.8,.32,1.07) backwards);
     flex: 1 1 250px;
 
     a {
@@ -179,9 +178,8 @@
     width: 100%;
     height: 315px;
 
+    animation: openspace .3s ease forwards, restored-item-animation .3s .3s cubic-bezier(0,.8,.32,1.07) backwards;
     text-align: center;
-
-    @include animation(openspace .3s ease forwards, restored-item-animation .3s .3s cubic-bezier(0,.8,.32,1.07) backwards);
 
     .wp-post-image {
       width: auto;
@@ -198,7 +196,7 @@
     }
 
     img {
-      @include animation(openspace .3s ease forwards, restored-item-animation .3s .3s cubic-bezier(0,.8,.32,1.07) backwards);
+      animation: openspace .3s ease forwards, restored-item-animation .3s .3s cubic-bezier(0,.8,.32,1.07) backwards;
     }
   }
 }
@@ -219,7 +217,7 @@
 
 
   &.products__related_active {
-    transform: translate3d(0,50px,0);
+    transform: translate3d(0, 50px, 0);
   }
 }
 
@@ -247,7 +245,7 @@
   bottom: 0;
   left: 0;
 
-  transform: translate3d(0,0,0);
+  transform: translate3d(0, 0, 0);
 }
 
 .product-lightbox {

@@ -413,15 +413,15 @@ ul.page-numbers {
       left: 0;
 
       content: '';
-      transform-origin: $button__size_normal / 14 center;
+      transform-origin: $button__size-normal / 14 center;
 
       @include line;
     }
     &:before {
-      top: $button__size_normal / 4;
+      top: $button__size-normal / 4;
     }
     &:after {
-      top: -$button__size_normal / 4;
+      top: -$button__size-normal / 4;
     }
   }
   &.close {
@@ -431,7 +431,7 @@ ul.page-numbers {
       &::after {
         top: 0;
 
-        width: $button__size_normal;
+        width: $button__size-normal;
 
         transform-origin: 50% 50%;
       }
