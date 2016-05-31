@@ -108,7 +108,7 @@
   }
 }
 
-/* Small menu. */
+// ## Small menu.
 .menu-toggle,
 .main-navigation.toggled ul {
   display: block;
@@ -161,7 +161,7 @@
   background: $color__dark-alt;
   box-shadow: 0 0 10px 0 $color__dark-main;
 
-  @include query($site-screen-md) {
+  @include query($screen__md) {
     transform: translate3d(-100%,0,0);
   };
 
@@ -190,7 +190,7 @@
     left: 0;
   }
 
-  @media screen and (max-height: $site-screen-xs) {
+  @media screen and (max-height: $screen__xs) {
     height: 50px;
   }
 }
@@ -215,7 +215,7 @@
   cursor: pointer;
   text-transform: uppercase;
 
-  @media screen and (max-height: $site-screen-xs) {
+  @media screen and (max-height: $screen__xs) {
     height: 50px;
   }
 }
@@ -243,7 +243,7 @@
     @include rem-fallback(font-size, $font__size-small);
   }
 
-  @media screen and (max-height: $site-screen-xs) {
+  @media screen and (max-height: $screen__xs) {
     padding: 5px 30px;
   }
 }
@@ -273,7 +273,7 @@
     @include rem-fallback(font-size, $font__size-small);
   }
 
-  @media screen and (max-height: $site-screen-xs) {
+  @media screen and (max-height: $screen__xs) {
     padding: 5px 30px;
   }
 }
@@ -315,7 +315,6 @@ ul.page-numbers {
 
 .site-mobile-nav {
   position: fixed;
-  z-index: 20;
   z-index: -1;
   top: 0;
   right: 0;
@@ -360,7 +359,7 @@ ul.page-numbers {
   }
 }
 
-@include querymin($site-screen-md) {
+@include querymin($screen__md) {
   .mobile-header-nav,
   .site-mobile-nav {
     display: none;
@@ -414,15 +413,15 @@ ul.page-numbers {
       left: 0;
 
       content: '';
-      transform-origin: $site__button-size / 14 center;
+      transform-origin: $button__size_normal / 14 center;
 
       @include line;
     }
     &:before {
-      top: $site__button-size / 4;
+      top: $button__size_normal / 4;
     }
     &:after {
-      top: -$site__button-size / 4;
+      top: -$button__size_normal / 4;
     }
   }
   &.close {
@@ -432,7 +431,7 @@ ul.page-numbers {
       &::after {
         top: 0;
 
-        width: $site__button-size;
+        width: $button__size_normal;
 
         transform-origin: 50% 50%;
       }

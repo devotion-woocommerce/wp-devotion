@@ -14,7 +14,7 @@
   font-weight: $font__weight-light;
   line-height: $search__height;
 
-  @include query($site-screen-md) {
+  @include query($screen__md) {
     width: calc(100% - 50px);
   };
 
@@ -48,7 +48,7 @@
 
 .site-meta {
   &__search {
-    @include query($site-screen-md) {
+    @include query($screen__md) {
       margin-left: 50px;
     };
   }

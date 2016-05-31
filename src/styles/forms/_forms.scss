@@ -45,7 +45,7 @@
     font-family: $font__main;
     font-size: 16px;
 
-    @include query($site-screen-sm) {
+    @include query($screen__sm) {
       margin-left: 105px;
     };
   }

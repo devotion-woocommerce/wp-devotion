@@ -37,12 +37,12 @@
 @mixin line {
   display: inline-block;
 
-  width: $site__button-size;
-  height: $site__button-size / 7;
+  width: $button__size_normal;
+  height: $button__size_normal / 7;
 
   transition: $transition__normal;
 
-  border-radius: $site__button-size / 14;
+  border-radius: $button__size_normal / 14;
   background: $color__black;
 }
 

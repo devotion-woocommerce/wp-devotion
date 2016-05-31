@@ -1,6 +1,8 @@
 // Text meant only for screen readers.
 .screen-reader-text {
+  // scss-lint:disable ImportantRule
   position: absolute !important;
+  // scss-lint:enable ImportantRule
 
   overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px);
@@ -14,7 +16,9 @@
     left: 5px;
 
     display: block;
+    // scss-lint:disable ImportantRule
     clip: auto !important;
+    // scss-lint:enable ImportantRule
 
     width: auto;
     height: auto;

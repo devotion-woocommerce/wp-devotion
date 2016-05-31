@@ -80,8 +80,11 @@
     padding: 0 15px;
   }
 
-  thead .product-total {
-    padding: 0 15px;
+  thead {
+
+    .product-total {
+      padding: 0 15px;
+    }
   }
 
   .order-total {

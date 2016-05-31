@@ -12,11 +12,10 @@
 }
 
 // ## Company store locations view
-
 .location {
 
   &__contacts {
-    @include querymin($site-screen-xs) {
+    @include querymin($screen__xs) {
       display: flex;
     };
   }
@@ -31,7 +30,7 @@
   &__field {
     margin: 5px 0;
 
-    @include querymin($site-screen-xs) {
+    @include querymin($screen__xs) {
       display: inline-block;
     };
   }

@@ -78,7 +78,7 @@
 
     &.category-sub-open {
 
-      &:after {
+      &::after {
         border-width: 8px 5px 0;
         border-color: $color__black transparent transparent;
       }

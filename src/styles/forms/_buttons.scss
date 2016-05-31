@@ -7,14 +7,20 @@
   cursor: pointer;
 }
 
-.btn__search.fa {
-  width: 50px;
+.btn {
 
-  text-align: center;
+  &__search {
 
-  color: $color__dark-alt;
+    .fa {
+      width: 50px;
 
-  line-height: 50px;
+      text-align: center;
+
+      color: $color__dark-alt;
+
+      line-height: 50px;
+    }
+  }
 }
 
 .button {
