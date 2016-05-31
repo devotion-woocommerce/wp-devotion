@@ -155,7 +155,7 @@
 
   width: 200px;
 
-  transition: transform $site__transition-std;
+  transition: transform $transition__normal;
   transform: translate3d(0,0,0);
 
   background: $color__dark-alt;
@@ -325,17 +325,21 @@ ul.page-numbers {
   padding: 100px 30px;
 
   background: $color__grey-light;
+
   .site-mobile-nav-open & {
     z-index: 1;
   }
+
   .mobile-nav-toggle {
     position: absolute;
     top: 0;
     right: 0;
   }
+
   .widget {
     margin: 1.5em 0 0;
   }
+
   .admin-bar & {
     margin-top: 46px;
   }
@@ -363,7 +367,7 @@ ul.page-numbers {
   }
 }
 
-/* Navigation toggle button. */
+// Navigation toggle button.
 .lines-button {
   position: absolute;
   z-index: 1;
@@ -375,7 +379,7 @@ ul.page-numbers {
 
   cursor: pointer;
   user-select: none;
-  transition: $site__transition-std;
+  transition: $transition__normal;
 
   border: 0;
   border-radius: 0;
@@ -410,32 +414,32 @@ ul.page-numbers {
       left: 0;
 
       content: '';
-      transform-origin: $site__button-size/14 center;
+      transform-origin: $site__button-size / 14 center;
 
       @include line;
     }
     &:before {
-      top: $site__button-size/4;
+      top: $site__button-size / 4;
     }
     &:after {
-      top: -$site__button-size/4;
+      top: -$site__button-size / 4;
     }
   }
   &.close {
     .lines {
       background: transparent;
-      &:before,
-      &:after {
+      &::before,
+      &::after {
         top: 0;
 
         width: $site__button-size;
 
         transform-origin: 50% 50%;
       }
-      &:before {
+      &::before {
         transform: rotate3d(0,0,1,45deg);
       }
-      &:after {
+      &::after {
         transform: rotate3d(0,0,1,-45deg);
       }
     }

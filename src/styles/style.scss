@@ -14,8 +14,6 @@
 // # Content
 //     ## Posts and pages
 // 	## Asides
-// 	## Comments
-// # Infinite scroll
 // # Media
 // 	## Captions
 // 	## Galleries
@@ -46,9 +44,6 @@
 // # Accessibility
 @import 'modules/accessibility';
 
-// # Alignments
-@import 'modules/alignments';
-
 // # Clearings
 @import 'modules/clearings';
 
@@ -60,9 +55,6 @@
 
 // # Content
 @import 'site/site';
-
-// # Infinite scroll
-@import 'modules/infinite-scroll';
 
 // # Media
 @import 'media/media';

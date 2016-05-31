@@ -16,7 +16,7 @@
 
     color: $color__white;
 
-    &:before {
+    &::before {
       position: absolute;
       z-index: -1;
       top: -30px;

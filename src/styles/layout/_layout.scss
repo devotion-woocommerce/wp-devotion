@@ -11,8 +11,10 @@
   font-size: 24px;
 }
 
+// ## Company store locations view
 
 .location {
+
   &__contacts {
     @include querymin($site-screen-xs) {
       display: flex;

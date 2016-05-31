@@ -42,7 +42,7 @@
   width: 100%;
   min-height: 100vh;
 
-  transition: transform $site__transition-std;
+  transition: transform $transition__normal;
   transform: translate3d(0,0,0);
 
   background-color: $color__white;
@@ -79,9 +79,10 @@
 
   text-align: center;
 
-  background: #fff;
+  background: $color__white;
 
   flex-wrap: wrap;
+
   @include query($site-screen-sm) {
     .single-product & {
       flex-wrap: nowrap;
@@ -183,6 +184,7 @@
       max-height: 100%;
     }
   }
+
   .thumbnails {
     text-align: center;
     a {
@@ -254,7 +256,7 @@
 
   padding: 30px;
 
-  transition: 500ms;
+  transition: $transition__normal;
   transform: translate3d(100%,0,0);
 
   background: $color__dark-main;
@@ -361,7 +363,7 @@
 
   overflow-y: scroll;
 
-  transition: 500ms;
+  transition: $transition__normal;
   transform: translate3d(0,100%,0);
 
   background: $color__white;
@@ -390,7 +392,6 @@
 
 .overlay-shadow {
   position: absolute;
-  // box-shadow: 0 10px 230px 0 rgba(0, 0, 0, .2), 0 -10px 230px 0 rgba(0, 0, 0, .2);
   z-index: 1;
   top: 0;
   right: 0;
@@ -433,7 +434,7 @@
 
   min-height: 100vh;
 
-  transition: $site__transition-std;
+  transition: $transition__normal;
 }
 .lightbox-open {
   #page,
