@@ -9,4 +9,6 @@
 
  ?>
 
+<?php // <!-- Non existing links will redirect home --> ?>
+
 <?php wp_redirect(get_option('home')); ?>

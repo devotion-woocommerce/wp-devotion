@@ -28,7 +28,7 @@ function devotion_setup() {
 	 */
 	load_theme_textdomain( 'devotion', get_template_directory() . '/languages' );
 
-	// Add default posts and comments RSS feed links to head.
+	// Add default posts RSS feed link to head.
 	add_theme_support( 'automatic-feed-links' );
 
 	/*
@@ -52,7 +52,7 @@ function devotion_setup() {
 	) );
 
 	/*
-	 * Switch default core markup for search form, comment form, and comments
+	 * Switch default core markup for search form and comment form
 	 * to output valid HTML5.
 	 */
 	add_theme_support( 'html5', array(
@@ -221,12 +221,6 @@ require get_template_directory() . '/inc/extras.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/inc/jetpack.php';
-
 
 /**
  * Implement Location Custom Post Type.
