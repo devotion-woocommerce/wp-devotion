@@ -39,6 +39,10 @@
 *.xml    text
 *.xhtml  text
 
+### SOURCE CODE MINIFIED
+*.min.js  binary
+*.min.css binary
+
 ## DOCUMENTATION
 *.markdown   text
 *.md         text
