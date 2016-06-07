@@ -1,6 +1,7 @@
 // Menu structure
 .menu {
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 
   max-height: 100vh;
   margin: 0;
@@ -9,10 +10,9 @@
   list-style: none;
 
   -ms-overflow-style: none;
-  -webkit-overflow-scrolling: touch;
 
   &::-webkit-scrollbar {
-      display: none;
+    display: none;
   }
 
   &__item {
@@ -108,7 +108,7 @@
   }
 }
 
-/* Small menu. */
+// ## Small menu.
 .menu-toggle,
 .main-navigation.toggled ul {
   display: block;
@@ -155,13 +155,13 @@
 
   width: 200px;
 
-  transition: transform $site__transition-std;
+  transition: transform $transition__normal;
   transform: translate3d(0,0,0);
 
   background: $color__dark-alt;
   box-shadow: 0 0 10px 0 $color__dark-main;
 
-  @include query($site-screen-md) {
+  @include query($screen__md) {
     transform: translate3d(-100%,0,0);
   };
 
@@ -190,7 +190,7 @@
     left: 0;
   }
 
-  @media screen and (max-height: $site-screen-xs) {
+  @media screen and (max-height: $screen__xs) {
     height: 50px;
   }
 }
@@ -215,10 +215,11 @@
   cursor: pointer;
   text-transform: uppercase;
 
-  @media screen and (max-height: $site-screen-xs) {
-    height: 50px
+  @media screen and (max-height: $screen__xs) {
+    height: 50px;
   }
 }
+
 .site-customer {
   z-index: 1;
 
@@ -236,16 +237,17 @@
     display: block;
   }
   .customer-interaction {
-    @include rem-fallback(font-size, $font__size-base);
+    @include rem-from-px(font-size, $font__size-base);
   }
   .customer-name {
-    @include rem-fallback(font-size, $font__size-small);
+    @include rem-from-px(font-size, $font__size-small);
   }
 
-  @media screen and (max-height: $site-screen-xs) {
+  @media screen and (max-height: $screen__xs) {
     padding: 5px 30px;
   }
 }
+
 .site-cart {
   padding: 25px 30px;
 
@@ -265,13 +267,13 @@
     color: $color__white;
   }
   .cart-total {
-    @include rem-fallback(font-size, $font__size-base);
+    @include rem-from-px(font-size, $font__size-base);
   }
   .cart-count {
-    @include rem-fallback(font-size, $font__size-small);
+    @include rem-from-px(font-size, $font__size-small);
   }
 
-  @media screen and (max-height: $site-screen-xs) {
+  @media screen and (max-height: $screen__xs) {
     padding: 5px 30px;
   }
 }
@@ -313,7 +315,6 @@ ul.page-numbers {
 
 .site-mobile-nav {
   position: fixed;
-  z-index: 20;
   z-index: -1;
   top: 0;
   right: 0;
@@ -323,17 +324,21 @@ ul.page-numbers {
   padding: 100px 30px;
 
   background: $color__grey-light;
+
   .site-mobile-nav-open & {
     z-index: 1;
   }
+
   .mobile-nav-toggle {
     position: absolute;
     top: 0;
     right: 0;
   }
+
   .widget {
     margin: 1.5em 0 0;
   }
+
   .admin-bar & {
     margin-top: 46px;
   }
@@ -354,14 +359,14 @@ ul.page-numbers {
   }
 }
 
-@include querymin($site-screen-md) {
+@include querymin($screen__md) {
   .mobile-header-nav,
   .site-mobile-nav {
     display: none;
   }
 }
 
-/* Navigation toggle button. */
+// Navigation toggle button.
 .lines-button {
   position: absolute;
   z-index: 1;
@@ -373,7 +378,7 @@ ul.page-numbers {
 
   cursor: pointer;
   user-select: none;
-  transition: $site__transition-std;
+  transition: $transition__normal;
 
   border: 0;
   border-radius: 0;
@@ -408,32 +413,32 @@ ul.page-numbers {
       left: 0;
 
       content: '';
-      transform-origin: $site__button-size/14 center;
+      transform-origin: $button__size-normal / 14 center;
 
       @include line;
     }
     &:before {
-      top: $site__button-size/4;
+      top: $button__size-normal / 4;
     }
     &:after {
-      top: -$site__button-size/4;
+      top: -$button__size-normal / 4;
     }
   }
   &.close {
     .lines {
       background: transparent;
-      &:before,
-      &:after {
+      &::before,
+      &::after {
         top: 0;
 
-        width: $site__button-size;
+        width: $button__size-normal;
 
         transform-origin: 50% 50%;
       }
-      &:before {
+      &::before {
         transform: rotate3d(0,0,1,45deg);
       }
-      &:after {
+      &::after {
         transform: rotate3d(0,0,1,-45deg);
       }
     }

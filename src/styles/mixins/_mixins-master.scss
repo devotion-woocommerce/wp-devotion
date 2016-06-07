@@ -1,154 +1,107 @@
-// Rem output with px fallback
-@mixin font-size($sizeValue: 1) {
-	font-size: ($sizeValue * 16) * 1px;
-	font-size: $sizeValue * 1rem;
-}
 
-// Center block
-@mixin center-block {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
+// # Mixin: Typography - REM calculation
+@import 'mixin-rem';
 
-// Clearfix
+// ## Clearfix
 @mixin clearfix() {
-	content: "";
-	display: table;
+  display: table;
+
+  content: '';
 }
 
-// Clear after (not all clearfix need this also)
+// ## Clear after (not all clearfix need this also)
 @mixin clearfix-after() {
-	clear: both;
+  clear: both;
 }
 
-// PREFIX
-@mixin prefix($property, $value, $prefixes: ()) {
-  @if $value == flex {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-  }
-  @else {
-    @each $prefix in $prefixes {
-      #{'-' + $prefix + '-' + $property}: $value;
-    }
-  }
-  #{$property}: $value;
-}
-// COLOR
-@mixin color($color, $opacity: 1) {
-  @if $opacity == 1 {
-    color: rgba($color, $opacity);
-  }
-  @else {
-    color: rgba($color, $opacity);
-  }
-}
-@mixin bg($color, $opacity: 1) {
-  @if $opacity == 1 {
-    background-color: rgba($color, $opacity);
-  }
-  @else {
-    background-color: rgba($color, $opacity);
-  }
-}
-// MEDIA QUERY
+// ## Media queries
 @mixin query($value) {
   @media screen and (max-width: $value) {
     @content;
   }
 }
+
 @mixin querymin($value) {
   @media screen and (min-width: $value + 1px) {
     @content;
   }
 }
+
 @mixin queryminmax($minvalue, $maxvalue) {
   @media screen and (min-width: $minvalue + 1px) and (max-width: $maxvalue) {
     @content;
   }
 }
-// REM VALUES
-@function strip-unit($num) {
-  @return $num / ($num * 0 + 1);
-}
-@function convert-to-rem($value, $base-value: $rem-base)  {
-  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
-  @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
-  @return $value;
-}
-@function rem-calc($values, $base-value: $rem-base) {
-  $max: length($values);
-  @if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
-  $remValues: ();
-  @for $i from 1 through $max {
-    $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
-  }
-  @return $remValues;
-}
-@mixin rem-fallback($property, $value) {
-  $pxValue: $value;
-  $remValue: rem-calc($value);
 
-  #{$property}: $pxValue;
-  #{$property}: $remValue;
-}
-// NAV LINES
+// ## Navigation element: lines burger-to-close button
 @mixin line {
   display: inline-block;
-  width: $site__button-size;
-  height: $site__button-size/7;
+
+  width: $button__size-normal;
+  height: $button__size-normal / 7;
+
+  transition: $transition__normal;
+
+  border-radius: $button__size-normal / 14;
   background: $color__black;
-  border-radius: $site__button-size/14;
-  transition: $site__transition-std;
 }
 
-
+// ## Animation effects
 @keyframes visibility {
   0% {
     position: absolute;
-    opacity: 0;
+
     width: 100%;
+
+    opacity: 0;
   }
   50% {
     position: static;
+
+    width: 200%;
+
     opacity: 0;
-    @include transform(scale(30));
-    width: 200%
+
+    transform: scale(30);
   }
   100% {
+    width: 100%;
+
     opacity: 1;
-    @include transform(scale(1));
-    width: 100%
+
+    transform: scale(1);
   }
 }
 
 @keyframes openspace {
   to {
-    height: auto
+    height: auto;
   }
 }
 
 @keyframes restored-item-animation-rev {
   from {
     opacity: 1;
-    @include transform(scale(1));
+
+    transform: scale(1);
   }
 
   to {
     opacity: 0;
-    @include transform(scale(0));
+
+    transform: scale(0);
   }
 }
 
 @keyframes restored-item-animation {
   from {
     opacity: 0;
-    @include transform(scale(0));
+
+    transform: scale(0);
   }
   to {
     opacity: 1;
-    @include transform(scale(1));
+
+    transform: scale(1);
   }
 }

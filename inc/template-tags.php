@@ -41,7 +41,7 @@ endif;
 
 if ( ! function_exists( 'devotion_entry_footer' ) ) :
 /**
- * Prints HTML with meta information for the categories, tags and comments.
+ * Prints HTML with meta information for the categories and tags.
  */
 function devotion_entry_footer() {
 	// Hide category and tag text for pages.
@@ -58,14 +58,6 @@ function devotion_entry_footer() {
 			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'devotion' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
 	}
-
-	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
-		comments_popup_link( esc_html__( 'Leave a comment', 'devotion' ), esc_html__( '1 Comment', 'devotion' ), esc_html__( '% Comments', 'devotion' ) );
-		echo '</span>';
-	}
-
-	edit_post_link( esc_html__( 'Edit', 'devotion' ), '<span class="edit-link">', '</span>' );
 }
 endif;
 

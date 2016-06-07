@@ -1,18 +1,18 @@
 .widget {
-
-	/* Make sure select elements fit in widgets. */
-	select {
-		max-width: 100%;
-	}
+  // Make sure select elements fit in widgets.
+  select {
+    max-width: 100%;
+  }
 }
 
 // Search widget.
-.widget_search .search-submit {
-	display: none;
+.widget_search {
+
+  .search-submit {
+    display: none;
+  }
 }
 
 .widget_product_search {
-	position: relative;
-
-
+  position: relative;
 }

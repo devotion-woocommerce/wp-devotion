@@ -7,15 +7,16 @@
 }
 
 .woocommerce-order-received {
-
   .shop_table {
     position: relative;
     z-index: 1;
-    margin: 40px 30px;
+
     width: calc(100% - 60px);
+    margin: 40px 30px;
+
     color: $color__white;
 
-    &:before {
+    &::before {
       position: absolute;
       z-index: -1;
       top: -30px;
@@ -25,8 +26,8 @@
 
       content: '';
 
-      background: $color__dark-main;
       border-radius: 5px;
+      background: $color__dark-main;
     }
   }
 }
@@ -79,8 +80,11 @@
     padding: 0 15px;
   }
 
-  thead .product-total {
-    padding: 0 15px;
+  thead {
+
+    .product-total {
+      padding: 0 15px;
+    }
   }
 
   .order-total {

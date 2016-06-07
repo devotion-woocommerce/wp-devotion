@@ -31,7 +31,7 @@
 				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 			<?php endif; ?>
 			<p class="site-description"><?php bloginfo( 'description' ); ?></p>
-		</div><!-- .site-branding -->
+		</div>
 
 		<nav class="main-navigation" role="navigation">
 			<?php
@@ -40,7 +40,7 @@
 				 */
 				require get_template_directory() . '/inc/main-navigation.php';
 			?>
-		</nav><!-- #site-navigation -->
+		</nav>
 
 		<div class="site-transaction">
 			<div class="site-customer">
@@ -49,6 +49,7 @@
 					<?php echo __( 'Your items', 'devotion' ) ?>
 				</span>
 			</div>
+			
 			<div class="site-cart">
 				<a class="cart-contents" href="<?php echo WC()->cart->get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>">
 					<span class="cart-total"><?php echo WC()->cart->get_cart_total(); ?></span>
@@ -80,6 +81,5 @@
 			get_template_part( 'inc/search-form' );
 
 		} ?>
-
 
 		<div id="content" class="site-content">

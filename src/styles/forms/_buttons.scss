@@ -1,20 +1,26 @@
 
 
 .toggle-search {
-  width: 50px;
-  height: 50px;
+  width: $search__height;
+  height: $search__height;
 
   cursor: pointer;
 }
 
-.btn__search.fa {
-  width: 50px;
+.btn {
 
-  text-align: center;
+  &__search {
 
-  color: $color__dark-alt;
+    &.fa {
+      width: $search__height;
 
-  line-height: 50px;
+      text-align: center;
+
+      color: $color__dark-alt;
+
+      line-height: $search__height;
+    }
+  }
 }
 
 .button {

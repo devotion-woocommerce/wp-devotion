@@ -29,7 +29,6 @@
   }
 
   &__button {
-    font-family: $font__main;
     position: relative;
 
     width: 100%;
@@ -43,18 +42,16 @@
     border-radius: 0;
     background: $color__red;
 
+    font-family: $font__main;
     font-size: 16px;
 
-    @include query($site-screen-sm) {
+    @include query($screen__sm) {
       margin-left: 105px;
     };
   }
 }
 
-.cart-collateral {
-  text-align: left;
-}
-
+.cart-collateral,
 .shop_table {
   text-align: left;
 }

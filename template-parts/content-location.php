@@ -16,7 +16,7 @@
     <div class="location__info-wrap">
       <header class="entry-header">
         <h1 class="entry-title"><a href="<?php echo the_permalink(); ?>"><?php echo the_title(); ?></a></h1>
-      </header><!-- .entry-header -->
+      </header>
 
       <?php the_content(); ?>
       <?php
@@ -89,9 +89,9 @@
       </div>
     <?php endif; ?>
 
-	</div><!-- .entry-content -->
+	</div><?php // <!-- .entry-content --> ?>
 
 	<footer class="entry-footer">
 		<?php devotion_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
+	</footer>
+</article>

@@ -3,12 +3,14 @@ button,
 input,
 select,
 textarea {
-	color: $color__grey-dark;
-	font-family: $font__main;
-	@include font-size(1);
-	line-height: $font__line-height-body;
+  color: $color__grey-dark;
+
+  font-family: $font__main;
+  line-height: $font__line-height-body;
+
+  @include rem-from-px(font-size, 16px);
 }
 
-@import "headings";
+@import 'headings';
 
-@import "copy";
+@import 'copy';

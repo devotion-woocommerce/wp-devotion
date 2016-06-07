@@ -20,6 +20,7 @@ if ( ! function_exists( 'devotion_setup' ) ) :
  * as indicating support for post thumbnails.
  */
 function devotion_setup() {
+
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
@@ -27,9 +28,6 @@ function devotion_setup() {
 	 * to change 'devotion' to the name of your theme in all the template files.
 	 */
 	load_theme_textdomain( 'devotion', get_template_directory() . '/languages' );
-
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
 
 	/*
 	 * Let WordPress manage the document title.
@@ -52,7 +50,7 @@ function devotion_setup() {
 	) );
 
 	/*
-	 * Switch default core markup for search form, comment form, and comments
+	 * Switch default core markup for search form and comment form
 	 * to output valid HTML5.
 	 */
 	add_theme_support( 'html5', array(
@@ -73,11 +71,6 @@ function devotion_setup() {
 		'link',
 	) );
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'devotion_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
 }
 endif; // devotion_setup
 add_action( 'after_setup_theme', 'devotion_setup' );
@@ -169,10 +162,18 @@ function devotion_used_scripts_styles() {
 function devotion_dequeue_scripts_styles(){
 	wp_deregister_style('wpr_giftcards_css');
 
-	wp_deregister_script('jquery');
-	wp_deregister_script('woocommerce');
-	wp_deregister_script('wc-cart-fragments');
-	wp_deregister_script('wpr_giftcards_js ');
+	wp_deregister_script(	'jquery'	);
+	wp_deregister_script(	'woocommerce'	);
+	wp_deregister_script(	'wc-cart-fragments'	);
+	wp_deregister_script(	'wpr_giftcards_js '	);
+	wp_deregister_script( 'prettyPhoto' );
+	wp_deregister_script( 'prettyPhoto-init' );
+	wp_deregister_script( 'woocommerce_prettyPhoto_css' );
+
+	wp_dequeue_script( 'prettyPhoto' );
+	wp_dequeue_script( 'prettyPhoto-init' );
+	wp_deregister_style( 'woocommerce_prettyPhoto_css' );
+
 }
 add_action( 'wp_print_styles', 'devotion_dequeue_scripts_styles', 100 );
 
@@ -191,6 +192,14 @@ remove_action( 'wp_head', 'wp_generator'); // Display the XHTML generator that i
 remove_action(' wp_head', 'feed_links_extra', 3); // Remove category feeds
 remove_action(' wp_head', 'feed_links', 2); // Remove Post and Comment
 
+remove_action( 'admin_print_styles', 'print_emoji_styles' );
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+
 /**
  * Enqueue scripts and styles.
  */
@@ -199,6 +208,7 @@ function devotion_scripts() {
 	wp_enqueue_style( 'devotion-style', get_stylesheet_directory_uri() . '/dist/styles/style.min.css', array(), '1', 'all' );
 
 	wp_enqueue_script( 'devotion-script', get_template_directory_uri() . '/dist/scripts/script.min.js', array(), '1', true );
+	
 }
 add_action( 'wp_enqueue_scripts', 'devotion_scripts' );
 
@@ -221,12 +231,6 @@ require get_template_directory() . '/inc/extras.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/inc/jetpack.php';
-
 
 /**
  * Implement Location Custom Post Type.
@@ -401,20 +405,6 @@ function sb_woo_remove_reviews_tab($tabs) {
 	unset($tabs['reviews']);
 	return $tabs;
 }
-
-/**
- * Wrap product details in common container
- *
- *add_action( 'woocommerce_before_single_product_summary', 'action_woocommerce_single_product_summary_wrap_start', 30);
- *add_action( 'woocommerce_after_single_product_summary', 'action_woocommerce_single_product_summary_wrap_end', 12);
- *
- *function action_woocommerce_single_product_summary_wrap_start() {
- *  echo '<div class="product__detail-wrap">';
- *}
- *function action_woocommerce_single_product_summary_wrap_end() {
- *  echo '</div>';
- *}
- */
 
 /**
  * Separate product from related metadata

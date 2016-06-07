@@ -1,0 +1,160 @@
+
+// # Product singular view
+
+.product {
+
+  &__summary {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    color: $color__white;
+    box-shadow: 0 0 10px 0 $color__dark-main;
+
+    flex: 3;
+    justify-content: space-between;
+  }
+
+  &__title {
+    margin: 0;
+    padding: 30px;
+
+    text-transform: uppercase;
+
+    background: $color__dark-alt;
+
+    @include rem-from-px(font-size, $font__size-large);
+  }
+
+  &__info-wrap {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    flex-grow: 1;
+  }
+
+  &__content {
+    padding: 30px;
+
+    color: $color__grey;
+
+    font-family: $font__secondary;
+    font-weight: $font__weight-light;
+
+    flex-grow: 1;
+    @include rem-from-px(font-size, $font__size-small);
+  }
+
+  &__details {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    padding: 30px;
+
+    transition: $transition__normal;
+    transform: translate3d(100%,0,0);
+
+    background: $color__dark-main;
+
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &_toggle {
+      margin: 0 20%;
+      padding: 15px;
+
+      cursor: pointer;
+      text-align: center;
+      text-transform: uppercase;
+
+      color: $color__black;
+      border-radius: 5px;
+      background: $color__yellow;
+
+      font-size: 12px;
+
+      .fa {
+        margin-left: 5px;
+      }
+    }
+
+    &_close {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      padding: 30px;
+
+      cursor: pointer;
+    }
+
+    &.product__details_active {
+      transform: translate3d(0,0,0);
+    }
+  }
+
+  &__images-wrap {
+    position: relative;
+
+    overflow: hidden;
+    overflow-y: hidden;
+
+    box-sizing: border-box;
+
+    background: $color__white;
+
+    flex: 3;
+    @include query($screen__sm) {
+      height: 50vh;
+    };
+  }
+
+  &__meta {
+    padding: 30px;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    a {
+      margin: 0 5px;
+      padding: 5px;
+
+      text-transform: uppercase;
+
+      color: $color__black;
+      border-radius: 5px;
+      background: $color__yellow;
+    }
+  }
+
+  &__images {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

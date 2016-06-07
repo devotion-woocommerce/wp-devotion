@@ -11,26 +11,22 @@
 
 ?>
 
-    </div><!-- #content -->
+    </div><?php // <!-- #content --> ?>
 
   </div>
-  <!-- <footer id="colophon" class="site-footer" role="contentinfo"></footer> --> <!-- #colophon -->
-</div><!-- #page -->
+</div><?php // <!-- #page --> ?>
 
 <?php wp_footer(); ?>
 
 <div class="site-footer-widgets">
 	<div class="site-mobile-nav">
 
-		<button class="mobile-nav-toggle lines-button" type="button" role="button" aria-label="Toggle Navigation">
-		  <span class="lines"></span>
-		</button>
-
 		<?php do_action ( 'site-mobile-nav-before' ); ?>
 
 		<?php if(is_active_sidebar('site-mobile-nav')) { dynamic_sidebar('site-mobile-nav'); } ?>
 
 		<?php do_action ( 'site-mobile-nav-after' ); ?>
+    
 	</div>
 </div>
 
